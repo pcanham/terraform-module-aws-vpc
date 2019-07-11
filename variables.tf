@@ -1,0 +1,93 @@
+variable "aws_region" {
+  description = "AWS region to launch servers."
+  default     = ""
+}
+
+variable "availability_zones" {
+  type        = "list"
+  description = "AWS region to launch servers."
+  default     = ["eu-west-2a", "eu-west-2b"]
+}
+
+variable "master_cidr_block" {
+  description = "VPC CIDR Block"
+  default     = ""
+}
+
+variable "secondary_cidr_block" {
+  description = "VPC CIDR Block"
+  default     = []
+}
+
+variable "nat_gateway" {
+  description = "Create NAT Gateway"
+  default     = false
+}
+
+variable "public_cidr_blocks" {
+  type        = "list"
+  description = "CIDR Blocks for Public Subnets"
+  default     = []
+}
+
+variable "private_cidr_blocks01" {
+  type        = "list"
+  description = "CIDR Blocks for Private Subnets"
+  default     = []
+}
+
+variable "private_cidr_blocks02" {
+  type        = "list"
+  description = "CIDR Blocks for Private Subnets"
+  default     = []
+}
+
+variable "environment_tag" {
+  description = "Define the type of environment"
+  default     = ""
+}
+
+variable "owner_tag" {
+  description = "Identifies the role that is responsible for the service"
+  default     = ""
+}
+
+variable "project_tag" {
+  description = "Project code name or name, e.g. WMP-ECOMM, ANZ-GO"
+  default     = ""
+}
+
+variable "cost_center_tag" {
+  description = "Budget code for responsible for the service"
+  default     = ""
+}
+
+variable "business_tag" {
+  description = "Business Stream that requires instance(s) e.g. ELT, Academic, Education, Infrastructure, Legal, etc"
+  default     = ""
+}
+
+variable "automation_tag" {
+  description = "Tag to highlight services/components have been created with an automation tool"
+  default     = "Created with Terraform"
+}
+
+variable "create_vpn" {
+  description = "Create VPN"
+  default     = false
+}
+
+variable "customergateway_name" {
+  description = "Name of customer gateway"
+  default     = ""
+}
+
+variable "customergateway_ip" {
+  description = "IP Address of customer gateway"
+  default     = ""
+}
+
+variable "vpn_cidr_block" {
+  description = "CIDR Blocks to route via the VPN Connection"
+  default     = []
+}
