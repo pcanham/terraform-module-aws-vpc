@@ -91,3 +91,13 @@ variable "vpn_cidr_block" {
   description = "CIDR Blocks to route via the VPN Connection"
   default     = []
 }
+
+variable "vpcflow_log_accepted_retention" {
+  description = "How many days worth of VPC Flow logs to keep for accepted connections"
+  default     = "14"
+}
+
+variable "vpcflow_log_rejected_retention" {
+  description = "How many days worth of VPC Flow logs to keep for rejected connections"
+  default     = "14"
+}

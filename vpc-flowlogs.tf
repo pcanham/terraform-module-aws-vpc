@@ -6,7 +6,7 @@ resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
       var.environment_tag,
     ),
   )
-  retention_in_days = "14"
+  retention_in_days = var.vpcflow_log_accepted_retention
 }
 
 resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
@@ -17,7 +17,7 @@ resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
       var.environment_tag,
     ),
   )
-  retention_in_days = "14"
+  retention_in_days = var.vpcflow_log_rejected_retention
 }
 
 resource "aws_flow_log" "VpcFlowLog-Reject" {
