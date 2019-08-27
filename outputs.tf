@@ -1,27 +1,31 @@
-output "vpcid" {
+output "vpc_id" {
   value = aws_vpc.pro.id
 }
 
-output "VpcCidr" {
+output "vpc_cidr" {
   value = aws_vpc.pro.cidr_block
 }
 
-output "Public-SubnetIds" {
+output "all_subnet_ids" {
+  value = [aws_subnet.pm_pro_public.*.id, aws_subnet.pm_pro_private01.*.id, aws_subnet.pm_pro_private02.*.id]
+}
+
+output "public_subnet_ids" {
   value = [aws_subnet.pm_pro_public.*.id]
 }
 
-output "Private-SubnetIds" {
+output "private_subnet_ids" {
   value = [aws_subnet.pm_pro_private01.*.id, aws_subnet.pm_pro_private02.*.id]
 }
 
-output "Private-Subnet01Ids" {
+output "private_subnet01_ids" {
   value = [aws_subnet.pm_pro_private01.*.id]
 }
 
-output "Private-Subnet02Ids" {
+output "private_subnet02_ids" {
   value = [aws_subnet.pm_pro_private02.*.id]
 }
 
-output "nat-gw-eips" {
+output "nat_gw_eips" {
   value = [aws_eip.nat_ip.*.public_ip]
 }

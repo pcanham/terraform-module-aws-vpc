@@ -53,7 +53,7 @@ variable "owner_tag" {
 }
 
 variable "project_tag" {
-  description = "Project code name or name, e.g. WMP-ECOMM, ANZ-GO"
+  description = "Project code name or name"
   default     = ""
 }
 
@@ -63,7 +63,7 @@ variable "cost_center_tag" {
 }
 
 variable "business_tag" {
-  description = "Business Stream that requires instance(s) e.g. ELT, Academic, Education, Infrastructure, Legal, etc"
+  description = "Business Stream that requires instance(s) e.g. Infrastructure, Legal, etc"
   default     = ""
 }
 
@@ -90,4 +90,19 @@ variable "customergateway_ip" {
 variable "vpn_cidr_block" {
   description = "CIDR Blocks to route via the VPN Connection"
   default     = []
+}
+
+variable "vpcflow_log_accepted_retention" {
+  description = "How many days worth of VPC Flow logs to keep for accepted connections"
+  default     = "14"
+}
+
+variable "vpcflow_log_rejected_retention" {
+  description = "How many days worth of VPC Flow logs to keep for rejected connections"
+  default     = "14"
+}
+
+variable "eks_clustername" {
+  description = "EKS Cluster Name"
+  default     = "eks-cluster"
 }
