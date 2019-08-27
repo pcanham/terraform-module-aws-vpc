@@ -18,7 +18,7 @@ resource "aws_subnet" "pm_pro_public" {
         ),
       )
     },
-    { lower(format("\"kubernetes.io/cluster/%s\"", var.eks_clustername)) = "shared" },
+    { lower(format("kubernetes.io/cluster/%s", var.eks_clustername)) = "shared" },
     { lower("kubernetes.io/role/elb") = "1" }
   )
 }
@@ -45,7 +45,7 @@ resource "aws_subnet" "pm_pro_private01" {
       )
     },
     { "Subnet" = "Private01" },
-    { lower(format("\"kubernetes.io/cluster/%s\"", var.eks_clustername)) = "shared" },
+    { lower(format("kubernetes.io/cluster/%s", var.eks_clustername)) = "shared" },
     { lower("kubernetes.io/role/internal-elb") = "1" }
   )
 }
@@ -71,6 +71,6 @@ resource "aws_subnet" "pm_pro_private02" {
       )
     },
     { "Subnet" = "Private02" },
-    { lower(format("\"kubernetes.io/cluster/%s\"", var.eks_clustername)) = "shared" }
+    { lower(format("kubernetes.io/cluster/%s", var.eks_clustername)) = "shared" }
   )
 }

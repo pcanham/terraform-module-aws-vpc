@@ -15,7 +15,7 @@ resource "aws_vpc" "pro" {
       ),
       )
     },
-    { lower(format("\"kubernetes.io/cluster/%s\"", var.eks_clustername)) = "shared" }
+    { lower(format("kubernetes.io/cluster/%s", var.eks_clustername)) = "shared" }
   )
 }
 
