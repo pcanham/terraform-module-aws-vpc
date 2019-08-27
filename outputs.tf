@@ -7,7 +7,7 @@ output "vpc_cidr" {
 }
 
 output "all_subnet_ids" {
-  value = [aws_subnet.pm_pro_public.*.id, aws_subnet.pm_pro_private01.*.id, aws_subnet.pm_pro_private02.*.id]
+  value = "aws_subnet.pm_pro_public.*.id, aws_subnet.pm_pro_private01.*.id, aws_subnet.pm_pro_private02.*.id"
 }
 
 output "public_subnet_ids" {
