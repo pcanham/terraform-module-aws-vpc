@@ -101,3 +101,8 @@ variable "vpcflow_log_rejected_retention" {
   description = "How many days worth of VPC Flow logs to keep for rejected connections"
   default     = "14"
 }
+
+variable "eks_clustername" {
+  description = "EKS Cluster Name"
+  default     = "eks-cluster"
+}
