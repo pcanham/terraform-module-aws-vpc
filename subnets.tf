@@ -37,7 +37,7 @@ resource "aws_subnet" "pm_pro_private01" {
       "Name" = lower(
         format(
           "snprv%02d%s-%s-%s",
-          count.index + 1,
+          1,
           substr(element(var.availability_zones, count.index), -1, 1),
           var.project_tag,
           var.environment_tag,
@@ -63,7 +63,7 @@ resource "aws_subnet" "pm_pro_private02" {
       "Name" = lower(
         format(
           "snprv%02d%s-%s-%s",
-          count.index + 1,
+          2,
           substr(element(var.availability_zones, count.index), -1, 1),
           var.project_tag,
           var.environment_tag,
