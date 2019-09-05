@@ -4,6 +4,7 @@ locals {
     OWNER       = upper(var.owner_tag)
     PROJECT     = upper(var.project_tag)
     COST-CENTER = upper(var.cost_center_tag)
+    BUDGET      = upper(var.cost_center_tag)
     BUSINESS    = upper(var.business_tag)
     AUTOMATION  = var.automation_tag
   }
