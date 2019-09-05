@@ -1,7 +1,7 @@
 resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
   name = lower(
     format(
-      "LogGroup-Accept-%s-%s",
+      "/aws/vpc/flowlog-accept-%s-%s",
       var.project_tag,
       var.environment_tag,
     ),
@@ -12,7 +12,7 @@ resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
 resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
   name = lower(
     format(
-      "LogGroup-Reject-%s-%s",
+      "/aws/vpc/flowlog-aeject-%s-%s",
       var.project_tag,
       var.environment_tag,
     ),
