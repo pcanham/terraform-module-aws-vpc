@@ -28,7 +28,6 @@ resource "aws_flow_log" "VpcFlowLog-Reject" {
 
   log_destination_type = "cloud-watch-logs"
   log_destination      = aws_cloudwatch_log_group.LogGroup-Reject.arn
-  #log_group_name = aws_cloudwatch_log_group.LogGroup.name
   iam_role_arn = aws_iam_role.VpCFlowLogRole.arn
   vpc_id       = aws_vpc.pro.id
   traffic_type = "REJECT"
@@ -38,7 +37,6 @@ resource "aws_flow_log" "VpcFlowLog-Accept" {
 
   log_destination_type = "cloud-watch-logs"
   log_destination      = aws_cloudwatch_log_group.LogGroup-Accept.arn
-  #log_group_name = aws_cloudwatch_log_group.LogGroup.name
   iam_role_arn = aws_iam_role.VpCFlowLogRole.arn
   vpc_id       = aws_vpc.pro.id
   traffic_type = "ACCEPT"
