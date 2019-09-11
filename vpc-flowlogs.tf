@@ -6,7 +6,7 @@ resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
       "/%s/%s/vpc/flowlog-accept-%s",
       var.project_tag,
       var.environment_tag,
-      random_pet.log_group.result,
+      random_pet.log_group.id,
     ),
   )
   retention_in_days = var.vpcflow_log_accepted_retention
@@ -18,7 +18,7 @@ resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
       "/%s/%s/vpc/flowlog-reject-%s",
       var.project_tag,
       var.environment_tag,
-      random_pet.log_group.result,
+      random_pet.log_group.id,
     ),
   )
   retention_in_days = var.vpcflow_log_rejected_retention
@@ -48,7 +48,7 @@ resource "aws_iam_role" "VpCFlowLogRole" {
       "VpCFlowLogRole-%s-%s-%s",
       var.project_tag,
       var.environment_tag,
-      random_pet.log_group.result,
+      random_pet.log_group.id,
     ),
   )
 
@@ -75,7 +75,7 @@ resource "aws_iam_role_policy" "VpCFlowLogPolicy" {
       "VpCFlowLogPolicy-%s-%s-%s",
       var.project_tag,
       var.environment_tag,
-      random_pet.log_group.result,
+      random_pet.log_group.id,
     ),
   )
   role = aws_iam_role.VpCFlowLogRole.id
