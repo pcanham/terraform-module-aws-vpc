@@ -1,24 +1,20 @@
-resource "random_pet" "log_group" { }
-
 resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
-  name = lower(
+  name_prefix = lower(
     format(
-      "/%s/%s/vpc/flowlog-accept-%s",
+      "/%s/%s/vpc/flowlog-accept",
       var.project_tag,
       var.environment_tag,
-      random_pet.log_group.id,
     ),
   )
   retention_in_days = var.vpcflow_log_accepted_retention
 }
 
 resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
-  name = lower(
+  name_prefix = lower(
     format(
-      "/%s/%s/vpc/flowlog-reject-%s",
+      "/%s/%s/vpc/flowlog-reject",
       var.project_tag,
       var.environment_tag,
-      random_pet.log_group.id,
     ),
   )
   retention_in_days = var.vpcflow_log_rejected_retention
@@ -45,10 +41,9 @@ resource "aws_flow_log" "VpcFlowLog-Accept" {
 resource "aws_iam_role" "VpCFlowLogRole" {
   name_prefix = lower(
     format(
-      "VpCFlowLogRole-%s-%s-%s",
+      "VpCFlowLog-%s-%s",
       var.project_tag,
       var.environment_tag,
-      random_pet.log_group.id,
     ),
   )
 
@@ -72,10 +67,9 @@ EOF
 resource "aws_iam_role_policy" "VpCFlowLogPolicy" {
   name_prefix = lower(
     format(
-      "VpCFlowLogPolicy-%s-%s-%s",
+      "VpCFlowLog-%s-%s",
       var.project_tag,
       var.environment_tag,
-      random_pet.log_group.id,
     ),
   )
   role = aws_iam_role.VpCFlowLogRole.id
