@@ -1,3 +1,7 @@
+output "aws_region" {
+  value = data.aws_region.current.name
+}
+
 output "vpc_id" {
   value = aws_vpc.pro.id
 }
