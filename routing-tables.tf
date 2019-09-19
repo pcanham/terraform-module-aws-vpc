@@ -29,9 +29,7 @@ resource "aws_route_table" "private01" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = var.nat_gateway ? element(concat(aws_nat_gateway.nat_gw.*.id, list("")), count.index) : aws_internet_gateway.internet_gw.id
-    #gateway_id = "${length(aws_nat_gateway.nat_gw.*.id) > 0 ? element(concat(aws_nat_gateway.nat_gw.*.id, list("")), count.index) : aws_internet_gateway.internet_gw.id}"
-    #gateway_id = "${aws_internet_gateway.internet_gw.id}"
+    nat_gateway_id = var.nat_gateway ? element(concat(aws_nat_gateway.nat_gw.*.id, list("")), count.index) : aws_internet_gateway.internet_gw.id
   }
 
   tags = merge(
@@ -46,7 +44,6 @@ resource "aws_route_table" "private01" {
       ),
       )
     }
-    #    { "Name" = "${lower(format("rtprv%02d%s-%s-%s", 98, substr(element(var.availability_zones,count.index), -1, 1), var.project_tag, var.environment_tag))}" }
   )
 }
 
@@ -56,9 +53,7 @@ resource "aws_route_table" "private02" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = var.nat_gateway ? element(concat(aws_nat_gateway.nat_gw.*.id, list("")), count.index) : aws_internet_gateway.internet_gw.id
-    #gateway_id = "${length(aws_nat_gateway.nat_gw.*.id) > 0 ? element(concat(aws_nat_gateway.nat_gw.*.id, list("")), count.index) : aws_internet_gateway.internet_gw.id}"
-    #gateway_id = "${aws_internet_gateway.internet_gw.id}"
+    nat_gateway_id = var.nat_gateway ? element(concat(aws_nat_gateway.nat_gw.*.id, list("")), count.index) : aws_internet_gateway.internet_gw.id
   }
 
   tags = merge(
@@ -73,7 +68,6 @@ resource "aws_route_table" "private02" {
       ),
       )
     }
-    #    { "Name" = "${lower(format("rtprv%02d%s-%s-%s", 98, substr(element(var.availability_zones,count.index), -1, 1), var.project_tag, var.environment_tag))}" }
   )
 }
 
