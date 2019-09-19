@@ -1,7 +1,7 @@
 resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
-  name = lower(
+  name_prefix = lower(
     format(
-      "/%s/%s/vpc/flowlog-accept",
+      "/%s/%s/vpc/flowlog-accept_",
       var.project_tag,
       var.environment_tag,
     ),
@@ -10,9 +10,9 @@ resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
 }
 
 resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
-  name = lower(
+  name_prefix = lower(
     format(
-      "/%s/%s/vpc/flowlog-reject",
+      "/%s/%s/vpc/flowlog-reject_",
       var.project_tag,
       var.environment_tag,
     ),
@@ -24,7 +24,6 @@ resource "aws_flow_log" "VpcFlowLog-Reject" {
 
   log_destination_type = "cloud-watch-logs"
   log_destination      = aws_cloudwatch_log_group.LogGroup-Reject.arn
-  #log_group_name = aws_cloudwatch_log_group.LogGroup.name
   iam_role_arn = aws_iam_role.VpCFlowLogRole.arn
   vpc_id       = aws_vpc.pro.id
   traffic_type = "REJECT"
@@ -34,16 +33,15 @@ resource "aws_flow_log" "VpcFlowLog-Accept" {
 
   log_destination_type = "cloud-watch-logs"
   log_destination      = aws_cloudwatch_log_group.LogGroup-Accept.arn
-  #log_group_name = aws_cloudwatch_log_group.LogGroup.name
   iam_role_arn = aws_iam_role.VpCFlowLogRole.arn
   vpc_id       = aws_vpc.pro.id
   traffic_type = "ACCEPT"
 }
 
 resource "aws_iam_role" "VpCFlowLogRole" {
-  name = lower(
+  name_prefix = lower(
     format(
-      "VpCFlowLogRole-%s-%s",
+      "VpCFlowLog-%s-%s",
       var.project_tag,
       var.environment_tag,
     ),
@@ -67,9 +65,9 @@ EOF
 }
 
 resource "aws_iam_role_policy" "VpCFlowLogPolicy" {
-  name = lower(
+  name_prefix = lower(
     format(
-      "VpCFlowLogPolicy-%s-%s",
+      "VpCFlowLog-%s-%s",
       var.project_tag,
       var.environment_tag,
     ),
