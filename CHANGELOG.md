@@ -1,9 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
 ---
 <a name="unreleased"></a>
 ## [Unreleased]
+
+
+<a name="v0.1.6"></a>
+## [v0.1.6] - 2019-09-20
+### Bug Fixes
+- stop routing table creation when no cidr blocks listed
+
+### Features
+- adding 3 private subnet for dedicated internal ALB subnet
 
 
 <a name="v0.1.5"></a>
@@ -21,6 +33,12 @@ All notable changes to this project will be documented in this file.
 - Adding AWS Region as an output
 - making information more readable
 
+### Reverts
+- Merge branch 'release/v0.1.1' into develop
+
+### Pull Requests
+- Merge pull request [#1](https://github.com/pcanham/terraform-module-aws-vpc/issues/1) from pcanham/develop
+
 
 <a name="v0.1.4"></a>
 ## [v0.1.4] - 2019-09-05
@@ -37,11 +55,10 @@ All notable changes to this project will be documented in this file.
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-07-12
 
-[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.5...HEAD
+[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.6...HEAD
+[v0.1.6]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.5...v0.1.6
 [v0.1.5]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.4...v0.1.5
 [v0.1.4]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.3...v0.1.4
 [v0.1.3]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.2...v0.1.3
 [v0.1.2]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.1...v0.1.2
 [v0.1.1]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.0...v0.1.1
-- the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
-- this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
