@@ -42,6 +42,12 @@ variable "private_cidr_blocks02" {
   default     = []
 }
 
+variable "private_cidr_blocks03" {
+  type        = "list"
+  description = "CIDR Blocks for Private Subnets"
+  default     = []
+}
+
 variable "environment_tag" {
   description = "Define the type of environment"
   default     = ""
