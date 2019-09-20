@@ -73,7 +73,7 @@ resource "aws_route_table" "private02" {
 
 resource "aws_route_table" "private03" {
   vpc_id = aws_vpc.pro.id
-  count  = length(var.availability_zones)
+  count  = length(var.private_cidr_blocks03)
 
   route {
     cidr_block = "0.0.0.0/0"
