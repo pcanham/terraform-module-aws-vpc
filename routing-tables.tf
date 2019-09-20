@@ -1,6 +1,6 @@
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.pro.id
-  count  = length(var.availability_zones)
+  count  = length(var.public_cidr_blocks)
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -25,7 +25,7 @@ resource "aws_route_table" "public" {
 
 resource "aws_route_table" "private01" {
   vpc_id = aws_vpc.pro.id
-  count  = length(var.availability_zones)
+  count  = length(var.private_cidr_blocks01)
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -49,7 +49,7 @@ resource "aws_route_table" "private01" {
 
 resource "aws_route_table" "private02" {
   vpc_id = aws_vpc.pro.id
-  count  = length(var.availability_zones)
+  count  = length(var.private_cidr_blocks02)
 
   route {
     cidr_block = "0.0.0.0/0"
