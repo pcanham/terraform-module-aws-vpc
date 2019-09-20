@@ -19,7 +19,7 @@ output "public_subnet_ids" {
 }
 
 output "private_subnet_ids" {
-  value = concat(aws_subnet.pm_pro_private01.*.id, aws_subnet.pm_pro_private02.*.id, , aws_subnet.pm_pro_private03.*.id)
+  value = concat(aws_subnet.pm_pro_private01.*.id, aws_subnet.pm_pro_private02.*.id, aws_subnet.pm_pro_private03.*.id)
 }
 
 output "private_subnet01_ids" {
