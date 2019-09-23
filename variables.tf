@@ -99,3 +99,27 @@ variable "tags" {
   default     = {}
 }
 
+variable "dhcp_domain_name" {
+  description = "Enter a domain name (such as example.com)."
+  default     = ""
+}
+
+variable "dhcp_domain_name_servers" {
+  description = "Enter up to 4 DNS server IP addresses or AmazonProvidedDNS for AWS Defaults"
+  default     = ["AmazonProvidedDNS"]
+}
+
+variable "dhcp_ntp_servers" {
+  description = "Enter up to four Network Time Protocol (NTP) server IP addresses"
+  default     = []
+}
+
+variable "dhcp_netbios_name_servers" {
+  description = "Enter up to four NetBIOS name server IP addresses"
+  default     = []
+}
+
+variable "dhcp_dhcp_netbios_node_type" {
+  description = "Enter the NetBIOS node type, for example, 2"
+  default     = "2"
+}
