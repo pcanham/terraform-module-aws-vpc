@@ -5,4 +5,5 @@ resource "aws_vpc_endpoint" "s3" {
     "com.amazonaws.%s.s3",
     var.aws_region,
   )
+  tags = var.tags
 }

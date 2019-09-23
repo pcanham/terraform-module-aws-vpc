@@ -1,6 +1,7 @@
 resource "aws_vpn_gateway" "vpn_gateway" {
   count  = var.create_vpn ? 1 : 0
   vpc_id = aws_vpc.pro.id
+  tags   = var.tags
 }
 
 resource "aws_customer_gateway" "customer_gateway" {
