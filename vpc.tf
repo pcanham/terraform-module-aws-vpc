@@ -11,7 +11,7 @@ resource "aws_vpc" "pro" {
         "vpc-%s-%s-%s",
         var.project_tag,
         var.environment_tag,
-        data.aws_region.current.name,
+        var.aws_region,
       ),
       )
     },
