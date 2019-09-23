@@ -123,3 +123,8 @@ variable "dhcp_netbios_node_type" {
   description = "Enter the NetBIOS node type, for example, 2"
   default     = ""
 }
+
+variable "enable_vpc_s3_endpoint" {
+  description = "Create VPC S3 Endpoint"
+  default     = false
+}
