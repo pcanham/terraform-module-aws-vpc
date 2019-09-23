@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Bug Fixes
+- enabling s3 vpc endpoint
+- removing tag variables.
+
+### Code Refactoring
+- removing unneeded datasource
+- removing hard coded tags
+
+### Features
+- adding in dhcp options
+- adding more tagging to aws items
+
 
 <a name="v0.1.6"></a>
 ## [v0.1.6] - 2019-09-20
