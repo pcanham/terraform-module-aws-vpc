@@ -121,5 +121,5 @@ variable "dhcp_netbios_name_servers" {
 
 variable "dhcp_netbios_node_type" {
   description = "Enter the NetBIOS node type, for example, 2"
-  default     = "2"
+  default     = ""
 }
