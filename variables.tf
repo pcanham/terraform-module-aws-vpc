@@ -53,29 +53,9 @@ variable "environment_tag" {
   default     = ""
 }
 
-variable "owner_tag" {
-  description = "Identifies the role that is responsible for the service"
-  default     = ""
-}
-
 variable "project_tag" {
   description = "Project code name or name"
   default     = ""
-}
-
-variable "cost_center_tag" {
-  description = "Budget code for responsible for the service"
-  default     = ""
-}
-
-variable "business_tag" {
-  description = "Business Stream that requires instance(s) e.g. Infrastructure, Legal, etc"
-  default     = ""
-}
-
-variable "automation_tag" {
-  description = "Tag to highlight services/components have been created with an automation tool"
-  default     = "Created with Terraform"
 }
 
 variable "create_vpn" {
