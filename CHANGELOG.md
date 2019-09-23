@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v0.1.7"></a>
+## [v0.1.7] - 2019-09-23
 ### Bug Fixes
 - enabling s3 vpc endpoint
 - removing tag variables.
@@ -17,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - removing hard coded tags
 
 ### Features
+- making s3 endpoint creation a parameter
 - adding in dhcp options
 - adding more tagging to aws items
 
@@ -67,7 +71,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-07-12
 
-[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.7...HEAD
+[v0.1.7]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.6...v0.1.7
 [v0.1.6]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.5...v0.1.6
 [v0.1.5]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.4...v0.1.5
 [v0.1.4]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.3...v0.1.4
