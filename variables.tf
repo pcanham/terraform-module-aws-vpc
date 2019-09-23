@@ -119,7 +119,7 @@ variable "dhcp_netbios_name_servers" {
   default     = []
 }
 
-variable "dhcp_dhcp_netbios_node_type" {
+variable "dhcp_netbios_node_type" {
   description = "Enter the NetBIOS node type, for example, 2"
   default     = "2"
 }
