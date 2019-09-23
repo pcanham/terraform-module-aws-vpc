@@ -8,7 +8,7 @@ resource "aws_route_table" "public" {
   }
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     { "Name" = lower(
       format(
         "rtpub%02d-%s-%s",
@@ -28,12 +28,12 @@ resource "aws_route_table" "private01" {
   count  = length(var.private_cidr_blocks01)
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block     = "0.0.0.0/0"
     nat_gateway_id = var.nat_gateway ? element(concat(aws_nat_gateway.nat_gw.*.id, list("")), count.index) : aws_internet_gateway.internet_gw.id
   }
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     { "Name" = lower(
       format(
         "rtprv%02d%s-%s-%s",
@@ -52,12 +52,12 @@ resource "aws_route_table" "private02" {
   count  = length(var.private_cidr_blocks02)
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block     = "0.0.0.0/0"
     nat_gateway_id = var.nat_gateway ? element(concat(aws_nat_gateway.nat_gw.*.id, list("")), count.index) : aws_internet_gateway.internet_gw.id
   }
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     { "Name" = lower(
       format(
         "rtprv%02d%s-%s-%s",
@@ -76,12 +76,12 @@ resource "aws_route_table" "private03" {
   count  = length(var.private_cidr_blocks03)
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block     = "0.0.0.0/0"
     nat_gateway_id = var.nat_gateway ? element(concat(aws_nat_gateway.nat_gw.*.id, list("")), count.index) : aws_internet_gateway.internet_gw.id
   }
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     { "Name" = lower(
       format(
         "rtprv%02d%s-%s-%s",

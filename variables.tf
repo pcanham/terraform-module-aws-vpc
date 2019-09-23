@@ -53,29 +53,9 @@ variable "environment_tag" {
   default     = ""
 }
 
-variable "owner_tag" {
-  description = "Identifies the role that is responsible for the service"
-  default     = ""
-}
-
 variable "project_tag" {
   description = "Project code name or name"
   default     = ""
-}
-
-variable "cost_center_tag" {
-  description = "Budget code for responsible for the service"
-  default     = ""
-}
-
-variable "business_tag" {
-  description = "Business Stream that requires instance(s) e.g. Infrastructure, Legal, etc"
-  default     = ""
-}
-
-variable "automation_tag" {
-  description = "Tag to highlight services/components have been created with an automation tool"
-  default     = "Created with Terraform"
 }
 
 variable "create_vpn" {
@@ -111,4 +91,40 @@ variable "vpcflow_log_rejected_retention" {
 variable "eks_clustername" {
   description = "EKS Cluster Name"
   default     = "eks-cluster"
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
+}
+
+variable "dhcp_domain_name" {
+  description = "Enter a domain name (such as example.com)."
+  default     = ""
+}
+
+variable "dhcp_domain_name_servers" {
+  description = "Enter up to 4 DNS server IP addresses or AmazonProvidedDNS for AWS Defaults"
+  default     = ["AmazonProvidedDNS"]
+}
+
+variable "dhcp_ntp_servers" {
+  description = "Enter up to four Network Time Protocol (NTP) server IP addresses"
+  default     = []
+}
+
+variable "dhcp_netbios_name_servers" {
+  description = "Enter up to four NetBIOS name server IP addresses"
+  default     = []
+}
+
+variable "dhcp_netbios_node_type" {
+  description = "Enter the NetBIOS node type, for example, 2"
+  default     = ""
+}
+
+variable "enable_vpc_s3_endpoint" {
+  description = "Create VPC S3 Endpoint"
+  default     = false
 }

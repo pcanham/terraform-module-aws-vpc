@@ -5,13 +5,13 @@ resource "aws_vpc" "pro" {
 
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     { "Name" = lower(
       format(
         "vpc-%s-%s-%s",
         var.project_tag,
         var.environment_tag,
-        data.aws_region.current.name,
+        var.aws_region,
       ),
       )
     },
@@ -31,7 +31,7 @@ resource "aws_internet_gateway" "internet_gw" {
   vpc_id = aws_vpc.pro.id
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     { "Name" = lower(
       format(
         "igw%02d-%s-%s",
