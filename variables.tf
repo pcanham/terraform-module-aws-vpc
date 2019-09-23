@@ -112,3 +112,10 @@ variable "eks_clustername" {
   description = "EKS Cluster Name"
   default     = "eks-cluster"
 }
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
+}
+

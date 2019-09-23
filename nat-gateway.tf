@@ -3,7 +3,7 @@ resource "aws_eip" "nat_ip" {
   vpc   = true
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     { "Name" = lower(
       format(
         "ngw-eip%02d-%s-%s",
@@ -23,7 +23,7 @@ resource "aws_nat_gateway" "nat_gw" {
   depends_on    = ["aws_internet_gateway.internet_gw"]
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     { "Name" = lower(
       format(
         "ngw%02d%s-%s-%s",

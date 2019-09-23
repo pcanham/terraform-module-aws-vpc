@@ -6,7 +6,7 @@ resource "aws_subnet" "pm_pro_public" {
   map_public_ip_on_launch = false
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     {
       "Name" = lower(
         format(
@@ -32,7 +32,7 @@ resource "aws_subnet" "pm_pro_private01" {
   map_public_ip_on_launch = false
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     {
       "Name" = lower(
         format(
@@ -57,7 +57,7 @@ resource "aws_subnet" "pm_pro_private02" {
   map_public_ip_on_launch = false
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     {
       "Name" = lower(
         format(
@@ -81,7 +81,7 @@ resource "aws_subnet" "pm_pro_private03" {
   map_public_ip_on_launch = false
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     {
       "Name" = lower(
         format(

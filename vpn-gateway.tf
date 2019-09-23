@@ -10,7 +10,7 @@ resource "aws_customer_gateway" "customer_gateway" {
   type       = "ipsec.1"
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     { "Name" = lower(
       format(
         "cgw-%s-%s-%s",
@@ -31,7 +31,7 @@ resource "aws_vpn_connection" "main" {
   static_routes_only  = true
 
   tags = merge(
-    local.common_tags,
+    var.tags,
     { "Name" = lower(
       format(
         "vpn-%s-%s-%s",
