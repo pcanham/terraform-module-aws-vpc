@@ -53,7 +53,7 @@ resource "aws_route" "private01_igw" {
 
   route_table_id         = aws_route_table.private01[0].id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.internet_gw[0].id
+  gateway_id             = aws_internet_gateway.internet_gw.id
 }
 
 resource "aws_route" "private01_ngw" {
@@ -98,7 +98,7 @@ resource "aws_route" "private02_igw" {
 
   route_table_id         = aws_route_table.private02[0].id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.internet_gw[0].id
+  gateway_id             = aws_internet_gateway.internet_gw.id
 }
 
 resource "aws_route" "private02_ngw" {
@@ -139,7 +139,7 @@ resource "aws_route" "private03_igw" {
 
   route_table_id         = aws_route_table.private03[0].id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.internet_gw[0].id
+  gateway_id             = aws_internet_gateway.internet_gw.id
 }
 
 resource "aws_route" "private03_ngw" {
