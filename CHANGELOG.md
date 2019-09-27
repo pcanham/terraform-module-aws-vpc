@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Features
+- only create routes in private subnets going to nat gw's
+- set default to 1 nat gw per az
+
 
 <a name="v0.1.7"></a>
 ## [v0.1.7] - 2019-09-23
