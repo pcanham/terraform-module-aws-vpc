@@ -1,12 +1,12 @@
 variable "aws_region" {
   description = "AWS region to launch servers."
-  default     = ""
+  default     = "eu-west-1"
 }
 
 variable "availability_zones" {
   type        = "list"
   description = "AWS region to launch servers."
-  default     = ["eu-west-2a", "eu-west-2b"]
+  default     = ["eu-west-1a", "eu-west-1b"]
 }
 
 variable "master_cidr_block" {
