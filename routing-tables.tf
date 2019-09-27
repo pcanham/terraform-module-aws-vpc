@@ -18,7 +18,6 @@ resource "aws_route_table" "public" {
       ),
       )
     }
-    #    { "Name" = "${lower(format("rtpub%02d-%s-%s", 1, var.project_tag, var.environment_tag))}" }
   )
 
 }
