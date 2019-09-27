@@ -48,24 +48,12 @@ resource "aws_route_table" "private01" {
 }
 
 
-resource "aws_route" "private01_igw" {
-  count = var.nat_gateway ? 0 : 1
-
-  route_table_id         = aws_route_table.private01[0].id
-  destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.internet_gw.id
-}
-
 resource "aws_route" "private01_ngw" {
-  count = var.nat_gateway ? local.nat_gateway_count : 0
+  count = var.nat_gateway ? length(var.private_cidr_blocks01) : 0
 
-  route_table_id         = element(aws_route_table.private01.*.id, count.index)
+  route_table_id         = aws_route_table.private01[count.index].id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = element(aws_nat_gateway.nat_gw.*.id, count.index)
-
-  timeouts {
-    create = "5m"
-  }
+  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw[0].id : element(aws_nat_gateway.nat_gw.*.id, count.index)
 }
 
 resource "aws_route_table" "private02" {
@@ -93,20 +81,12 @@ resource "aws_route_table" "private02" {
   }
 }
 
-resource "aws_route" "private02_igw" {
-  count = var.nat_gateway ? 0 : 1
-
-  route_table_id         = aws_route_table.private02[0].id
-  destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.internet_gw.id
-}
-
 resource "aws_route" "private02_ngw" {
-  count = var.nat_gateway ? local.nat_gateway_count : 0
+  count = var.nat_gateway ? length(var.private_cidr_blocks02) : 0
 
-  route_table_id         = element(aws_route_table.private02.*.id, count.index)
+  route_table_id         = aws_route_table.private02[count.index].id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = element(aws_nat_gateway.nat_gw.*.id, count.index)
+  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw[0].id : element(aws_nat_gateway.nat_gw.*.id, count.index)
 }
 
 resource "aws_route_table" "private03" {
@@ -134,20 +114,12 @@ resource "aws_route_table" "private03" {
   }
 }
 
-resource "aws_route" "private03_igw" {
-  count = var.nat_gateway ? 0 : 1
-
-  route_table_id         = aws_route_table.private03[0].id
-  destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.internet_gw.id
-}
-
 resource "aws_route" "private03_ngw" {
-  count = var.nat_gateway ? local.nat_gateway_count : 0
+  count = var.nat_gateway ? length(var.private_cidr_blocks03) : 0
 
-  route_table_id         = element(aws_route_table.private03.*.id, count.index)
+  route_table_id         = aws_route_table.private03[count.index].id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = element(aws_nat_gateway.nat_gw.*.id, count.index)
+  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw[0].id : element(aws_nat_gateway.nat_gw.*.id, count.index)
 }
 
 resource "aws_route_table_association" "public" {
