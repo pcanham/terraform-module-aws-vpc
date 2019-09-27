@@ -33,7 +33,7 @@ variable "single_nat_gateway" {
 variable "one_nat_gateway_per_az" {
   description = "Should be true if you want one NAT Gateway per availability zone."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "public_cidr_blocks" {
