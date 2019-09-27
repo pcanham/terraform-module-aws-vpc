@@ -45,6 +45,12 @@ resource "aws_route_table" "private01" {
       )
     }
   )
+
+  lifecycle {
+    # When attaching VPN gateways it is common to define aws_vpn_gateway_route_propagation
+    # resources that manipulate the attributes of the routing table (typically for the private subnets)
+    ignore_changes = [propagating_vgws]
+  }
 }
 
 resource "aws_route_table" "private02" {
@@ -69,6 +75,12 @@ resource "aws_route_table" "private02" {
       )
     }
   )
+
+  lifecycle {
+    # When attaching VPN gateways it is common to define aws_vpn_gateway_route_propagation
+    # resources that manipulate the attributes of the routing table (typically for the private subnets)
+    ignore_changes = [propagating_vgws]
+  }
 }
 
 resource "aws_route_table" "private03" {
@@ -93,6 +105,12 @@ resource "aws_route_table" "private03" {
       )
     }
   )
+
+  lifecycle {
+    # When attaching VPN gateways it is common to define aws_vpn_gateway_route_propagation
+    # resources that manipulate the attributes of the routing table (typically for the private subnets)
+    ignore_changes = [propagating_vgws]
+  }
 }
 
 resource "aws_route_table_association" "public" {
