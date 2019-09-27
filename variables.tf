@@ -24,6 +24,18 @@ variable "nat_gateway" {
   default     = false
 }
 
+variable "single_nat_gateway" {
+  description = "Should be true if you want to provision for your entire VPC"
+  type        = bool
+  default     = false
+}
+
+variable "one_nat_gateway_per_az" {
+  description = "Should be true if you want one NAT Gateway per availability zone."
+  type        = bool
+  default     = false
+}
+
 variable "public_cidr_blocks" {
   type        = "list"
   description = "CIDR Blocks for Public Subnets"
