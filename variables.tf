@@ -17,7 +17,7 @@ variable "master_cidr_block" {
 }
 
 variable "secondary_cidr_block" {
-  type        = string
+  type        = list
   description = "VPC CIDR Block"
   default     = []
 }
