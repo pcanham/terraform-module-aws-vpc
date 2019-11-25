@@ -4,7 +4,7 @@ variable "aws_region" {
 }
 
 variable "availability_zones" {
-  type        = "list"
+  type        = list
   description = "AWS region to launch servers."
   default     = ["eu-west-1a", "eu-west-1b"]
 }
@@ -37,25 +37,25 @@ variable "one_nat_gateway_per_az" {
 }
 
 variable "public_cidr_blocks" {
-  type        = "list"
+  type        = list
   description = "CIDR Blocks for Public Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks01" {
-  type        = "list"
+  type        = list
   description = "CIDR Blocks for Private Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks02" {
-  type        = "list"
+  type        = list
   description = "CIDR Blocks for Private Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks03" {
-  type        = "list"
+  type        = list
   description = "CIDR Blocks for Private Subnets"
   default     = []
 }
