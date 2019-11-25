@@ -36,7 +36,7 @@ Private Subnet 03 - Data Subnet
 | private\_cidr\_blocks03 | CIDR Blocks for Private Subnets | list | `[]` | no |
 | project\_tag | Project code name or name | string | `""` | no |
 | public\_cidr\_blocks | CIDR Blocks for Public Subnets | list | `[]` | no |
-| secondary\_cidr\_block | VPC CIDR Block | string | `[]` | no |
+| secondary\_cidr\_block | VPC CIDR Block | list | `[]` | no |
 | single\_nat\_gateway | Should be true if you want to provision for your entire VPC | bool | `"false"` | no |
 | tags | A map of tags to add to all resources. | map(string) | `{}` | no |
 | vpcflow\_log\_accepted\_retention | How many days worth of VPC Flow logs to keep for accepted connections | string | `"14"` | no |
