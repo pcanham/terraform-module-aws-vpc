@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v0.1.8"></a>
+## [v0.1.8] - 2019-11-25
+### Bug Fixes
+- Quoted type constraints are deprecated
+
 ### Features
 - only create routes in private subnets going to nat gw's
 - set default to 1 nat gw per az
@@ -75,7 +81,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-07-12
 
-[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.7...HEAD
+[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.8...HEAD
+[v0.1.8]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.7...v0.1.8
 [v0.1.7]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.6...v0.1.7
 [v0.1.6]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.5...v0.1.6
 [v0.1.5]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.4...v0.1.5
