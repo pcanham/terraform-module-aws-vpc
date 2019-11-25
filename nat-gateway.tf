@@ -1,5 +1,9 @@
+locals {
+  nat_gateway_count = var.nat_gateway ? (var.single_nat_gateway ? 1 : var.one_nat_gateway_per_az ? length(var.availability_zones) : 0) : 0
+}
+
 resource "aws_eip" "nat_ip" {
-  count = var.nat_gateway ? length(var.public_cidr_blocks) : 0
+  count = local.nat_gateway_count
   vpc   = true
 
   tags = merge(
@@ -17,10 +21,10 @@ resource "aws_eip" "nat_ip" {
 }
 
 resource "aws_nat_gateway" "nat_gw" {
-  count         = var.nat_gateway ? length(var.public_cidr_blocks) : 0
+  count         = local.nat_gateway_count
   allocation_id = element(aws_eip.nat_ip.*.id, count.index)
   subnet_id     = element(aws_subnet.pm_pro_public.*.id, count.index)
-  depends_on    = ["aws_internet_gateway.internet_gw"]
+  depends_on    = [aws_internet_gateway.internet_gw]
 
   tags = merge(
     var.tags,

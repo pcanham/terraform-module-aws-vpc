@@ -1,12 +1,12 @@
 variable "aws_region" {
   description = "AWS region to launch servers."
-  default     = ""
+  default     = "eu-west-1"
 }
 
 variable "availability_zones" {
-  type        = "list"
+  type        = list
   description = "AWS region to launch servers."
-  default     = ["eu-west-2a", "eu-west-2b"]
+  default     = ["eu-west-1a", "eu-west-1b"]
 }
 
 variable "master_cidr_block" {
@@ -24,26 +24,38 @@ variable "nat_gateway" {
   default     = false
 }
 
+variable "single_nat_gateway" {
+  description = "Should be true if you want to provision for your entire VPC"
+  type        = bool
+  default     = false
+}
+
+variable "one_nat_gateway_per_az" {
+  description = "Should be true if you want one NAT Gateway per availability zone."
+  type        = bool
+  default     = true
+}
+
 variable "public_cidr_blocks" {
-  type        = "list"
+  type        = list
   description = "CIDR Blocks for Public Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks01" {
-  type        = "list"
+  type        = list
   description = "CIDR Blocks for Private Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks02" {
-  type        = "list"
+  type        = list
   description = "CIDR Blocks for Private Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks03" {
-  type        = "list"
+  type        = list
   description = "CIDR Blocks for Private Subnets"
   default     = []
 }
