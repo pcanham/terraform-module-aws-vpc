@@ -112,10 +112,10 @@ variable "vpcflow_log_rejected_retention" {
   default     = "14"
 }
 
-variable "eks_clustername" {
+variable "k8s_clustername" {
   type        = string
-  description = "EKS Cluster Name"
-  default     = "eks-cluster"
+  description = "EKS/k8s Cluster Name"
+  default     = null
 }
 
 variable "tags" {
