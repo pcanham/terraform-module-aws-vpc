@@ -121,13 +121,13 @@ variable "k8s_clustername" {
 variable "tags_k8s_clustername" {
   type        = map(string)
   description = "EKS/k8s required tags"
-  default     = {}
+  default     = null
 }
 
 variable "tags_k8s_role_elb" {
   type        = map(string)
   description = "tags for saying k8s is allowed to deploy ELBs within the subnets"
-  default     = {}
+  default     = null
 }
 
 variable "tags" {
