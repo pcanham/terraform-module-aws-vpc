@@ -118,6 +118,16 @@ variable "k8s_clustername" {
   default     = null
 }
 
+variable "environment_tag" {
+  description = "Define the type of environment"
+  default     = ""
+}
+
+variable "project_tag" {
+  description = "Project code name or name"
+  default     = ""
+}
+
 variable "tags" {
   type        = map(string)
   description = "A map of tags to add to all resources."
