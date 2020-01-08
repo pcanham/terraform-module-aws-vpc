@@ -3,7 +3,6 @@ resource "aws_vpc" "pro" {
   enable_dns_support   = true
   enable_dns_hostnames = true
 
-
   tags = merge(
     var.tags,
     { "Name" = lower(
@@ -15,7 +14,7 @@ resource "aws_vpc" "pro" {
       ),
       )
     },
-    { lower(format("kubernetes.io/cluster/%s", var.eks_clustername)) = "shared" }
+    local.tags_k8s_values
   )
 }
 
