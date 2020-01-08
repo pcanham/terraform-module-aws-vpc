@@ -115,12 +115,6 @@ variable "vpcflow_log_rejected_retention" {
 variable "k8s_clustername" {
   type        = string
   description = "EKS/k8s Cluster Name"
-  default     = ""
-}
-
-variable "tags_k8s_clustername" {
-  type        = map(string)
-  description = "EKS/k8s required tags"
   default     = null
 }
 
