@@ -18,8 +18,8 @@ resource "aws_subnet" "pm_pro_public" {
         ),
       )
     },
-    locals.tags_k8s_values,
-    locals.tags_k8s_role_elb_values
+    local.tags_k8s_values,
+    local.tags_k8s_role_elb_values
   )
 }
 
@@ -44,7 +44,7 @@ resource "aws_subnet" "pm_pro_private01" {
         ),
       )
     },
-    locals.tags_k8s_values
+    local.tags_k8s_values
   )
 }
 
@@ -68,7 +68,7 @@ resource "aws_subnet" "pm_pro_private02" {
         ),
       )
     },
-    locals.tags_k8s_values
+    local.tags_k8s_values
   )
 }
 
@@ -92,6 +92,6 @@ resource "aws_subnet" "pm_pro_private03" {
         ),
       )
     },
-    locals.tags_k8s_values
+    local.tags_k8s_values
   )
 }
