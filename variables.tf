@@ -118,10 +118,14 @@ variable "k8s_clustername" {
   default     = null
 }
 
-variable "tags_k8s_clustername" {
-  type        = map(string)
-  description = "EKS/k8s required tags"
-  default     = null
+variable "environment_tag" {
+  description = "Define the type of environment"
+  default     = ""
+}
+
+variable "project_tag" {
+  description = "Project code name or name"
+  default     = ""
 }
 
 variable "tags" {
