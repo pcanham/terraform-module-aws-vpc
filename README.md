@@ -25,9 +25,9 @@ Private Subnet 03 - Data Subnet
 | dhcp\_netbios\_name\_servers | Enter up to four NetBIOS name server IP addresses | list | `[]` | no |
 | dhcp\_netbios\_node\_type | Enter the NetBIOS node type, for example, 2 | string | `""` | no |
 | dhcp\_ntp\_servers | Enter up to four Network Time Protocol (NTP) server IP addresses | list | `[]` | no |
-| eks\_clustername | EKS Cluster Name | string | `"eks-cluster"` | no |
 | enable\_vpc\_s3\_endpoint | Create VPC S3 Endpoint | bool | `"false"` | no |
 | environment\_tag | Define the type of environment | string | `""` | no |
+| k8s\_clustername | EKS/k8s Cluster Name | string | `""` | no |
 | master\_cidr\_block | VPC CIDR Block | string | `""` | no |
 | nat\_gateway | Create NAT Gateway | bool | `"false"` | no |
 | one\_nat\_gateway\_per\_az | Should be true if you want one NAT Gateway per availability zone. | bool | `"true"` | no |
@@ -39,6 +39,8 @@ Private Subnet 03 - Data Subnet
 | secondary\_cidr\_block | VPC CIDR Block | list | `[]` | no |
 | single\_nat\_gateway | Should be true if you want to provision for your entire VPC | bool | `"false"` | no |
 | tags | A map of tags to add to all resources. | map(string) | `{}` | no |
+| tags\_k8s\_clustername | EKS/k8s required tags | map(string) | `{}` | no |
+| tags\_k8s\_role\_elb | tags for saying k8s is allowed to deploy ELBs within the subnets | map(string) | `{}` | no |
 | vpcflow\_log\_accepted\_retention | How many days worth of VPC Flow logs to keep for accepted connections | string | `"14"` | no |
 | vpcflow\_log\_rejected\_retention | How many days worth of VPC Flow logs to keep for rejected connections | string | `"14"` | no |
 | vpn\_cidr\_block | CIDR Blocks to route via the VPN Connection | list | `[]` | no |

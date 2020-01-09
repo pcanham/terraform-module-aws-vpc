@@ -18,11 +18,10 @@ resource "aws_subnet" "pm_pro_public" {
         ),
       )
     },
-    { lower(format("kubernetes.io/cluster/%s", var.eks_clustername)) = "shared" },
-    { lower("kubernetes.io/role/elb") = "1" }
+    local.tags_k8s_values,
+    local.tags_k8s_role_elb_values
   )
 }
-
 
 resource "aws_subnet" "pm_pro_private01" {
   vpc_id                  = aws_vpc.pro.id
@@ -44,8 +43,7 @@ resource "aws_subnet" "pm_pro_private01" {
         ),
       )
     },
-    { lower(format("kubernetes.io/cluster/%s", var.eks_clustername)) = "shared" },
-    { lower("kubernetes.io/role/internal-elb") = "1" }
+    local.tags_k8s_values
   )
 }
 
@@ -69,7 +67,7 @@ resource "aws_subnet" "pm_pro_private02" {
         ),
       )
     },
-    { lower(format("kubernetes.io/cluster/%s", var.eks_clustername)) = "shared" }
+    local.tags_k8s_values
   )
 }
 
@@ -93,6 +91,6 @@ resource "aws_subnet" "pm_pro_private03" {
         ),
       )
     },
-    { lower(format("kubernetes.io/cluster/%s", var.eks_clustername)) = "shared" }
+    local.tags_k8s_values
   )
 }

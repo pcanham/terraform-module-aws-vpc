@@ -47,7 +47,6 @@ resource "aws_route_table" "private01" {
   }
 }
 
-
 resource "aws_route" "private01_ngw" {
   count = var.nat_gateway ? length(var.private_cidr_blocks01) : 0
 

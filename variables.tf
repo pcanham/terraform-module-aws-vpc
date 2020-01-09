@@ -64,18 +64,6 @@ variable "private_cidr_blocks03" {
   default     = []
 }
 
-variable "environment_tag" {
-  type        = string
-  description = "Define the type of environment"
-  default     = ""
-}
-
-variable "project_tag" {
-  type        = string
-  description = "Project code name or name"
-  default     = ""
-}
-
 variable "create_vpn" {
   type        = bool
   description = "Create VPN"
@@ -118,6 +106,16 @@ variable "k8s_clustername" {
   default     = null
 }
 
+variable "environment_tag" {
+  description = "Define the type of environment"
+  default     = ""
+}
+
+variable "project_tag" {
+  description = "Project code name or name"
+  default     = ""
+}
+
 variable "tags" {
   type        = map(string)
   description = "A map of tags to add to all resources."
@@ -158,4 +156,16 @@ variable "enable_vpc_s3_endpoint" {
   type        = bool
   description = "Create VPC S3 Endpoint"
   default     = false
+}
+
+variable "vpc_enable_dns_support" {
+  type        = bool
+  description = "Enable VPC DNS Support"
+  default     = true
+}
+
+variable "vpc_enable_dns_hostnames" {
+  type        = bool
+  description = "Enable VPC DNS Hostsnames"
+  default     = true
 }
