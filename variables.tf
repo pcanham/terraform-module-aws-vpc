@@ -64,18 +64,6 @@ variable "private_cidr_blocks03" {
   default     = []
 }
 
-variable "environment_tag" {
-  type        = string
-  description = "Define the type of environment"
-  default     = ""
-}
-
-variable "project_tag" {
-  type        = string
-  description = "Project code name or name"
-  default     = ""
-}
-
 variable "create_vpn" {
   type        = bool
   description = "Create VPN"
