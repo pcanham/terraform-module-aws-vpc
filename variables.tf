@@ -169,3 +169,15 @@ variable "enable_vpc_s3_endpoint" {
   description = "Create VPC S3 Endpoint"
   default     = false
 }
+
+variable "vpc_enable_dns_support" {
+  type        = bool
+  description = "Enable VPC DNS Support"
+  default     = true
+}
+
+variable "vpc_enable_dns_hostnames" {
+  type        = bool
+  description = "Enable VPC DNS Hostsnames"
+  default     = true
+}

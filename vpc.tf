@@ -1,7 +1,7 @@
 resource "aws_vpc" "pro" {
   cidr_block           = var.master_cidr_block
-  enable_dns_support   = true
-  enable_dns_hostnames = true
+  enable_dns_support   = var.vpc_enable_dns_support
+  enable_dns_hostnames = var.vpc_enable_dns_hostnames
 
   tags = merge(
     var.tags,
@@ -17,14 +17,6 @@ resource "aws_vpc" "pro" {
     local.tags_k8s_values
   )
 }
-
-## As of writing this terraform code, this resource function doesnt exist
-# see https://github.com/terraform-providers/terraform-provider-aws/pull/1568 for more information
-#resource "aws_vpc_secondary_ipv4_cidr_block" "secondary_cidr" {
-#  vpc_id          = "${aws_vpc.pro.id}"
-#  count           = "${length(var.secondary_cidr_block)}"
-#  ipv4_cidr_block = "${element(var.secondary_cidr_block,count.index)}"
-#}
 
 resource "aws_internet_gateway" "internet_gw" {
   vpc_id = aws_vpc.pro.id

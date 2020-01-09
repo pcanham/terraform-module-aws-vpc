@@ -23,7 +23,6 @@ resource "aws_subnet" "pm_pro_public" {
   )
 }
 
-
 resource "aws_subnet" "pm_pro_private01" {
   vpc_id                  = aws_vpc.pro.id
   count                   = length(var.private_cidr_blocks01)
