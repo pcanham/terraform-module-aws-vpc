@@ -31,7 +31,7 @@ output "private_subnet02_ids" {
 }
 
 output "private_subnet03_ids" {
-  value = aws_subnet.pm_pro_private02.*.id
+  value = aws_subnet.pm_pro_private03.*.id
 }
 
 output "nat_gw_eips" {
