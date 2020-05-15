@@ -18,6 +18,9 @@ resource "aws_subnet" "pm_pro_public" {
         ),
       )
     },
+    {
+      "Tier" = "dmz"
+    },
     local.tags_k8s_values,
     local.tags_k8s_role_elb_values
   )
@@ -43,6 +46,9 @@ resource "aws_subnet" "pm_pro_private01" {
         ),
       )
     },
+    {
+      "Tier" = "web"
+    },
     local.tags_k8s_values
   )
 }
@@ -67,6 +73,9 @@ resource "aws_subnet" "pm_pro_private02" {
         ),
       )
     },
+    {
+      "Tier" = "app"
+    },
     local.tags_k8s_values
   )
 }
@@ -90,6 +99,9 @@ resource "aws_subnet" "pm_pro_private03" {
           var.environment_tag,
         ),
       )
+    },
+    {
+      "Tier" = "data"
     },
     local.tags_k8s_values
   )
