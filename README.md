@@ -20,11 +20,11 @@ Private Subnet 03 - Data Subnet
 | create\_vpn | Create VPN | bool | `"false"` | no |
 | customergateway\_ip | IP Address of customer gateway | string | `""` | no |
 | customergateway\_name | Name of customer gateway | string | `""` | no |
-| dhcp\_domain\_name | Enter a domain name (such as example.com). | string | `""` | no |
+| dhcp\_domain\_name | Enter a domain name \(such as example.com\). | string | `""` | no |
 | dhcp\_domain\_name\_servers | Enter up to 4 DNS server IP addresses or AmazonProvidedDNS for AWS Defaults | list | `[ "AmazonProvidedDNS" ]` | no |
 | dhcp\_netbios\_name\_servers | Enter up to four NetBIOS name server IP addresses | list | `[]` | no |
 | dhcp\_netbios\_node\_type | Enter the NetBIOS node type, for example, 2 | string | `""` | no |
-| dhcp\_ntp\_servers | Enter up to four Network Time Protocol (NTP) server IP addresses | list | `[]` | no |
+| dhcp\_ntp\_servers | Enter up to four Network Time Protocol \(NTP\) server IP addresses | list | `[]` | no |
 | enable\_vpc\_s3\_endpoint | Create VPC S3 Endpoint | bool | `"false"` | no |
 | environment\_tag | Define the type of environment | string | `""` | no |
 | k8s\_clustername | EKS/k8s Cluster Name | string | `"null"` | no |

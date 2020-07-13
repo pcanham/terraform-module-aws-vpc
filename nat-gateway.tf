@@ -37,6 +37,9 @@ resource "aws_nat_gateway" "nat_gw" {
         var.environment_tag,
       ),
       )
+    },
+    {
+      "SERVICE" = "VPC"
     }
   )
 }

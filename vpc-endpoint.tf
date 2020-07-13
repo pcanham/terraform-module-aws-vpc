@@ -6,7 +6,17 @@ resource "aws_vpc_endpoint" "s3" {
     "com.amazonaws.%s.s3",
     var.aws_region,
   )
-  tags = var.tags
+  tags = merge(
+    var.tags,
+    { "Name" = lower(
+      format(
+        "vpc-endpoint-s3-%s-%s",
+        var.project_tag,
+        var.environment_tag,
+      ),
+      )
+    }
+  )
 }
 
 resource "aws_vpc_endpoint_route_table_association" "public_s3" {
