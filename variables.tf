@@ -64,30 +64,6 @@ variable "private_cidr_blocks03" {
   default     = []
 }
 
-variable "create_vpn" {
-  type        = bool
-  description = "Create VPN"
-  default     = false
-}
-
-variable "customergateway_name" {
-  type        = string
-  description = "Name of customer gateway"
-  default     = ""
-}
-
-variable "customergateway_ip" {
-  type        = string
-  description = "IP Address of customer gateway"
-  default     = ""
-}
-
-variable "vpn_cidr_block" {
-  type        = list
-  description = "CIDR Blocks to route via the VPN Connection"
-  default     = []
-}
-
 variable "vpcflow_log_accepted_retention" {
   type        = string
   description = "How many days worth of VPC Flow logs to keep for accepted connections"

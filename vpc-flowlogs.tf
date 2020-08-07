@@ -7,7 +7,7 @@ resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
     ),
   )
   retention_in_days = var.vpcflow_log_accepted_retention
-  tags = var.tags
+  tags              = var.tags
 }
 
 resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
@@ -19,7 +19,7 @@ resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
     ),
   )
   retention_in_days = var.vpcflow_log_rejected_retention
-  tags = var.tags
+  tags              = var.tags
 }
 
 resource "aws_flow_log" "VpcFlowLog-Reject" {
@@ -29,7 +29,7 @@ resource "aws_flow_log" "VpcFlowLog-Reject" {
   iam_role_arn         = aws_iam_role.VpCFlowLogRole.arn
   vpc_id               = aws_vpc.pro.id
   traffic_type         = "REJECT"
-  tags = var.tags
+  tags                 = var.tags
 }
 
 resource "aws_flow_log" "VpcFlowLog-Accept" {
@@ -39,7 +39,7 @@ resource "aws_flow_log" "VpcFlowLog-Accept" {
   iam_role_arn         = aws_iam_role.VpCFlowLogRole.arn
   vpc_id               = aws_vpc.pro.id
   traffic_type         = "ACCEPT"
-  tags = var.tags
+  tags                 = var.tags
 }
 
 resource "aws_iam_role" "VpCFlowLogRole" {
@@ -66,7 +66,7 @@ resource "aws_iam_role" "VpCFlowLogRole" {
   ]
 }
 EOF
-  tags = var.tags
+  tags               = var.tags
 }
 
 resource "aws_iam_role_policy" "VpCFlowLogPolicy" {
