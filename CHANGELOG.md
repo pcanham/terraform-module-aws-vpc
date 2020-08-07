@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="v0.1.15"></a>
+## [v0.1.15] - 2020-08-07
+### Bug Fixes
+- removing incorrectly committed versions file
+
+
 <a name="v0.1.14"></a>
 ## [v0.1.14] - 2020-08-07
 ### Deprecated warning
@@ -122,7 +128,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-07-12
 
-[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.14...HEAD
+[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.15...HEAD
+[v0.1.15]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.14...v0.1.15
 [v0.1.14]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.13...v0.1.14
 [v0.1.13]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.12...v0.1.13
 [v0.1.12]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.11...v0.1.12
