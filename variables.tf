@@ -5,7 +5,7 @@ variable "aws_region" {
 }
 
 variable "availability_zones" {
-  type        = list
+  type        = list(any)
   description = "AWS region to launch servers."
   default     = ["eu-west-1a", "eu-west-1b"]
 }
@@ -17,7 +17,7 @@ variable "master_cidr_block" {
 }
 
 variable "secondary_cidr_block" {
-  type        = list
+  type        = list(any)
   description = "VPC CIDR Block"
   default     = []
 }
@@ -41,25 +41,25 @@ variable "one_nat_gateway_per_az" {
 }
 
 variable "public_cidr_blocks" {
-  type        = list
+  type        = list(any)
   description = "CIDR Blocks for Public Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks01" {
-  type        = list
+  type        = list(any)
   description = "CIDR Blocks for Private Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks02" {
-  type        = list
+  type        = list(any)
   description = "CIDR Blocks for Private Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks03" {
-  type        = list
+  type        = list(any)
   description = "CIDR Blocks for Private Subnets"
   default     = []
 }
@@ -105,19 +105,19 @@ variable "dhcp_domain_name" {
 }
 
 variable "dhcp_domain_name_servers" {
-  type        = list
+  type        = list(any)
   description = "Enter up to 4 DNS server IP addresses or AmazonProvidedDNS for AWS Defaults"
   default     = ["AmazonProvidedDNS"]
 }
 
 variable "dhcp_ntp_servers" {
-  type        = list
+  type        = list(any)
   description = "Enter up to four Network Time Protocol (NTP) server IP addresses"
   default     = []
 }
 
 variable "dhcp_netbios_name_servers" {
-  type        = list
+  type        = list(any)
   description = "Enter up to four NetBIOS name server IP addresses"
   default     = []
 }
