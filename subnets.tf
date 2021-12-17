@@ -19,7 +19,7 @@ resource "aws_subnet" "pm_pro_public" {
       )
     },
     {
-      "Tier" = public_tier_name
+      "Tier" = var.public_tier_name
     },
     local.tags_k8s_values,
     local.tags_k8s_role_elb_values
