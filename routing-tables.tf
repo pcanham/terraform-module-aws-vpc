@@ -17,6 +17,9 @@ resource "aws_route_table" "public" {
         var.environment_tag,
       ),
       )
+    },
+    {
+      "Tier" = "dmz"
     }
   )
 
@@ -37,6 +40,9 @@ resource "aws_route_table" "private01" {
         var.environment_tag,
       ),
       )
+    },
+    {
+      "Tier" = "web"
     }
   )
 
@@ -70,6 +76,9 @@ resource "aws_route_table" "private02" {
         var.environment_tag,
       ),
       )
+    },
+    {
+      "Tier" = "app"
     }
   )
 
@@ -103,6 +112,9 @@ resource "aws_route_table" "private03" {
         var.environment_tag,
       ),
       )
+    },
+    {
+      "Tier" = "data"
     }
   )
 
