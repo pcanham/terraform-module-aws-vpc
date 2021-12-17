@@ -64,6 +64,30 @@ variable "private_cidr_blocks03" {
   default     = []
 }
 
+variable "public_tier_name" {
+  type        = string
+  description = "Tag value for tier subnet"
+  default     = "dmz"
+}
+
+variable "private01_tier_name" {
+  type        = string
+  description = "Tag value for tier subnet"
+  default     = "web"
+}
+
+variable "private02_tier_name" {
+  type        = string
+  description = "Tag value for tier subnet"
+  default     = "app"
+}
+
+variable "private03_tier_name" {
+  type        = string
+  description = "Tag value for tier subnet"
+  default     = "data"
+}
+
 variable "vpcflow_log_accepted_retention" {
   type        = string
   description = "How many days worth of VPC Flow logs to keep for accepted connections"
