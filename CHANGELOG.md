@@ -9,8 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="v0.1.17"></a>
+## [v0.1.17] - 2021-12-17
+
 <a name="v0.1.16"></a>
 ## [v0.1.16] - 2021-12-17
+### Bug Fixes
+- missed entry where variable has been renamed to be more generic
+
+### Chores
+- updating list types within variables
+
+### Continuous Integrations
+- pre-commit updating README
+
+### Features
+- upgrading versions of pre-commit
+
 
 <a name="v0.1.15"></a>
 ## [v0.1.15] - 2020-08-07
@@ -131,7 +146,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-07-12
 
-[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.16...HEAD
+[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.17...HEAD
+[v0.1.17]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.16...v0.1.17
 [v0.1.16]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.15...v0.1.16
 [v0.1.15]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.14...v0.1.15
 [v0.1.14]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.13...v0.1.14
