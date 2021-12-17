@@ -17,6 +17,9 @@ resource "aws_route_table" "public" {
         var.environment_tag,
       ),
       )
+    },
+    {
+      "Tier" = var.public_tier_name
     }
   )
 
@@ -37,6 +40,9 @@ resource "aws_route_table" "private01" {
         var.environment_tag,
       ),
       )
+    },
+    {
+      "Tier" = var.private01_tier_name
     }
   )
 
@@ -70,6 +76,9 @@ resource "aws_route_table" "private02" {
         var.environment_tag,
       ),
       )
+    },
+    {
+      "Tier" = var.private02_tier_name
     }
   )
 
@@ -103,6 +112,9 @@ resource "aws_route_table" "private03" {
         var.environment_tag,
       ),
       )
+    },
+    {
+      "Tier" = var.private03_tier_name
     }
   )
 
