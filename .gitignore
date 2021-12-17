@@ -9,3 +9,5 @@
 *.tfvars
 
 **/plan/*
+
+.terraform.lock.hcl
