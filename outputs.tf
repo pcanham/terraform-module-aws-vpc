@@ -37,3 +37,19 @@ output "private_subnet03_ids" {
 output "nat_gw_eips" {
   value = aws_eip.nat_ip.*.public_ip
 }
+
+output "public_tier_name" {
+  value = aws_subnet.pm_pro_public.*.id
+}
+
+output "private01_tier_name" {
+  value = var.private01_tier_name
+}
+
+output "private02_tier_name" {
+  value = var.private02_tier_name
+}
+
+output "private03_tier_name" {
+  value = var.private03_tier_name
+}
