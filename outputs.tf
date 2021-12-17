@@ -53,3 +53,19 @@ output "private02_tier_name" {
 output "private03_tier_name" {
   value = var.private03_tier_name
 }
+
+output "public_routing_table_ids" {
+  value = aws_route_table.public.*.id
+}
+
+output "private01_routing_table_ids" {
+  value = aws_route_table.private01.*.id
+}
+
+output "private02_routing_table_ids" {
+  value = aws_route_table.private02.*.id
+}
+
+output "private03_routing_table_ids" {
+  value = aws_route_table.private03.*.id
+}
