@@ -1,15 +1,19 @@
 repos:
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v3.0.1
-  hooks:
-    - id: trailing-whitespace
-    - id: detect-aws-credentials
-    - id: check-symlinks
-    - id: check-case-conflict
-    - id: detect-private-key
-- repo: git://github.com/antonbabenko/pre-commit-terraform
-  rev: v1.31.0
-  hooks:
-    - id: terraform_fmt
-    - id: terraform_docs
-    - id: terraform_tflint
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+      - id: detect-aws-credentials
+      - id: end-of-file-fixer
+      - id: check-symlinks
+      - id: check-case-conflict
+      - id: detect-private-key
+  - repo: git://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.62.0
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_docs
+      - id: terraform_tflint
+        args: []
+      - id: terraform_tfsec
+      - id: terraform_validate
