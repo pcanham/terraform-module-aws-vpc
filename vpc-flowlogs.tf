@@ -1,3 +1,4 @@
+#tfsec:ignore:aws-cloudwatch-log-group-customer-key
 resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
   name_prefix = lower(
     format(
@@ -10,6 +11,7 @@ resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
   tags              = var.tags
 }
 
+#tfsec:ignore:aws-cloudwatch-log-group-customer-key
 resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
   name_prefix = lower(
     format(
@@ -79,22 +81,21 @@ resource "aws_iam_role_policy" "VpCFlowLogPolicy" {
   )
   role = aws_iam_role.VpCFlowLogRole.id
 
-  policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "logs:CreateLogGroup",
-        "logs:CreateLogStream",
-        "logs:PutLogEvents",
-        "logs:DescribeLogGroups",
-        "logs:DescribeLogStreams"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    }
-  ]
-}
-EOF
+  #tfsec:ignore:aws-iam-no-policy-wildcards
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents",
+          "logs:DescribeLogGroups",
+          "logs:DescribeLogStreams"
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+  })
 }
