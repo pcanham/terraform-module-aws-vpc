@@ -16,12 +16,6 @@ variable "master_cidr_block" {
   default     = ""
 }
 
-variable "secondary_cidr_block" {
-  type        = list(any)
-  description = "VPC CIDR Block"
-  default     = []
-}
-
 variable "nat_gateway" {
   type        = bool
   description = "Create NAT Gateway"
