@@ -1,5 +1,6 @@
 #tfsec:ignore:aws-cloudwatch-log-group-customer-key
 resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
+  #checkov:skip=CKV_AWS_158:Customer choice on using custom KMS key, will be down to security versus cost
   name_prefix = lower(
     format(
       "/%s/%s/vpc/flowlog-accept_",
@@ -13,6 +14,7 @@ resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
 
 #tfsec:ignore:aws-cloudwatch-log-group-customer-key
 resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
+  #checkov:skip=CKV_AWS_158:Customer choice on using custom KMS key, will be down to security versus cost
   name_prefix = lower(
     format(
       "/%s/%s/vpc/flowlog-reject_",
