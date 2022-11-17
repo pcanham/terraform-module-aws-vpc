@@ -18,6 +18,22 @@ resource "aws_vpc" "pro" {
   )
 }
 
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.pro.id
+
+  tags = merge(
+    var.tags,
+    { "Name" = lower(
+      format(
+        "def-secgrp-%s-%s",
+        var.project_tag,
+        var.environment_tag,
+      ),
+      )
+    }
+  )
+}
+
 resource "aws_internet_gateway" "internet_gw" {
   vpc_id = aws_vpc.pro.id
 
