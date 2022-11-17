@@ -1,14 +1,18 @@
 ## Util
+
 Applications used within this repo to help with CHANGELOG creation and also checking files within the repo
 
 - [git-chglog](https://github.com/git-chglog/git-chglog)
 - [semtag](https://github.com/pnikosis/semtag)
 - [pre-commit](https://pre-commit.com/)
 
-Public Subnet - DMZ
-Private Subnet 01 - Internal ALB Subnet
-Private Subnet 02 - Application Subnet
-Private Subnet 03 - Data Subnet
+## Subnet Layout
+
+This Module can deploy a 4 tier VPC layout, if you do not wish to have the 4th tier, do not add in the CIDR ranges to private_cidr_blocks03
+- Public Subnet - DMZ
+- Private Subnet 01 - Web Subnet
+- Private Subnet 02 - Application Subnet
+- Private Subnet 03 - Data Subnet
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
