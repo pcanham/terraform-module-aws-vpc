@@ -16,7 +16,7 @@ Private Subnet 03 - Data Subnet
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.25.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.39.0 |
 
 ## Providers
 
@@ -106,22 +106,22 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_all_subnet_ids"></a> [all\_subnet\_ids](#output\_all\_subnet\_ids) | n/a |
-| <a name="output_aws_region"></a> [aws\_region](#output\_aws\_region) | n/a |
-| <a name="output_nat_gw_eips"></a> [nat\_gw\_eips](#output\_nat\_gw\_eips) | n/a |
-| <a name="output_private01_routing_table_ids"></a> [private01\_routing\_table\_ids](#output\_private01\_routing\_table\_ids) | n/a |
-| <a name="output_private01_tier_name"></a> [private01\_tier\_name](#output\_private01\_tier\_name) | n/a |
-| <a name="output_private02_routing_table_ids"></a> [private02\_routing\_table\_ids](#output\_private02\_routing\_table\_ids) | n/a |
-| <a name="output_private02_tier_name"></a> [private02\_tier\_name](#output\_private02\_tier\_name) | n/a |
-| <a name="output_private03_routing_table_ids"></a> [private03\_routing\_table\_ids](#output\_private03\_routing\_table\_ids) | n/a |
-| <a name="output_private03_tier_name"></a> [private03\_tier\_name](#output\_private03\_tier\_name) | n/a |
-| <a name="output_private_subnet01_ids"></a> [private\_subnet01\_ids](#output\_private\_subnet01\_ids) | n/a |
-| <a name="output_private_subnet02_ids"></a> [private\_subnet02\_ids](#output\_private\_subnet02\_ids) | n/a |
-| <a name="output_private_subnet03_ids"></a> [private\_subnet03\_ids](#output\_private\_subnet03\_ids) | n/a |
-| <a name="output_private_subnet_ids"></a> [private\_subnet\_ids](#output\_private\_subnet\_ids) | n/a |
-| <a name="output_public_routing_table_ids"></a> [public\_routing\_table\_ids](#output\_public\_routing\_table\_ids) | n/a |
-| <a name="output_public_subnet_ids"></a> [public\_subnet\_ids](#output\_public\_subnet\_ids) | n/a |
-| <a name="output_public_tier_name"></a> [public\_tier\_name](#output\_public\_tier\_name) | n/a |
-| <a name="output_vpc_cidr"></a> [vpc\_cidr](#output\_vpc\_cidr) | n/a |
-| <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | n/a |
+| <a name="output_all_subnet_ids"></a> [all\_subnet\_ids](#output\_all\_subnet\_ids) | List all used subnet ids |
+| <a name="output_aws_region"></a> [aws\_region](#output\_aws\_region) | AWS Region being used |
+| <a name="output_nat_gw_eips"></a> [nat\_gw\_eips](#output\_nat\_gw\_eips) | List all NAT Gateway Public IPs |
+| <a name="output_private01_routing_table_ids"></a> [private01\_routing\_table\_ids](#output\_private01\_routing\_table\_ids) | Routing table ids for private 01 subnets |
+| <a name="output_private01_tier_name"></a> [private01\_tier\_name](#output\_private01\_tier\_name) | Tag being used for describing private subnet 01 tier |
+| <a name="output_private02_routing_table_ids"></a> [private02\_routing\_table\_ids](#output\_private02\_routing\_table\_ids) | Routing table ids for private 02 subnets |
+| <a name="output_private02_tier_name"></a> [private02\_tier\_name](#output\_private02\_tier\_name) | Tag being used for describing private subnet 02 tier |
+| <a name="output_private03_routing_table_ids"></a> [private03\_routing\_table\_ids](#output\_private03\_routing\_table\_ids) | Routing table ids for private 03 subnets |
+| <a name="output_private03_tier_name"></a> [private03\_tier\_name](#output\_private03\_tier\_name) | Tag being used for describing private subnet 03 tier |
+| <a name="output_private_subnet01_ids"></a> [private\_subnet01\_ids](#output\_private\_subnet01\_ids) | List all used private 01 subnet ids |
+| <a name="output_private_subnet02_ids"></a> [private\_subnet02\_ids](#output\_private\_subnet02\_ids) | List all used private 02 subnet ids |
+| <a name="output_private_subnet03_ids"></a> [private\_subnet03\_ids](#output\_private\_subnet03\_ids) | List all used private 03 subnet ids |
+| <a name="output_private_subnet_ids"></a> [private\_subnet\_ids](#output\_private\_subnet\_ids) | List all used private subnet ids |
+| <a name="output_public_routing_table_ids"></a> [public\_routing\_table\_ids](#output\_public\_routing\_table\_ids) | Routing table ids for public subnets |
+| <a name="output_public_subnet_ids"></a> [public\_subnet\_ids](#output\_public\_subnet\_ids) | List all used public subnet ids |
+| <a name="output_public_tier_name"></a> [public\_tier\_name](#output\_public\_tier\_name) | Tag being used for describing public subnet tier |
+| <a name="output_vpc_cidr"></a> [vpc\_cidr](#output\_vpc\_cidr) | CIDR Range being used by VPC |
+| <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | AWS VPC ID |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
