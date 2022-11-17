@@ -78,7 +78,7 @@ resource "aws_iam_role" "vpc_flow_log_cloudwatch" {
 data "aws_iam_policy_document" "vpc_flow_log_cloudwatch" {
   #checkov:skip=CKV_AWS_111:This is the recommended permissions for VPC Flow logs
   statement {
-    sid = "VPCFlowLogs_To_CloudWatch"
+    sid = "VPCFlowLogsToCloudWatch"
 
     effect = "Allow"
 
