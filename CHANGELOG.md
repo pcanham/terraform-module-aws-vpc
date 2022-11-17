@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="v0.1.19"></a>
+## [v0.1.19] - 2022-11-17
+
+<a name="v0.1.18"></a>
+## [v0.1.18] - 2021-12-17
+
 <a name="v0.1.17"></a>
 ## [v0.1.17] - 2021-12-17
 
@@ -146,7 +152,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-07-12
 
-[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.17...HEAD
+[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.19...HEAD
+[v0.1.19]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.18...v0.1.19
+[v0.1.18]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.17...v0.1.18
 [v0.1.17]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.16...v0.1.17
 [v0.1.16]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.15...v0.1.16
 [v0.1.15]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.14...v0.1.15
