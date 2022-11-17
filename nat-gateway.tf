@@ -22,8 +22,8 @@ resource "aws_eip" "nat_ip" {
 
 resource "aws_nat_gateway" "nat_gw" {
   count         = local.nat_gateway_count
-  allocation_id = element(aws_eip.nat_ip.*.id, count.index)
-  subnet_id     = element(aws_subnet.pm_pro_public.*.id, count.index)
+  allocation_id = element(aws_eip.nat_ip[*].id, count.index)
+  subnet_id     = element(aws_subnet.pm_pro_public[*].id, count.index)
   depends_on    = [aws_internet_gateway.internet_gw]
 
   tags = merge(

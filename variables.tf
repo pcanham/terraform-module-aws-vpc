@@ -16,12 +16,6 @@ variable "master_cidr_block" {
   default     = ""
 }
 
-variable "secondary_cidr_block" {
-  type        = list(any)
-  description = "VPC CIDR Block"
-  default     = []
-}
-
 variable "nat_gateway" {
   type        = bool
   description = "Create NAT Gateway"
@@ -107,11 +101,13 @@ variable "k8s_clustername" {
 }
 
 variable "environment_tag" {
+  type        = string
   description = "Define the type of environment"
   default     = ""
 }
 
 variable "project_tag" {
+  type        = string
   description = "Project code name or name"
   default     = ""
 }
