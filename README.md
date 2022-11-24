@@ -1,3 +1,15 @@
+## Overview
+
+This is an opinionated terraform module for provisioning a VPC on AWS for my use case. Before you try it out yourself, please remember it...
+
+- has been designed for my usage
+- might not work for other people
+- please raise pull requests or issues around the module, but I cannot guarantee when or if I will be able to incorporate them
+
+Here is a visual presentation of what it looks like
+
+![AWS VPC Diagram](diagrams/vpc_diagram.png)
+
 ## Util
 
 Applications used within this repo to help with CHANGELOG creation and also checking files within the repo
@@ -8,7 +20,7 @@ Applications used within this repo to help with CHANGELOG creation and also chec
 
 ## Subnet Layout
 
-This Module can deploy a 4 tier VPC layout, if you do not wish to have the 4th tier, do not add in the CIDR ranges to private_cidr_blocks03
+This Module can deploy a 4-tier VPC layout, if you do not wish to have the 4th tier, do not add in the CIDR ranges to private_cidr_blocks03
 
 - Public Subnet - DMZ
 - Private Subnet 01 - Web Subnet
