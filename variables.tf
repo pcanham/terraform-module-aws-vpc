@@ -84,13 +84,13 @@ variable "private03_tier_name" {
 
 variable "vpcflow_log_accepted_retention" {
   type        = string
-  description = "How many days worth of VPC Flow logs to keep for accepted connections"
+  description = "How many day's worth of VPC Flow logs to keep for accepted connections"
   default     = "14"
 }
 
 variable "vpcflow_log_rejected_retention" {
   type        = string
-  description = "How many days worth of VPC Flow logs to keep for rejected connections"
+  description = "How many day's worth of VPC Flow logs to keep for rejected connections"
   default     = "14"
 }
 
@@ -162,6 +162,6 @@ variable "vpc_enable_dns_support" {
 
 variable "vpc_enable_dns_hostnames" {
   type        = bool
-  description = "Enable VPC DNS Hostsnames"
+  description = "Enable VPC DNS hostnames"
   default     = true
 }

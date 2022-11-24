@@ -1,0 +1,34 @@
+
+aws_region = "eu-west-1"
+availability_zones = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+master_cidr_block = "10.9.240.0/20"
+nat_gateway = true
+single_nat_gateway = false
+one_nat_gateway_per_az = true
+## 3 AZ Example
+public_cidr_blocks = ["10.9.240.0/25", "10.9.240.128/25", "10.9.241.0/25"]
+private_cidr_blocks01 = ["10.9.242.0/24", "10.9.243.0/24", "10.9.244.0/24"]
+private_cidr_blocks02 = ["10.9.246.0/24", "10.9.247.0/24", "10.9.248.0/24"]
+private_cidr_blocks03 = ["10.9.250.0/24", "10.9.251.0/24", "10.9.252.0/24"]
+## 4 AZ Example
+#public_cidr_blocks = ["10.9.240.0/25", "10.9.240.128/25", "10.9.241.0/25", "10.9.241.0/25"]
+#private_cidr_blocks01 = ["10.9.242.0/24", "10.9.243.0/24", "10.9.244.0/24", "10.9.245.0/24"]
+#private_cidr_blocks02 = ["10.9.246.0/24", "10.9.247.0/24", "10.9.248.0/24", "10.9.249.0/24"]
+#private_cidr_blocks03 = ["10.9.250.0/24", "10.9.251.0/24", "10.9.252.0/24", "10.12.253.0/24"]
+public_tier_name = "dmz"
+private01_tier_name = "web"
+private02_tier_name = "app"
+private03_tier_name = "data"
+vpcflow_log_accepted_retention = "14"
+vpcflow_log_rejected_retention = "14"
+k8s_clustername = null
+environment_tag = ""
+project_tag = ""
+dhcp_domain_name = ""
+dhcp_domain_name_servers = ["AmazonProvidedDNS"]
+dhcp_ntp_servers = []
+dhcp_netbios_name_servers = []
+dhcp_netbios_node_type = ""
+enable_vpc_s3_endpoint = false
+vpc_enable_dns_support = true
+vpc_enable_dns_hostnames = true

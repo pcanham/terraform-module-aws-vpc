@@ -114,10 +114,10 @@ No modules.
 | <a name="input_public_tier_name"></a> [public\_tier\_name](#input\_public\_tier\_name) | Tag value for tier subnet | `string` | `"dmz"` | no |
 | <a name="input_single_nat_gateway"></a> [single\_nat\_gateway](#input\_single\_nat\_gateway) | Should be true if you want to provision for your entire VPC | `bool` | `false` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources. | `map(string)` | `{}` | no |
-| <a name="input_vpc_enable_dns_hostnames"></a> [vpc\_enable\_dns\_hostnames](#input\_vpc\_enable\_dns\_hostnames) | Enable VPC DNS Hostsnames | `bool` | `true` | no |
+| <a name="input_vpc_enable_dns_hostnames"></a> [vpc\_enable\_dns\_hostnames](#input\_vpc\_enable\_dns\_hostnames) | Enable VPC DNS hostnames | `bool` | `true` | no |
 | <a name="input_vpc_enable_dns_support"></a> [vpc\_enable\_dns\_support](#input\_vpc\_enable\_dns\_support) | Enable VPC DNS Support | `bool` | `true` | no |
-| <a name="input_vpcflow_log_accepted_retention"></a> [vpcflow\_log\_accepted\_retention](#input\_vpcflow\_log\_accepted\_retention) | How many days worth of VPC Flow logs to keep for accepted connections | `string` | `"14"` | no |
-| <a name="input_vpcflow_log_rejected_retention"></a> [vpcflow\_log\_rejected\_retention](#input\_vpcflow\_log\_rejected\_retention) | How many days worth of VPC Flow logs to keep for rejected connections | `string` | `"14"` | no |
+| <a name="input_vpcflow_log_accepted_retention"></a> [vpcflow\_log\_accepted\_retention](#input\_vpcflow\_log\_accepted\_retention) | How many day's worth of VPC Flow logs to keep for accepted connections | `string` | `"14"` | no |
+| <a name="input_vpcflow_log_rejected_retention"></a> [vpcflow\_log\_rejected\_retention](#input\_vpcflow\_log\_rejected\_retention) | How many day's worth of VPC Flow logs to keep for rejected connections | `string` | `"14"` | no |
 
 ## Outputs
 
