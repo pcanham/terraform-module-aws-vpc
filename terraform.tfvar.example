@@ -1,20 +1,29 @@
 
 aws_region = "eu-west-1"
 availability_zones = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
-master_cidr_block = "10.9.240.0/20"
+master_cidr_block = "10.98.0.0/20"
 nat_gateway = true
 single_nat_gateway = false
 one_nat_gateway_per_az = true
-## 3 AZ Example
-public_cidr_blocks = ["10.9.240.0/25", "10.9.240.128/25", "10.9.241.0/25"]
-private_cidr_blocks01 = ["10.9.242.0/24", "10.9.243.0/24", "10.9.244.0/24"]
-private_cidr_blocks02 = ["10.9.246.0/24", "10.9.247.0/24", "10.9.248.0/24"]
-private_cidr_blocks03 = ["10.9.250.0/24", "10.9.251.0/24", "10.9.252.0/24"]
-## 4 AZ Example
-#public_cidr_blocks = ["10.9.240.0/25", "10.9.240.128/25", "10.9.241.0/25", "10.9.241.0/25"]
-#private_cidr_blocks01 = ["10.9.242.0/24", "10.9.243.0/24", "10.9.244.0/24", "10.9.245.0/24"]
-#private_cidr_blocks02 = ["10.9.246.0/24", "10.9.247.0/24", "10.9.248.0/24", "10.9.249.0/24"]
-#private_cidr_blocks03 = ["10.9.250.0/24", "10.9.251.0/24", "10.9.252.0/24", "10.12.253.0/24"]
+
+## 3 AZ 3 tier's example
+public_cidr_blocks = ["10.98.0.0/25", "10.98.0.128/25", "10.98.1.0/25"]
+private_cidr_blocks01 = ["10.98.2.0/24", "10.98.3.0/24", "10.98.4.0/24"]
+private_cidr_blocks02 = ["10.98.6.0/24", "10.98.7.0/24", "10.98.8.0/24"]
+private_cidr_blocks03 = []
+
+## 3 AZ 4 tier's example
+#public_cidr_blocks = ["10.98.0.0/25", "10.98.0.128/25", "10.98.1.0/25"]
+#private_cidr_blocks01 = ["10.98.2.0/24", "10.98.3.0/24", "10.98.4.0/24"]
+#private_cidr_blocks02 = ["10.98.6.0/24", "10.98.7.0/24", "10.98.8.0/24"]
+#private_cidr_blocks03 = ["10.98.10.0/24", "10.98.11.0/24", "10.98.12.0/24"]
+
+## 4 AZ 4 tier's example
+#public_cidr_blocks = ["10.98.0.0/25", "10.98.0.128/25", "10.98.1.0/25", "10.98.1.128/25"]
+#private_cidr_blocks01 = ["10.98.2.0/24", "10.98.3.0/24", "10.98.4.0/24", "10.98.5.0/24"]
+#private_cidr_blocks02 = ["10.98.6.0/24", "10.98.7.0/24", "10.98.8.0/24", "10.98.9.0/24"]
+#private_cidr_blocks03 = ["10.98.10.0/24", "10.98.11.0/24", "10.98.12.0/24", "10.12.13.0/24"]
+
 public_tier_name = "dmz"
 private01_tier_name = "web"
 private02_tier_name = "app"
