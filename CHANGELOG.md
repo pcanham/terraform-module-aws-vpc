@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="v0.1.21"></a>
+## [v0.1.21] - 2022-11-24
+
 <a name="v0.1.20"></a>
 ## [v0.1.20] - 2022-11-24
 ### Bug Fixes
@@ -18,9 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Continuous Integrations
 - adding in infracost to pre-commit for cost modelling
 
-
-<a name="output-descriptions"></a>
-## [output-descriptions] - 2022-11-17
 
 <a name="v0.1.19"></a>
 ## [v0.1.19] - 2022-11-17
@@ -168,9 +168,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-07-12
 
-[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.20...HEAD
-[v0.1.20]: https://github.com/pcanham/terraform-module-aws-vpc/compare/output-descriptions...v0.1.20
-[output-descriptions]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.19...output-descriptions
+[Unreleased]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.21...HEAD
+[v0.1.21]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.20...v0.1.21
+[v0.1.20]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.19...v0.1.20
 [v0.1.19]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.18...v0.1.19
 [v0.1.18]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.17...v0.1.18
 [v0.1.17]: https://github.com/pcanham/terraform-module-aws-vpc/compare/v0.1.16...v0.1.17
