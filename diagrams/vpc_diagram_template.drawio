@@ -1,9 +1,9 @@
-<mxfile host="Electron" modified="2022-11-24T16:12:55.337Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.3.0 Chrome/104.0.5112.114 Electron/20.1.3 Safari/537.36" etag="cgLXb9_9ok-2d315rwFz" compressed="false" version="20.3.0" type="device">
-  <diagram name="4 Tier Design" id="lptEz-B2BHvfUTlyXeJj">
-    <mxGraphModel dx="946" dy="1841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+<mxfile host="Electron" modified="2022-12-07T15:40:19.297Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.3.0 Chrome/104.0.5112.114 Electron/20.1.3 Safari/537.36" etag="RgD6LcRGpo-S1bZlz6Zr" compressed="false" version="20.3.0" type="device">
+  <diagram name="Tier Design" id="lptEz-B2BHvfUTlyXeJj">
+    <mxGraphModel dx="2034" dy="1841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="pj1l9u-Ld7OoOsmG_GXO-0" />
-        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-1" value="Titles Block" style="" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-1" value="Titles Block" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
         <mxCell id="pj1l9u-Ld7OoOsmG_GXO-2" value="" style="group;dropTarget=0;" parent="pj1l9u-Ld7OoOsmG_GXO-1" vertex="1">
           <mxGeometry x="507" y="-1150" width="641" height="89" as="geometry" />
         </mxCell>
@@ -31,7 +31,7 @@
             </mxGeometry>
           </mxCell>
         </UserObject>
-        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-7" value="Region" style="" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-7" value="Region" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
         <mxCell id="pj1l9u-Ld7OoOsmG_GXO-8" value="" style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;fontStyle=1;spacing=0;strokeColor=#232f3e;strokeOpacity=100;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-7" vertex="1">
           <mxGeometry x="14" y="-1085" width="1526" height="823" as="geometry" />
         </mxCell>
@@ -48,13 +48,13 @@
             <mxGeometry x="1741" y="492" width="239" height="29" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject AWS_Account_ID="" label="Region (eu-west-1)" Region="eu-west-1" Type="Region" id="pj1l9u-Ld7OoOsmG_GXO-12">
+        <UserObject AWS_Account_ID="" label="Region (%aws_region%)" Region="%aws_region%" Type="Region" id="pj1l9u-Ld7OoOsmG_GXO-12">
           <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_region;verticalAlign=top;align=left;spacingLeft=30;fillOpacity=100;dashed=1;fontColor=#0E82B8;fillColor=none;whiteSpace=wrap;fontSize=13;spacing=0;strokeColor=#147eba;strokeOpacity=100;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-7" vertex="1">
             <mxGeometry x="91" y="-1041" width="1430" height="760" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-17" value="VPC" style="" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
-        <object label="" Region="eu-west-1" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-18">
+        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-17" value="VPC" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <object label="" Region="%aws_region%" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-18">
           <mxCell style="group;dropTarget=0;" parent="pj1l9u-Ld7OoOsmG_GXO-17" vertex="1">
             <mxGeometry x="170" y="-1020" width="1260" height="717" as="geometry" />
           </mxCell>
@@ -62,344 +62,403 @@
         <mxCell id="pj1l9u-Ld7OoOsmG_GXO-19" value="" style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;fontStyle=1;align=left;spacing=0;strokeColor=#248814;strokeOpacity=100;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-18" vertex="1">
           <mxGeometry width="1260" height="717" as="geometry" />
         </mxCell>
-        <UserObject AWS_Account_ID="" label="&lt;div style=&quot;display: flex ; justify-content: center ; text-align: center ; align-items: baseline ; font-size: 0 ; line-height: 1.25 ; margin-top: -2px&quot;&gt;&lt;span&gt;&lt;span style=&quot;font-size: 13.3px ; color: rgb(51 , 51 , 51) ; font-weight: bold ; line-height: 2.4&quot;&gt;VPC&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" Instance_Tenancy="default" CIDR_Block="" Region="eu-west-1" Type="Virtual Private Cloud" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-20">
+        <UserObject AWS_Account_ID="" label="&lt;div style=&quot;display: flex ; justify-content: center ; text-align: center ; align-items: baseline ; font-size: 0 ; line-height: 1.25 ; margin-top: -2px&quot;&gt;&lt;span&gt;&lt;span style=&quot;font-size: 13.3px ; color: rgb(51 , 51 , 51) ; font-weight: bold ; line-height: 2.4&quot;&gt;VPC&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" Instance_Tenancy="default" CIDR_Block="" Region="%aws_region%" Type="Virtual Private Cloud" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-20">
           <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;verticalAlign=top;align=left;spacingLeft=30;fillOpacity=100;fontColor=#2C8723;fillColor=none;whiteSpace=wrap;fontSize=13;spacing=0;strokeColor=#248814;strokeOpacity=100;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-19" vertex="1">
             <mxGeometry width="1260" height="717" as="geometry" />
           </mxCell>
         </UserObject>
+        <mxCell id="ioNqWVfJzYsAsUivx3bz-16" value="%master_cidr_block%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="pj1l9u-Ld7OoOsmG_GXO-17" vertex="1">
+          <mxGeometry x="783" y="-995" width="68" height="30" as="geometry" />
+        </mxCell>
         <mxCell id="pj1l9u-Ld7OoOsmG_GXO-21" value="VPC Services" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
-        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-23" value="VPC Flow Logs" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#4D27AA;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.flow_logs;" parent="pj1l9u-Ld7OoOsmG_GXO-21" vertex="1">
+        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-23" value="VPC Flow Logs" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#4D27AA;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.flow_logs;" parent="pj1l9u-Ld7OoOsmG_GXO-21" vertex="1" visible="0">
           <mxGeometry x="210" y="-1011" width="30" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-24" value="NAT GW" style="" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
-        <UserObject AWS_Account_ID="" label="NAT gateway" Region="eu-west-1" Availability_Zone="eu-west-1d" Type="NAT Gateway" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-25">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.nat_gateway;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;whiteSpace=wrap;fontSize=13.3;fontColor=#666666;spacing=0;strokeOpacity=0;fillColor=#693cc5;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-24" vertex="1">
-            <mxGeometry x="230" y="-425" width="30" height="30" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <UserObject AWS_Account_ID="" label="NAT gateway" Availability_Zone="eu-west-1a" Region="eu-west-1" Type="NAT Gateway" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-26">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.nat_gateway;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;whiteSpace=wrap;fontSize=13.3;fontColor=#666666;spacing=0;strokeOpacity=0;fillColor=#693cc5;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-24" vertex="1">
-            <mxGeometry x="230" y="-919" width="30" height="30" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <UserObject AWS_Account_ID="" label="NAT gateway" Region="eu-west-1" Availability_Zone="eu-west-1b" Type="NAT Gateway" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-27">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.nat_gateway;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;whiteSpace=wrap;fontSize=13.3;fontColor=#666666;spacing=0;strokeOpacity=0;fillColor=#693cc5;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-24" vertex="1">
-            <mxGeometry x="230" y="-755" width="30" height="30" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <UserObject AWS_Account_ID="" label="Internet gateway" Region="eu-west-1" Type="Internet Gateway" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-28">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.internet_gateway;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;whiteSpace=wrap;fontSize=13.3;fontColor=#666666;spacing=0;strokeOpacity=0;fillColor=#693cc5;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-24" vertex="1">
+        <UserObject AWS_Account_ID="" label="Internet gateway" Region="%aws_region%" Type="Internet Gateway" VPC_ID="" id="U2nG9CMOBZZVS6DEHq3C-0">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.internet_gateway;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;whiteSpace=wrap;fontSize=13.3;fontColor=#666666;spacing=0;strokeOpacity=0;fillColor=#693cc5;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-21" vertex="1">
             <mxGeometry x="95" y="-755" width="30" height="30" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject AWS_Account_ID="" label="NAT gateway" Region="eu-west-1" Availability_Zone="eu-west-1c" Type="NAT Gateway" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-29">
+        <object label="%aws_region%d %private03_tier_name%" id="U2nG9CMOBZZVS6DEHq3C-242">
+          <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        </object>
+        <object label="" Availability_Zone="%aws_region%d" Region="%aws_region%" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-251">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-242" vertex="1">
+            <mxGeometry x="1020" y="-444" width="220" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <UserObject AWS_Account_ID="" label="%private03_tier_name% subnet 4" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-252">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-251" vertex="1">
+            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="%private_cidr_block03d%" tags="" id="U2nG9CMOBZZVS6DEHq3C-256">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-242" vertex="1">
+            <mxGeometry x="1108" y="-346" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="%aws_region%d %private02_tier_name%" id="U2nG9CMOBZZVS6DEHq3C-257">
+          <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        </object>
+        <UserObject label="%private_cidr_block02d%" tags="" id="U2nG9CMOBZZVS6DEHq3C-270">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-257" vertex="1">
+            <mxGeometry x="828" y="-346" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="" Availability_Zone="%aws_region%d" Region="%aws_region%" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-264">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-257" vertex="1">
+            <mxGeometry x="740" y="-444" width="220" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <UserObject AWS_Account_ID="" label="%private02_tier_name% subnet 4" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-265">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-264" vertex="1">
+            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="%aws_region%d %private01_tier_name%" id="U2nG9CMOBZZVS6DEHq3C-227">
+          <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        </object>
+        <UserObject label="%private_cidr_block01d%" tags="" id="U2nG9CMOBZZVS6DEHq3C-239">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-227" vertex="1">
+            <mxGeometry x="548" y="-346" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="" Availability_Zone="%aws_region%" Region="%aws_region%d" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-232">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-227" vertex="1">
+            <mxGeometry x="460" y="-444" width="220" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <UserObject AWS_Account_ID="" label="%private01_tier_name% subnet 4" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-233">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-232" vertex="1">
+            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="%aws_region%d %public_tier_name%" id="U2nG9CMOBZZVS6DEHq3C-212">
+          <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        </object>
+        <UserObject label="%public_cidr_block01d%" tags="" id="U2nG9CMOBZZVS6DEHq3C-223">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-212" vertex="1">
+            <mxGeometry x="264" y="-346" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject AWS_Account_ID="" label="%public_tier_name% subnet 4" Availability_Zone="%aws_region%d" Subnet_Type="Public" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-216">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#2C8723;fontColor=#2C8723;fillOpacity=13;fillColor=#248814;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-212" vertex="1">
+            <mxGeometry x="183.58823529411765" y="-444" width="220" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-19" value="%aws_region%d NGW" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject AWS_Account_ID="" label="NAT gateway" Region="%aws_region%" Availability_Zone="%aws_region%d" Type="NAT Gateway" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-20">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.nat_gateway;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;whiteSpace=wrap;fontSize=13.3;fontColor=#666666;spacing=0;strokeOpacity=0;fillColor=#693cc5;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-19" vertex="1">
+            <mxGeometry x="230" y="-425" width="30" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject AWS_Account_ID="" label="" Region="%aws_region%" Availability_Zone="%aws_region%d" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-27">
+          <mxCell style="html=1;jettySize=18;whiteSpace=wrap;fontSize=13;strokeColor=#693cc5;strokeOpacity=100;strokeWidth=0.8;rounded=1;arcSize=24;edgeStyle=orthogonalEdgeStyle;startArrow=none;;endArrow=none;;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" parent="U2nG9CMOBZZVS6DEHq3C-19" source="U2nG9CMOBZZVS6DEHq3C-20" edge="1">
+            <mxGeometry y="-379" width="100" height="100" as="geometry">
+              <mxPoint x="125" y="-740" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="180" y="-410" />
+                <mxPoint x="180" y="-740" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <object label="%aws_region%d" id="pj1l9u-Ld7OoOsmG_GXO-38">
+          <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        </object>
+        <UserObject AWS_Account_ID="" label="" Name="%aws_region%a" Region="%aws_region%" Type="Availability Zone" tags="" id="pj1l9u-Ld7OoOsmG_GXO-40">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;verticalAlign=top;fillColor=none;fillOpacity=100;dashed=1;dashPattern=5 5;fontColor=#0E82B8;strokeOpacity=100;strokeColor=#147eba;whiteSpace=wrap;fontSize=13.3;fontStyle=1;align=center;spacingRight=120;spacingTop=10.5;spacing=0;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-38" vertex="1">
+            <mxGeometry x="140" y="-460" width="1270" height="150" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="&lt;span style=&quot;color: rgb(14 , 130 , 184) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 13px ; font-style: normal ; font-weight: 700 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; display: inline ; float: none&quot;&gt;Availability Zone D&lt;/span&gt;" Availability_Zone="%aws_region%d" Region="%aws_region%" tags="" id="pj1l9u-Ld7OoOsmG_GXO-41">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=270;labelBackgroundColor=none;" parent="pj1l9u-Ld7OoOsmG_GXO-38" vertex="1">
+            <mxGeometry x="90" y="-390" width="130" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="%aws_region%c %private03_tier_name%" id="U2nG9CMOBZZVS6DEHq3C-197">
+          <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        </object>
+        <UserObject label="%private_cidr_block03c%" tags="" id="U2nG9CMOBZZVS6DEHq3C-211">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-197" vertex="1">
+            <mxGeometry x="1108" y="-515" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="" Availability_Zone="%aws_region%c" Region="%aws_region%" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-206">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-197" vertex="1">
+            <mxGeometry x="1020" y="-610" width="220" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <UserObject AWS_Account_ID="" label="%private03_tier_name% subnet 3" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-207">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-206" vertex="1">
+            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="%aws_region%c %private02_tier_name%" id="U2nG9CMOBZZVS6DEHq3C-182">
+          <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        </object>
+        <UserObject label="%private_cidr_block02c%" tags="" id="U2nG9CMOBZZVS6DEHq3C-195">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-182" vertex="1">
+            <mxGeometry x="828" y="-515" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="" Availability_Zone="%aws_region%c" Region="%aws_region%" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-189">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-182" vertex="1">
+            <mxGeometry x="740" y="-610" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <UserObject AWS_Account_ID="" label="%private02_tier_name% subnet 3" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-190">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-189" vertex="1">
+            <mxGeometry width="220" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="%aws_region%c %private01_tier_name%" id="U2nG9CMOBZZVS6DEHq3C-167">
+          <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        </object>
+        <UserObject label="%private_cidr_block01c%" tags="" id="U2nG9CMOBZZVS6DEHq3C-179">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-167" vertex="1">
+            <mxGeometry x="548" y="-515" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="" Availability_Zone="%aws_region%" Region="%aws_region%c" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-172">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-167" vertex="1">
+            <mxGeometry x="460" y="-610" width="220" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <UserObject AWS_Account_ID="" label="%private01_tier_name% subnet 3" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-173">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-172" vertex="1">
+            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="%aws_region%c %public_tier_name%" id="U2nG9CMOBZZVS6DEHq3C-152">
+          <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        </object>
+        <UserObject label="%public_cidr_block01c%" tags="" id="U2nG9CMOBZZVS6DEHq3C-163">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-152" vertex="1">
+            <mxGeometry x="266" y="-515" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject AWS_Account_ID="" label="%public_tier_name% subnet 3" Availability_Zone="%aws_region%c" Subnet_Type="Public" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-156">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#2C8723;fontColor=#2C8723;fillOpacity=13;fillColor=#248814;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-152" vertex="1">
+            <mxGeometry x="183.58823529411765" y="-610" width="220" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-24" value="%aws_region%c NGW" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject AWS_Account_ID="" label="NAT gateway" Region="%aws_region%" Availability_Zone="%aws_region%c" Type="NAT Gateway" VPC_ID="" tags="" id="pj1l9u-Ld7OoOsmG_GXO-29">
           <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.nat_gateway;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;whiteSpace=wrap;fontSize=13.3;fontColor=#666666;spacing=0;strokeOpacity=0;fillColor=#693cc5;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-24" vertex="1">
             <mxGeometry x="230" y="-590" width="30" height="30" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject AWS_Account_ID="" label="" Availability_Zone="eu-west-1a" Region="eu-west-1" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-30">
-          <mxCell style="html=1;jettySize=18;whiteSpace=wrap;fontSize=13;strokeColor=#693cc5;strokeOpacity=100;strokeWidth=0.8;rounded=1;arcSize=24;edgeStyle=orthogonalEdgeStyle;startArrow=none;;endArrow=none;;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" parent="pj1l9u-Ld7OoOsmG_GXO-24" source="pj1l9u-Ld7OoOsmG_GXO-28" target="pj1l9u-Ld7OoOsmG_GXO-26" edge="1">
+        <UserObject AWS_Account_ID="" label="" Availability_Zone="%aws_region%c" Region="%aws_region%" tags="" id="pj1l9u-Ld7OoOsmG_GXO-32">
+          <mxCell style="html=1;jettySize=18;whiteSpace=wrap;fontSize=13;strokeColor=#693cc5;strokeOpacity=100;strokeWidth=0.8;rounded=1;arcSize=24;edgeStyle=orthogonalEdgeStyle;startArrow=none;;endArrow=none;;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" parent="pj1l9u-Ld7OoOsmG_GXO-24" source="pj1l9u-Ld7OoOsmG_GXO-29" edge="1">
             <mxGeometry x="95" y="-905" width="100" height="100" as="geometry">
-              <Array as="points" />
+              <Array as="points">
+                <mxPoint x="180" y="-575" />
+                <mxPoint x="180" y="-740" />
+              </Array>
+              <mxPoint x="125" y="-740" as="targetPoint" />
             </mxGeometry>
           </mxCell>
         </UserObject>
-        <UserObject AWS_Account_ID="" label="" Availability_Zone="eu-west-1b" Region="eu-west-1" id="pj1l9u-Ld7OoOsmG_GXO-31">
-          <mxCell style="html=1;jettySize=18;whiteSpace=wrap;fontSize=13;strokeColor=#693cc5;strokeOpacity=100;strokeWidth=0.8;rounded=1;arcSize=24;edgeStyle=orthogonalEdgeStyle;startArrow=none;;endArrow=none;;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" parent="pj1l9u-Ld7OoOsmG_GXO-24" source="pj1l9u-Ld7OoOsmG_GXO-27" target="pj1l9u-Ld7OoOsmG_GXO-28" edge="1">
-            <mxGeometry x="95" y="-905" width="100" height="100" as="geometry">
-              <Array as="points" />
-            </mxGeometry>
-          </mxCell>
-        </UserObject>
-        <UserObject AWS_Account_ID="" label="" Availability_Zone="eu-west-1c" Region="eu-west-1" id="pj1l9u-Ld7OoOsmG_GXO-32">
-          <mxCell style="html=1;jettySize=18;whiteSpace=wrap;fontSize=13;strokeColor=#693cc5;strokeOpacity=100;strokeWidth=0.8;rounded=1;arcSize=24;edgeStyle=orthogonalEdgeStyle;startArrow=none;;endArrow=none;;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" parent="pj1l9u-Ld7OoOsmG_GXO-24" source="pj1l9u-Ld7OoOsmG_GXO-29" target="pj1l9u-Ld7OoOsmG_GXO-28" edge="1">
-            <mxGeometry x="95" y="-905" width="100" height="100" as="geometry">
-              <Array as="points" />
-            </mxGeometry>
-          </mxCell>
-        </UserObject>
-        <UserObject AWS_Account_ID="" label="" Region="eu-west-1" Availability_Zone="eu-west-1d" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-33">
-          <mxCell style="html=1;jettySize=18;whiteSpace=wrap;fontSize=13;strokeColor=#693cc5;strokeOpacity=100;strokeWidth=0.8;rounded=1;arcSize=24;edgeStyle=orthogonalEdgeStyle;startArrow=none;;endArrow=none;;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" parent="pj1l9u-Ld7OoOsmG_GXO-24" source="pj1l9u-Ld7OoOsmG_GXO-25" target="pj1l9u-Ld7OoOsmG_GXO-28" edge="1">
-            <mxGeometry y="-379" width="100" height="100" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-34" value="eu-west-1d future cap" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
-        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-35" value="" style="group;dropTarget=0;" parent="pj1l9u-Ld7OoOsmG_GXO-34" vertex="1">
-          <mxGeometry x="195" y="357" width="1454" height="200" as="geometry" />
-        </mxCell>
-        <UserObject AWS_Account_ID="" label="" id="pj1l9u-Ld7OoOsmG_GXO-36">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;;whiteSpace=wrap;fontSize=13;align=center;spacing=3.8;strokeOpacity=0;fillOpacity=25;fillColor=#ffdf71;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-35" vertex="1">
-            <mxGeometry x="-70" y="-828" width="1388" height="172" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <UserObject AWS_Account_ID="" label="IP Ranges Allocated for future growth" id="pj1l9u-Ld7OoOsmG_GXO-37">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;fontStyle=1;align=center;spacingRight=120;spacingTop=10.5;align=left;spacing=3.8;verticalAlign=top;strokeColor=none;fillOpacity=0;rotation=-90;fillColor=#ffffff;strokeWidth=0;" parent="pj1l9u-Ld7OoOsmG_GXO-35" vertex="1">
-            <mxGeometry x="1179" y="-867" width="205" height="113" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <object label="eu-west-1d" id="pj1l9u-Ld7OoOsmG_GXO-38">
+        <object label="%aws_region%c" id="pj1l9u-Ld7OoOsmG_GXO-53">
           <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
         </object>
-        <object label="" Availability_Zone="eu-west-1d" Region="eu-west-1" id="pj1l9u-Ld7OoOsmG_GXO-39">
-          <mxCell style="group" parent="pj1l9u-Ld7OoOsmG_GXO-38" vertex="1" connectable="0">
-            <mxGeometry x="140" y="-460" width="1270" height="150" as="geometry" />
-          </mxCell>
-        </object>
-        <UserObject AWS_Account_ID="" label="" Name="eu-west-1a" Region="eu-west-1" Type="Availability Zone" id="pj1l9u-Ld7OoOsmG_GXO-40">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;verticalAlign=top;fillColor=none;fillOpacity=100;dashed=1;dashPattern=5 5;fontColor=#0E82B8;strokeOpacity=100;strokeColor=#147eba;whiteSpace=wrap;fontSize=13.3;fontStyle=1;align=center;spacingRight=120;spacingTop=10.5;spacing=0;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-39" vertex="1">
-            <mxGeometry width="1270" height="150" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <object label="&lt;span style=&quot;color: rgb(14 , 130 , 184) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 13px ; font-style: normal ; font-weight: 700 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; display: inline ; float: none&quot;&gt;Availability Zone D&lt;/span&gt;" Availability_Zone="eu-west-1d" Region="eu-west-1" id="pj1l9u-Ld7OoOsmG_GXO-41">
-          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=270;labelBackgroundColor=none;" parent="pj1l9u-Ld7OoOsmG_GXO-39" vertex="1">
-            <mxGeometry x="-50" y="70" width="130" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <UserObject AWS_Account_ID="" label="Public Subnet 4" Availability_Zone="eu-west-1d" Subnet_Type="Public" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-44">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#2C8723;fontColor=#2C8723;fillOpacity=13;fillColor=#248814;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-39" vertex="1">
-            <mxGeometry x="43.58823529411765" y="16" width="220" height="120" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <object label="" Availability_Zone="eu-west-1" Region="eu-west-1d" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-45">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-39" vertex="1">
-            <mxGeometry x="320" y="16" width="220" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <UserObject AWS_Account_ID="" label="Web Subnet 4" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-46">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-45" vertex="1">
-            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <object label="" Availability_Zone="eu-west-1d" Region="eu-west-1" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-49">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-39" vertex="1">
-            <mxGeometry x="600" y="16" width="220" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <UserObject AWS_Account_ID="" label="Application Subnet 4" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-50">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-49" vertex="1">
-            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <object label="" Availability_Zone="eu-west-1d" Region="eu-west-1" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-51">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-39" vertex="1">
-            <mxGeometry x="880" y="16" width="220" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <UserObject AWS_Account_ID="" label="Data Subnet 4" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-52">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-51" vertex="1">
-            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <object label="eu-west-1c" id="pj1l9u-Ld7OoOsmG_GXO-53">
-          <mxCell style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
-        </object>
-        <object label="" Availability_Zone="eu-west-1c" Region="eu-west-1" id="pj1l9u-Ld7OoOsmG_GXO-54">
-          <mxCell style="group" parent="pj1l9u-Ld7OoOsmG_GXO-53" vertex="1" connectable="0">
+        <UserObject AWS_Account_ID="" label="" Name="%aws_region%a" Region="%aws_region%" Type="Availability Zone" tags="" id="pj1l9u-Ld7OoOsmG_GXO-55">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;verticalAlign=top;fillColor=none;fillOpacity=100;dashed=1;dashPattern=5 5;fontColor=#0E82B8;strokeOpacity=100;strokeColor=#147eba;whiteSpace=wrap;fontSize=13.3;fontStyle=1;align=center;spacingRight=120;spacingTop=10.5;spacing=0;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-53" vertex="1">
             <mxGeometry x="140" y="-626" width="1270" height="150" as="geometry" />
           </mxCell>
-        </object>
-        <UserObject AWS_Account_ID="" label="" Name="eu-west-1a" Region="eu-west-1" Type="Availability Zone" id="pj1l9u-Ld7OoOsmG_GXO-55">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;verticalAlign=top;fillColor=none;fillOpacity=100;dashed=1;dashPattern=5 5;fontColor=#0E82B8;strokeOpacity=100;strokeColor=#147eba;whiteSpace=wrap;fontSize=13.3;fontStyle=1;align=center;spacingRight=120;spacingTop=10.5;spacing=0;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-54" vertex="1">
-            <mxGeometry width="1270" height="150" as="geometry" />
-          </mxCell>
         </UserObject>
-        <object label="&lt;span style=&quot;color: rgb(14 , 130 , 184) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 13px ; font-style: normal ; font-weight: 700 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; display: inline ; float: none&quot;&gt;Availability Zone C&lt;/span&gt;" Availability_Zone="eu-west-1c" Region="eu-west-1" id="pj1l9u-Ld7OoOsmG_GXO-56">
-          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=270;labelBackgroundColor=none;" parent="pj1l9u-Ld7OoOsmG_GXO-54" vertex="1">
-            <mxGeometry x="-50" y="70" width="130" height="20" as="geometry" />
+        <object label="&lt;span style=&quot;color: rgb(14 , 130 , 184) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 13px ; font-style: normal ; font-weight: 700 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; display: inline ; float: none&quot;&gt;Availability Zone C&lt;/span&gt;" Availability_Zone="%aws_region%c" Region="%aws_region%" tags="" id="pj1l9u-Ld7OoOsmG_GXO-56">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=270;labelBackgroundColor=none;" parent="pj1l9u-Ld7OoOsmG_GXO-53" vertex="1">
+            <mxGeometry x="90" y="-556" width="130" height="20" as="geometry" />
           </mxCell>
         </object>
-        <UserObject AWS_Account_ID="" label="Public Subnet 3" Availability_Zone="eu-west-1c" Subnet_Type="Public" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-59">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#2C8723;fontColor=#2C8723;fillOpacity=13;fillColor=#248814;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-54" vertex="1">
-            <mxGeometry x="43.58823529411765" y="16" width="220" height="120" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <object label="" Availability_Zone="eu-west-1" Region="eu-west-1c" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-60">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-54" vertex="1">
-            <mxGeometry x="320" y="16" width="220" height="120" as="geometry" />
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-92" value="%aws_region%b %private03_tier_name%" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <object label="" Availability_Zone="%aws_region%b" Region="%aws_region%" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-104">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-92" vertex="1">
+            <mxGeometry x="1020" y="-776" width="220" height="120" as="geometry" />
           </mxCell>
         </object>
-        <UserObject AWS_Account_ID="" label="Web Subnet 3" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-61">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-60" vertex="1">
+        <UserObject AWS_Account_ID="" label="%private03_tier_name% subnet 2" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-105">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-104" vertex="1">
             <mxGeometry width="220.00000000000003" height="120" as="geometry" />
           </mxCell>
         </UserObject>
-        <object label="" Availability_Zone="eu-west-1c" Region="eu-west-1" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-64">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-54" vertex="1">
-            <mxGeometry x="600" y="16" width="180" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <UserObject AWS_Account_ID="" label="Application Subnet 3" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-65">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-64" vertex="1">
-            <mxGeometry width="220" height="120" as="geometry" />
+        <UserObject label="%private_cidr_block03b%" tags="" id="U2nG9CMOBZZVS6DEHq3C-106">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-92" vertex="1">
+            <mxGeometry x="1108" y="-678" width="60" height="30" as="geometry" />
           </mxCell>
         </UserObject>
-        <object label="" Availability_Zone="eu-west-1c" Region="eu-west-1" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-66">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-54" vertex="1">
-            <mxGeometry x="880" y="16" width="220" height="120" as="geometry" />
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-107" value="%aws_region%b %private02_tier_name%" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject label="%private_cidr_block02b%" tags="" id="U2nG9CMOBZZVS6DEHq3C-118">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-107" vertex="1">
+            <mxGeometry x="828" y="-680" width="60" height="32" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="" Availability_Zone="%aws_region%b" Region="%aws_region%" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-114">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-107" vertex="1">
+            <mxGeometry x="740" y="-776" width="220" height="120" as="geometry" />
           </mxCell>
         </object>
-        <UserObject AWS_Account_ID="" label="Data Subnet 3" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-67">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-66" vertex="1">
+        <UserObject AWS_Account_ID="" label="%private02_tier_name% subnet 2" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" id="U2nG9CMOBZZVS6DEHq3C-115">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-114" vertex="1">
             <mxGeometry width="220.00000000000003" height="120" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-68" value="eu-west-1b" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
-        <object label="" Availability_Zone="eu-west-1b" Region="eu-west-1" id="pj1l9u-Ld7OoOsmG_GXO-69">
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-122" value="%aws_region%b %private01_tier_name%" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <object label="" Availability_Zone="%aws_region%" Region="%aws_region%b" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-127">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-122" vertex="1">
+            <mxGeometry x="460" y="-776" width="220" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <UserObject AWS_Account_ID="" label="%private01_tier_name% subnet 2" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" id="U2nG9CMOBZZVS6DEHq3C-128">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-127" vertex="1">
+            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="%private_cidr_block01b%" tags="" id="U2nG9CMOBZZVS6DEHq3C-132">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-122" vertex="1">
+            <mxGeometry x="548" y="-678" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-137" value="%aws_region%b %public_tier_name%" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject label="%public_cidr_block01b%" tags="" id="U2nG9CMOBZZVS6DEHq3C-146">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-137" vertex="1">
+            <mxGeometry x="266" y="-678" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject AWS_Account_ID="" label="%public_tier_name% subnet 2" Availability_Zone="%aws_region%b" Subnet_Type="Public" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-141">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#2C8723;fontColor=#2C8723;fillOpacity=13;fillColor=#248814;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-137" vertex="1">
+            <mxGeometry x="183.58823529411765" y="-776" width="220" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-10" value="%aws_region%b NGW" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject AWS_Account_ID="" label="NAT gateway" Region="%aws_region%" Availability_Zone="%aws_region%b" Type="NAT Gateway" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-13">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.nat_gateway;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;whiteSpace=wrap;fontSize=13.3;fontColor=#666666;spacing=0;strokeOpacity=0;fillColor=#693cc5;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-10" vertex="1">
+            <mxGeometry x="230" y="-755" width="30" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject AWS_Account_ID="" label="" Availability_Zone="%aws_region%b" Region="%aws_region%" tags="" id="U2nG9CMOBZZVS6DEHq3C-16">
+          <mxCell style="html=1;jettySize=18;whiteSpace=wrap;fontSize=13;strokeColor=#693cc5;strokeOpacity=100;strokeWidth=0.8;rounded=1;arcSize=24;edgeStyle=orthogonalEdgeStyle;startArrow=none;;endArrow=none;;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" parent="U2nG9CMOBZZVS6DEHq3C-10" source="U2nG9CMOBZZVS6DEHq3C-13" edge="1">
+            <mxGeometry x="95" y="-905" width="100" height="100" as="geometry">
+              <Array as="points" />
+              <mxPoint x="125" y="-740" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-68" value="%aws_region%b" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <object label="" Availability_Zone="%aws_region%b" Region="%aws_region%" tags="" id="pj1l9u-Ld7OoOsmG_GXO-69">
           <mxCell style="group" parent="pj1l9u-Ld7OoOsmG_GXO-68" vertex="1" connectable="0">
             <mxGeometry x="140" y="-792" width="1270" height="150" as="geometry" />
           </mxCell>
         </object>
-        <UserObject AWS_Account_ID="" label="" Name="eu-west-1a" Region="eu-west-1" Type="Availability Zone" id="pj1l9u-Ld7OoOsmG_GXO-70">
+        <UserObject AWS_Account_ID="" label="" Name="%aws_region%a" Region="%aws_region%" Type="Availability Zone" id="pj1l9u-Ld7OoOsmG_GXO-70">
           <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;verticalAlign=top;fillColor=none;fillOpacity=100;dashed=1;dashPattern=5 5;fontColor=#0E82B8;strokeOpacity=100;strokeColor=#147eba;whiteSpace=wrap;fontSize=13.3;fontStyle=1;align=center;spacingRight=120;spacingTop=10.5;spacing=0;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-69" vertex="1">
             <mxGeometry width="1270" height="150" as="geometry" />
           </mxCell>
         </UserObject>
-        <object label="&lt;span style=&quot;color: rgb(14 , 130 , 184) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 13px ; font-style: normal ; font-weight: 700 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; display: inline ; float: none&quot;&gt;Availability Zone B&lt;/span&gt;" Availability_Zone="eu-west-1b" Region="eu-west-1" id="pj1l9u-Ld7OoOsmG_GXO-71">
+        <object label="&lt;span style=&quot;color: rgb(14 , 130 , 184) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 13px ; font-style: normal ; font-weight: 700 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; display: inline ; float: none&quot;&gt;Availability Zone B&lt;/span&gt;" Availability_Zone="%aws_region%b" Region="%aws_region%" id="pj1l9u-Ld7OoOsmG_GXO-71">
           <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=270;labelBackgroundColor=none;" parent="pj1l9u-Ld7OoOsmG_GXO-69" vertex="1">
             <mxGeometry x="-50" y="70" width="130" height="20" as="geometry" />
           </mxCell>
         </object>
-        <UserObject AWS_Account_ID="" label="Public Subnet 2" Availability_Zone="eu-west-1b" Subnet_Type="Public" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-74">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#2C8723;fontColor=#2C8723;fillOpacity=13;fillColor=#248814;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-69" vertex="1">
-            <mxGeometry x="43.58823529411765" y="16" width="220" height="120" as="geometry" />
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-60" value="%aws_region%a %private03_tier_name%" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject label="%private_cidr_block03a%" tags="" id="U2nG9CMOBZZVS6DEHq3C-75">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-60" vertex="1">
+            <mxGeometry x="1108" y="-845" width="60" height="30" as="geometry" />
           </mxCell>
         </UserObject>
-        <object label="" Availability_Zone="eu-west-1" Region="eu-west-1b" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-75">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-69" vertex="1">
-            <mxGeometry x="320" y="16" width="220" height="120" as="geometry" />
+        <object label="" Availability_Zone="%aws_region%a" Region="%aws_region%" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-69">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;noLabel=0;" parent="U2nG9CMOBZZVS6DEHq3C-60" vertex="1">
+            <mxGeometry x="1020" y="-941" width="220" height="120" as="geometry" />
           </mxCell>
         </object>
-        <UserObject AWS_Account_ID="" label="Web Subnet 2" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-76">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-75" vertex="1">
+        <UserObject AWS_Account_ID="" label="%private03_tier_name% subnet 1" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-70">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-69" vertex="1">
             <mxGeometry width="220.00000000000003" height="120" as="geometry" />
           </mxCell>
         </UserObject>
-        <object label="" Availability_Zone="eu-west-1b" Region="eu-west-1" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-79">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-69" vertex="1">
-            <mxGeometry x="600" y="16" width="220" height="120" as="geometry" />
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-44" value="%aws_region%a %private02_tier_name%" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject label="%private_cidr_block02a%" tags="" id="U2nG9CMOBZZVS6DEHq3C-58">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-44" vertex="1">
+            <mxGeometry x="828" y="-845" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="" Availability_Zone="%aws_region%a" Region="%aws_region%" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-51">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-44" vertex="1">
+            <mxGeometry x="740" y="-941" width="220" height="120" as="geometry" />
           </mxCell>
         </object>
-        <UserObject AWS_Account_ID="" label="Application Subnet 2" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-80">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-79" vertex="1">
+        <UserObject AWS_Account_ID="" label="%private02_tier_name% subnet 1" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-52">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-51" vertex="1">
             <mxGeometry width="220.00000000000003" height="120" as="geometry" />
           </mxCell>
         </UserObject>
-        <object label="" Availability_Zone="eu-west-1b" Region="eu-west-1" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-81">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-69" vertex="1">
-            <mxGeometry x="880" y="16" width="220" height="120" as="geometry" />
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-28" value="%aws_region%a %private01_tier_name%" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject label="%private_cidr_block01a%" tags="" id="U2nG9CMOBZZVS6DEHq3C-41">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="U2nG9CMOBZZVS6DEHq3C-28" vertex="1">
+            <mxGeometry x="548" y="-845" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <object label="" Availability_Zone="%aws_region%a" Region="%aws_region%" Subnet_Type="Private" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-33">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-28" vertex="1">
+            <mxGeometry x="460" y="-941" width="220" height="120" as="geometry" />
           </mxCell>
         </object>
-        <UserObject AWS_Account_ID="" label="Data Subnet 2" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-82">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-81" vertex="1">
+        <UserObject AWS_Account_ID="" label="%private01_tier_name% subnet 1" Availability_Zone="%aws_region%a" Subnet_Type="Private" CIDR_Block="" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-34">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="U2nG9CMOBZZVS6DEHq3C-33" vertex="1">
             <mxGeometry width="220.00000000000003" height="120" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-83" value="eu-west-1a" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
-        <UserObject AWS_Account_ID="" label="" Name="eu-west-1a" Region="eu-west-1" Type="Availability Zone" id="pj1l9u-Ld7OoOsmG_GXO-84">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;verticalAlign=top;fillColor=none;fillOpacity=100;dashed=1;dashPattern=5 5;fontColor=#0E82B8;strokeOpacity=100;strokeColor=#147eba;whiteSpace=wrap;fontSize=13.3;fontStyle=1;align=center;spacingRight=120;spacingTop=10.5;spacing=0;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-83" vertex="1">
+        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-83" value="%aws_region%a %public_tier_name%" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject label="%public_cidr_block01a%" tags="" id="ioNqWVfJzYsAsUivx3bz-0">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="pj1l9u-Ld7OoOsmG_GXO-83" vertex="1">
+            <mxGeometry x="266" y="-845" width="60" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject AWS_Account_ID="" label="%public_tier_name% subnet 1" Availability_Zone="%aws_region%a" Subnet_Type="Public" Region="%aws_region%" Type="Subnet" VPC_ID="" tags="" id="pj1l9u-Ld7OoOsmG_GXO-87">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#2C8723;fontColor=#2C8723;fillOpacity=13;fillColor=#248814;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-83" vertex="1">
+            <mxGeometry x="183.58823529411765" y="-941" width="220" height="120" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-1" value="%aws_region%a NGW" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject AWS_Account_ID="" label="NAT gateway" Availability_Zone="%aws_region%a" Region="%aws_region%" Type="NAT Gateway" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-3">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.nat_gateway;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;whiteSpace=wrap;fontSize=13.3;fontColor=#666666;spacing=0;strokeOpacity=0;fillColor=#693cc5;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-1" vertex="1">
+            <mxGeometry x="230" y="-919" width="30" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject AWS_Account_ID="" label="" Availability_Zone="%aws_region%a" Region="%aws_region%" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-6">
+          <mxCell style="html=1;jettySize=18;whiteSpace=wrap;fontSize=13;strokeColor=#693cc5;strokeOpacity=100;strokeWidth=0.8;rounded=1;arcSize=24;edgeStyle=orthogonalEdgeStyle;startArrow=none;;endArrow=none;;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" parent="U2nG9CMOBZZVS6DEHq3C-1" target="U2nG9CMOBZZVS6DEHq3C-3" edge="1">
+            <mxGeometry x="95" y="-905" width="100" height="100" as="geometry">
+              <Array as="points">
+                <mxPoint x="180" y="-740" />
+                <mxPoint x="180" y="-904" />
+              </Array>
+              <mxPoint x="125" y="-740" as="sourcePoint" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <mxCell id="U2nG9CMOBZZVS6DEHq3C-76" value="%aws_region%a" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
+        <UserObject AWS_Account_ID="" label="" Name="%aws_region%a" Region="%aws_region%" Type="Availability Zone" tags="" id="U2nG9CMOBZZVS6DEHq3C-77">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;verticalAlign=top;fillColor=none;fillOpacity=100;dashed=1;dashPattern=5 5;fontColor=#0E82B8;strokeOpacity=100;strokeColor=#147eba;whiteSpace=wrap;fontSize=13.3;fontStyle=1;align=center;spacingRight=120;spacingTop=10.5;spacing=0;strokeWidth=1.5;" parent="U2nG9CMOBZZVS6DEHq3C-76" vertex="1">
             <mxGeometry x="140" y="-957" width="1270" height="150" as="geometry" />
           </mxCell>
         </UserObject>
-        <object label="" Availability_Zone="eu-west-1a" Region="eu-west-1" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-85">
-          <mxCell style="group;dropTarget=0;horizontal=1;direction=east;" parent="pj1l9u-Ld7OoOsmG_GXO-83" vertex="1">
+        <object label="" Availability_Zone="%aws_region%a" Region="%aws_region%" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-78">
+          <mxCell style="group;dropTarget=0;horizontal=1;direction=east;" parent="U2nG9CMOBZZVS6DEHq3C-76" vertex="1">
             <mxGeometry x="140" y="-957" width="1315" height="150" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="pj1l9u-Ld7OoOsmG_GXO-86" value="" style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;container=0;" parent="pj1l9u-Ld7OoOsmG_GXO-85" vertex="1">
-          <mxGeometry x="43.588235294117645" y="16" width="1271.4117647058824" height="134" as="geometry" />
-        </mxCell>
-        <UserObject AWS_Account_ID="" label="Public Subnet 1" Availability_Zone="eu-west-1a" Subnet_Type="Public" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-87">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#2C8723;fontColor=#2C8723;fillOpacity=13;fillColor=#248814;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-85" vertex="1">
-            <mxGeometry x="43.58823529411765" y="16" width="220" height="120" as="geometry" />
+        <UserObject label="" tags="" id="U2nG9CMOBZZVS6DEHq3C-79">
+          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;container=0;" parent="U2nG9CMOBZZVS6DEHq3C-78" vertex="1">
+            <mxGeometry x="43.588235294117645" y="16" width="1271.4117647058824" height="134" as="geometry" />
           </mxCell>
         </UserObject>
-        <object label="" Availability_Zone="eu-west-1a" Region="eu-west-1" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-88">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-85" vertex="1">
-            <mxGeometry x="320" y="16" width="220" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <UserObject AWS_Account_ID="" label="Web Subnet 1" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-89">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-88" vertex="1">
-            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <object label="" Availability_Zone="eu-west-1a" Region="eu-west-1" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-92">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-85" vertex="1">
-            <mxGeometry x="600" y="16" width="220" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <UserObject AWS_Account_ID="" label="Application Subnet 1" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-93">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-92" vertex="1">
-            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <object label="" Availability_Zone="eu-west-1a" Region="eu-west-1" Subnet_Type="Private" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-94">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;whiteSpace=wrap;fontSize=13.3;fontColor=#333333;spacing=0;verticalAlign=top;strokeOpacity=0;fillOpacity=0;fillColor=#000000;strokeWidth=1.5;" parent="pj1l9u-Ld7OoOsmG_GXO-85" vertex="1">
-            <mxGeometry x="880" y="16" width="220" height="120" as="geometry" />
-          </mxCell>
-        </object>
-        <UserObject AWS_Account_ID="" label="Data Subnet 1" Availability_Zone="eu-west-1a" Subnet_Type="Private" CIDR_Block="" Region="eu-west-1" Type="Subnet" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-95">
-          <mxCell style="html=1;overflow=block;blockSpacing=1;whiteSpace=wrap;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;verticalAlign=top;align=left;spacingLeft=30;strokeColor=#0E82B8;fontColor=#0E82B8;fillOpacity=13;fillColor=#147eba;whiteSpace=wrap;fontSize=13.3;spacing=0;strokeOpacity=0;strokeWidth=1.5;part=1;" parent="pj1l9u-Ld7OoOsmG_GXO-94" vertex="1">
-            <mxGeometry width="220.00000000000003" height="120" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <object label="&lt;span style=&quot;color: rgb(14 , 130 , 184) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 13px ; font-style: normal ; font-weight: 700 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; display: inline ; float: none&quot;&gt;Availability Zone A&lt;/span&gt;" Availability_Zone="eu-west-1a" Region="eu-west-1" VPC_ID="" id="pj1l9u-Ld7OoOsmG_GXO-96">
-          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=270;labelBackgroundColor=none;" parent="pj1l9u-Ld7OoOsmG_GXO-83" vertex="1">
+        <object label="&lt;span style=&quot;color: rgb(14 , 130 , 184) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 13px ; font-style: normal ; font-weight: 700 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; display: inline ; float: none&quot;&gt;Availability Zone A&lt;/span&gt;" Availability_Zone="%aws_region%a" Region="%aws_region%" VPC_ID="" tags="" id="U2nG9CMOBZZVS6DEHq3C-87">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=270;labelBackgroundColor=none;" parent="U2nG9CMOBZZVS6DEHq3C-76" vertex="1">
             <mxGeometry x="90" y="-887" width="130" height="20" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-1" value="cidr_ranges" style="locked=1;" parent="pj1l9u-Ld7OoOsmG_GXO-0" />
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-3" value="%master_cidr_block%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="783" y="-995" width="68" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-4" value="%public_cidr_blocks00a%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="266" y="-845" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-5" value="%public_cidr_blocks00b%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="266" y="-678" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-6" value="%public_cidr_blocks00c%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="266" y="-515" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-7" value="%public_cidr_blocks00d%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="264" y="-346" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-8" value="%private_cidr_blocks01a%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="548" y="-845" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-9" value="%private_cidr_blocks01b%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="548" y="-678" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-10" value="%private_cidr_blocks01c%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="548" y="-515" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-11" value="%private_cidr_blocks01d%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="548" y="-346" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-12" value="%private_cidr_blocks02a%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="828" y="-845" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-13" value="%private_cidr_blocks02b%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="828" y="-678" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-14" value="%private_cidr_blocks02c%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="828" y="-515" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-15" value="%private_cidr_blocks02d%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="828" y="-346" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-16" value="%private_cidr_blocks03a%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="1108" y="-845" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-17" value="%private_cidr_blocks03b%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="1108" y="-678" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-18" value="%private_cidr_blocks03c%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="1108" y="-515" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Eo25j14j2uIU8A9BkdMR-19" value="%private_cidr_blocks03d%" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Eo25j14j2uIU8A9BkdMR-1" vertex="1">
-          <mxGeometry x="1108" y="-346" width="60" height="30" as="geometry" />
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
