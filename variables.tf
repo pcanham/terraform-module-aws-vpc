@@ -118,6 +118,12 @@ variable "tags" {
   default     = {}
 }
 
+variable "vpc_tags" {
+  type        = map(string)
+  description = "A map of tags to add to VPC resource."
+  default     = {}
+}
+
 variable "private_subnet_tags" {
   type        = map(string)
   description = "A map of tags to assign to private subnets."

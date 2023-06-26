@@ -109,18 +109,18 @@ No modules.
 | <a name="input_private_cidr_blocks01"></a> [private\_cidr\_blocks01](#input\_private\_cidr\_blocks01) | CIDR Blocks for Private Subnets | `list(any)` | `[]` | no |
 | <a name="input_private_cidr_blocks02"></a> [private\_cidr\_blocks02](#input\_private\_cidr\_blocks02) | CIDR Blocks for Private Subnets | `list(any)` | `[]` | no |
 | <a name="input_private_cidr_blocks03"></a> [private\_cidr\_blocks03](#input\_private\_cidr\_blocks03) | CIDR Blocks for Private Subnets | `list(any)` | `[]` | no |
-| <a name="input_private_routing_tables_tags"></a> [private\_routing\_tables\_tags](#input\_private\_routing\_tables\_tags) | A map of tags to assign to private routing tables | `map(string)` | `{}` | no |
+| <a name="input_private_routing_tables_tags"></a> [private\_routing\_tables\_tags](#input\_private\_routing\_tables\_tags) | A map of tags to assign to private routing tables. | `map(string)` | `{}` | no |
 | <a name="input_private_subnet_tags"></a> [private\_subnet\_tags](#input\_private\_subnet\_tags) | A map of tags to assign to private subnets. | `map(string)` | `{}` | no |
 | <a name="input_project_tag"></a> [project\_tag](#input\_project\_tag) | Project code name or name | `string` | `""` | no |
 | <a name="input_public_cidr_blocks"></a> [public\_cidr\_blocks](#input\_public\_cidr\_blocks) | CIDR Blocks for Public Subnets | `list(any)` | `[]` | no |
-| <a name="input_public_routing_tables_tags"></a> [public\_routing\_tables\_tags](#input\_public\_routing\_tables\_tags) | A map of tags to assign to public routing tables | `map(string)` | `{}` | no |
+| <a name="input_public_routing_tables_tags"></a> [public\_routing\_tables\_tags](#input\_public\_routing\_tables\_tags) | A map of tags to assign to public routing tables. | `map(string)` | `{}` | no |
 | <a name="input_public_subnet_tags"></a> [public\_subnet\_tags](#input\_public\_subnet\_tags) | A map of tags to assign to public subnets. | `map(string)` | `{}` | no |
 | <a name="input_public_tier_name"></a> [public\_tier\_name](#input\_public\_tier\_name) | Tag value for tier subnet | `string` | `"dmz"` | no |
 | <a name="input_single_nat_gateway"></a> [single\_nat\_gateway](#input\_single\_nat\_gateway) | Should be true if you want to provision for your entire VPC | `bool` | `false` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources. | `map(string)` | `{}` | no |
 | <a name="input_vpc_enable_dns_hostnames"></a> [vpc\_enable\_dns\_hostnames](#input\_vpc\_enable\_dns\_hostnames) | Enable VPC DNS hostnames | `bool` | `true` | no |
 | <a name="input_vpc_enable_dns_support"></a> [vpc\_enable\_dns\_support](#input\_vpc\_enable\_dns\_support) | Enable VPC DNS Support | `bool` | `true` | no |
-| <a name="input_vpc_tags"></a> [vpc\_tags](#input\_vpc\_tags) | A map of tags to assign to VPC. | `map(string)` | `{}` | no |
+| <a name="input_vpc_tags"></a> [vpc\_tags](#input\_vpc\_tags) | A map of tags to add to VPC resource. | `map(string)` | `{}` | no |
 | <a name="input_vpcflow_log_accepted_retention"></a> [vpcflow\_log\_accepted\_retention](#input\_vpcflow\_log\_accepted\_retention) | How many day's worth of VPC Flow logs to keep for accepted connections | `string` | `"14"` | no |
 | <a name="input_vpcflow_log_rejected_retention"></a> [vpcflow\_log\_rejected\_retention](#input\_vpcflow\_log\_rejected\_retention) | How many day's worth of VPC Flow logs to keep for rejected connections | `string` | `"14"` | no |
 
