@@ -7,6 +7,7 @@ resource "aws_subnet" "pm_pro_public" {
 
   tags = merge(
     var.tags,
+    var.public_subnet_tags,
     {
       "Name" = lower(
         format(
@@ -35,6 +36,7 @@ resource "aws_subnet" "pm_pro_private01" {
 
   tags = merge(
     var.tags,
+    var.private_subnet_tags,
     {
       "Name" = lower(
         format(
@@ -62,6 +64,7 @@ resource "aws_subnet" "pm_pro_private02" {
 
   tags = merge(
     var.tags,
+    var.private_subnet_tags,
     {
       "Name" = lower(
         format(
@@ -89,6 +92,7 @@ resource "aws_subnet" "pm_pro_private03" {
 
   tags = merge(
     var.tags,
+    var.private_subnet_tags,
     {
       "Name" = lower(
         format(
