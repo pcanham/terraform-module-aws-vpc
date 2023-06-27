@@ -5,8 +5,8 @@ locals {
 
 resource "aws_eip" "nat_ip" {
   #checkov:skip=CKV2_AWS_19:Elastic IP (EIP) being assigned to NAT Gateway
-  count = local.nat_gateway_count
-  vpc   = true
+  count  = local.nat_gateway_count
+  domain = "vpc"
 
   tags = merge(
     var.tags,
