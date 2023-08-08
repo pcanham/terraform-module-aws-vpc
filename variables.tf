@@ -118,6 +118,36 @@ variable "tags" {
   default     = {}
 }
 
+variable "vpc_tags" {
+  type        = map(string)
+  description = "A map of tags to add to VPC resource."
+  default     = {}
+}
+
+variable "private_subnet_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private subnets."
+  default     = {}
+}
+
+variable "public_subnet_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to public subnets."
+  default     = {}
+}
+
+variable "private_routing_tables_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private routing tables."
+  default     = {}
+}
+
+variable "public_routing_tables_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to public routing tables."
+  default     = {}
+}
+
 variable "dhcp_domain_name" {
   type        = string
   description = "Enter a domain name (such as example.com)."

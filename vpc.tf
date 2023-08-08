@@ -5,6 +5,7 @@ resource "aws_vpc" "pro" {
 
   tags = merge(
     var.tags,
+    var.vpc_tags,
     { "Name" = lower(
       format(
         "vpc-%s-%s-%s",
