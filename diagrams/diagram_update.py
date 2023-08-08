@@ -58,10 +58,8 @@ if __name__ == "__main__":
         public_cidr_block01c_ngw_visible = False
         public_cidr_block01d_ngw_visible = False
 
-    if (
-        not tfvar_defaults["single_nat_gateway"]
-        and tfvar_defaults["one_nat_gateway_per_az"]
-    ):
+    if (not tfvar_defaults["single_nat_gateway"]
+            and tfvar_defaults["one_nat_gateway_per_az"]):
         public_cidr_block01a_ngw_visible = True
         public_cidr_block01b_ngw_visible = True
         public_cidr_block01c_ngw_visible = True
@@ -179,19 +177,16 @@ if __name__ == "__main__":
     filehandle.close()
 
     content = content.replace("%aws_region%", tfvar_defaults["aws_region"])
-    content = content.replace(
-        "%master_cidr_block%", tfvar_defaults["master_cidr_block"]
-    )
-    content = content.replace("%public_tier_name%", tfvar_defaults["public_tier_name"])
-    content = content.replace(
-        "%private01_tier_name%", tfvar_defaults["private01_tier_name"]
-    )
-    content = content.replace(
-        "%private02_tier_name%", tfvar_defaults["private02_tier_name"]
-    )
-    content = content.replace(
-        "%private03_tier_name%", tfvar_defaults["private03_tier_name"]
-    )
+    content = content.replace("%master_cidr_block%",
+                              tfvar_defaults["master_cidr_block"])
+    content = content.replace("%public_tier_name%",
+                              tfvar_defaults["public_tier_name"])
+    content = content.replace("%private01_tier_name%",
+                              tfvar_defaults["private01_tier_name"])
+    content = content.replace("%private02_tier_name%",
+                              tfvar_defaults["private02_tier_name"])
+    content = content.replace("%private03_tier_name%",
+                              tfvar_defaults["private03_tier_name"])
 
     content = content.replace("%public_cidr_block01a%", public_cidr_block01a)
     content = content.replace("%public_cidr_block01b%", public_cidr_block01b)
