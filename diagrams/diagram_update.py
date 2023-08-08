@@ -11,8 +11,8 @@ def visability(tree, layername, visability):
     """
 
     :param tree: param layername:
-    :param visability:
-    :param layername:
+    :param visability: param layername:
+    :param layername: 
 
     """
     root = tree.getroot()
@@ -33,7 +33,7 @@ def visability(tree, layername, visability):
 def Convert(string):
     """
 
-    :param string:
+    :param string: 
 
     """
     li = list(string.split(","))
