@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # _*_ coding: utf-8
-
 import pprint
 import re
 import xml.etree.ElementTree as ET
