@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # _*_ coding: utf-8
 
-import xml.etree.ElementTree as ET
-import tomli  # import tomllib in Python 3.11
 import pprint
 import re
+import xml.etree.ElementTree as ET
+
+import tomli  # import tomllib in Python 3.11
 
 
 def visability(tree, layername, visability):
