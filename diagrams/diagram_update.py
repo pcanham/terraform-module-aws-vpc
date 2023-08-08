@@ -10,9 +10,9 @@ import tomli  # import tomllib in Python 3.11
 def visability(tree, layername, visability):
     """
 
-    :param tree:
-    :param layername:
+    :param tree: param layername:
     :param visability:
+    :param layername:
 
     """
     root = tree.getroot()
