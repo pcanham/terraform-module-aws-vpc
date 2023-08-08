@@ -9,6 +9,13 @@ import tomli  # import tomllib in Python 3.11
 
 
 def visability(tree, layername, visability):
+    """
+
+    :param tree: 
+    :param layername: 
+    :param visability: 
+
+    """
     root = tree.getroot()
 
     for form in root.findall("./diagram/mxGraphModel/root"):
@@ -25,6 +32,11 @@ def visability(tree, layername, visability):
 
 
 def Convert(string):
+    """
+
+    :param string: 
+
+    """
     li = list(string.split(","))
     return li
 
