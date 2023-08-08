@@ -17,6 +17,7 @@ Applications used within this repo to help with CHANGELOG creation and also chec
 - [git-chglog](https://github.com/git-chglog/git-chglog)
 - [semtag](https://github.com/pnikosis/semtag)
 - [pre-commit](https://pre-commit.com/)
+- [gitleaks](https://gitleaks.io/)
 
 ## Subnet Layout
 
@@ -31,10 +32,10 @@ This Module can deploy a 4-tier VPC layout, if you do not wish to have the 4th t
 
 ## Requirements
 
-| Name                                                                     | Version  |
-| ------------------------------------------------------------------------ | -------- |
-| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | ~> 1.0   |
-| <a name="requirement_aws"></a> [aws](#requirement_aws)                   | ~> 5.5.0 |
+| Name                                                                     | Version   |
+| ------------------------------------------------------------------------ | --------- |
+| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | ~> 1.0    |
+| <a name="requirement_aws"></a> [aws](#requirement_aws)                   | ~> 5.11.0 |
 
 ## Providers
 
