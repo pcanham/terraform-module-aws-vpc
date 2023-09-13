@@ -13,3 +13,5 @@
 .terraform.lock.hcl
 
 .DS_Store
+tfplan
+.infracost/terraform_modules/manifest.json
