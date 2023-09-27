@@ -1,4 +1,4 @@
-resource "aws_vpc" "pro" {
+resource "aws_vpc" "main" {
   cidr_block           = var.master_cidr_block
   enable_dns_support   = var.vpc_enable_dns_support
   enable_dns_hostnames = var.vpc_enable_dns_hostnames
@@ -20,7 +20,7 @@ resource "aws_vpc" "pro" {
 }
 
 resource "aws_default_security_group" "default" {
-  vpc_id = aws_vpc.pro.id
+  vpc_id = aws_vpc.main.id
 
   tags = merge(
     var.tags,
@@ -36,7 +36,7 @@ resource "aws_default_security_group" "default" {
 }
 
 resource "aws_internet_gateway" "internet_gw" {
-  vpc_id = aws_vpc.pro.id
+  vpc_id = aws_vpc.main.id
 
   tags = merge(
     var.tags,

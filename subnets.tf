@@ -1,5 +1,5 @@
-resource "aws_subnet" "pm_pro_public" {
-  vpc_id                  = aws_vpc.pro.id
+resource "aws_subnet" "public" {
+  vpc_id                  = aws_vpc.main.id
   count                   = length(var.public_cidr_blocks)
   availability_zone       = element(var.availability_zones, count.index)
   cidr_block              = element(var.public_cidr_blocks, count.index)
@@ -27,8 +27,8 @@ resource "aws_subnet" "pm_pro_public" {
   )
 }
 
-resource "aws_subnet" "pm_pro_private01" {
-  vpc_id                  = aws_vpc.pro.id
+resource "aws_subnet" "private01" {
+  vpc_id                  = aws_vpc.main.id
   count                   = length(var.private_cidr_blocks01)
   availability_zone       = element(var.availability_zones, count.index)
   cidr_block              = element(var.private_cidr_blocks01, count.index)
@@ -55,8 +55,8 @@ resource "aws_subnet" "pm_pro_private01" {
   )
 }
 
-resource "aws_subnet" "pm_pro_private02" {
-  vpc_id                  = aws_vpc.pro.id
+resource "aws_subnet" "private02" {
+  vpc_id                  = aws_vpc.main.id
   count                   = length(var.private_cidr_blocks02)
   availability_zone       = element(var.availability_zones, count.index)
   cidr_block              = element(var.private_cidr_blocks02, count.index)
@@ -83,8 +83,8 @@ resource "aws_subnet" "pm_pro_private02" {
   )
 }
 
-resource "aws_subnet" "pm_pro_private03" {
-  vpc_id                  = aws_vpc.pro.id
+resource "aws_subnet" "private03" {
+  vpc_id                  = aws_vpc.main.id
   count                   = length(var.private_cidr_blocks03)
   availability_zone       = element(var.availability_zones, count.index)
   cidr_block              = element(var.private_cidr_blocks03, count.index)

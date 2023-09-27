@@ -4,42 +4,42 @@ output "aws_region" {
 }
 
 output "vpc_id" {
-  value       = aws_vpc.pro.id
+  value       = aws_vpc.main.id
   description = "AWS VPC ID"
 }
 
 output "vpc_cidr" {
-  value       = aws_vpc.pro.cidr_block
+  value       = aws_vpc.main.cidr_block
   description = "CIDR Range being used by VPC"
 }
 
 output "all_subnet_ids" {
-  value       = concat(aws_subnet.pm_pro_public[*].id, aws_subnet.pm_pro_private01[*].id, aws_subnet.pm_pro_private02[*].id, aws_subnet.pm_pro_private03[*].id)
+  value       = concat(aws_subnet.public[*].id, aws_subnet.private01[*].id, aws_subnet.private02[*].id, aws_subnet.private03[*].id)
   description = "List all used subnet ids"
 }
 
 output "public_subnet_ids" {
-  value       = aws_subnet.pm_pro_public[*].id
+  value       = aws_subnet.public[*].id
   description = "List all used public subnet ids"
 }
 
 output "private_subnet_ids" {
-  value       = concat(aws_subnet.pm_pro_private01[*].id, aws_subnet.pm_pro_private02[*].id, aws_subnet.pm_pro_private03[*].id)
+  value       = concat(aws_subnet.private01[*].id, aws_subnet.private02[*].id, aws_subnet.private03[*].id)
   description = "List all used private subnet ids"
 }
 
 output "private_subnet01_ids" {
-  value       = aws_subnet.pm_pro_private01[*].id
+  value       = aws_subnet.private01[*].id
   description = "List all used private 01 subnet ids"
 }
 
 output "private_subnet02_ids" {
-  value       = aws_subnet.pm_pro_private02[*].id
+  value       = aws_subnet.private02[*].id
   description = "List all used private 02 subnet ids"
 }
 
 output "private_subnet03_ids" {
-  value       = aws_subnet.pm_pro_private03[*].id
+  value       = aws_subnet.private03[*].id
   description = "List all used private 03 subnet ids"
 }
 
@@ -49,7 +49,7 @@ output "nat_gw_eips" {
 }
 
 output "public_tier_name" {
-  value       = aws_subnet.pm_pro_public[*].id
+  value       = aws_subnet.public[*].id
   description = "Tag being used for describing public subnet tier"
 }
 
