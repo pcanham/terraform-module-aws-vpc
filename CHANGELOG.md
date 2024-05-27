@@ -1,3 +1,18 @@
+## [0.1.24](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.23...0.1.24) (2024-05-27)
+
+
+### Bug Fixes
+
+* **ci:** adding in required configuration files ([a33e2a1](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/a33e2a18b249b49e8aefa1cf15ad38de74bc6e86))
+* fixing json syntax ([c848f7d](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/c848f7de42eee478584049b95bb779139fc9bbb7))
+* module upgrade for fixes and ability to perform the upload of the module to registry ([bd3152a](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/bd3152a7cf6af61a04b1410c1be60e5716c30e57))
+* upgrading module ([2b338db](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/2b338db8cec4265d47f8d7390ea1b5e5da129516))
+
+
+### Features
+
+* setup gitlabci ([f078550](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/f0785506a31d242607ffb8fe46bf68ac4503b086))
+
 # Changelog
 All notable changes to this project will be documented in this file.
 
