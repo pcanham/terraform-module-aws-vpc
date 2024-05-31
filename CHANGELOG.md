@@ -1,3 +1,10 @@
+## [0.1.25](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.24...0.1.25) (2024-05-31)
+
+
+### Bug Fixes
+
+* **lint:** around python script for auto generating diagrams ([3f1c8df](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/3f1c8df15444b868ee314ae923634ba2e42b2533))
+
 ## [0.1.24](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.23...0.1.24) (2024-05-27)
 
 
