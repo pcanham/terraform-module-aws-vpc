@@ -3,6 +3,7 @@
 import xml.etree.ElementTree as ET
 import tomli  # import tomllib in Python 3.11
 
+
 def visability(tree, layername, visability):
     """
 
@@ -56,7 +57,7 @@ if __name__ == "__main__":
 
     if (
             not tfvar_defaults["single_nat_gateway"]
-            and tfvar_defaults["one_nat_gateway_per_az"]
+        and tfvar_defaults["one_nat_gateway_per_az"]
         ):
             public_cidr_block01a_ngw_visible = True
             public_cidr_block01b_ngw_visible = True
