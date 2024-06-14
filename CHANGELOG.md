@@ -1,3 +1,19 @@
+## [0.1.26](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.25...0.1.26) (2024-06-14)
+
+
+### Bug Fixes
+
+* [skip ci] allow longer commit message ([c738a67](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/c738a67398798d8da97828b5e96f49a180ae9aa4))
+* [skip ci] automerge incorrectly grouped not merged ([4787a82](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/4787a828de79bf6136fa55e0a534b55138a868d0))
+* **lint:** [skip ci] javascript fix using standard pre-commit ([e30cd1d](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/e30cd1d243e6129793c8311829c8307dfd5357c7))
+* **lint:** flake8 errors ([369a830](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/369a830b7384dd561c0d6cb6b2724aeab323e2ec))
+* remove flake8 tests ([e58d942](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/e58d942d590c890894868022ab40f8fe60a52327))
+
+
+### Features
+
+* enable auto-patching for minor and patches ([f803ddb](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/f803ddb9e1fc01a48d84600b700372aa4f7a2a75))
+
 ## [0.1.25](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.24...0.1.25) (2024-05-31)
 
 
