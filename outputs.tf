@@ -49,7 +49,7 @@ output "nat_gw_eips" {
 }
 
 output "public_tier_name" {
-  value       = aws_subnet.pm_pro_public[*].id
+  value       = var.public_tier_name
   description = "Tag being used for describing public subnet tier"
 }
 
