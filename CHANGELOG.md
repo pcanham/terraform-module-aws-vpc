@@ -1,3 +1,10 @@
+## [0.1.28](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.27...0.1.28) (2024-07-06)
+
+
+### Bug Fixes
+
+* public tier name output ([2ce4ba1](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/2ce4ba16c73826c90ce8d39a918022ef3267204a))
+
 ## [0.1.26](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.25...0.1.26) (2024-06-14)
 
 
