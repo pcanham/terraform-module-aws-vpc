@@ -1,3 +1,10 @@
+## [0.1.29](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.28...0.1.29) (2025-01-25)
+
+
+### Bug Fixes
+
+* markdown lint fixes ([451983e](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/451983e2f40bd8a9ea2c38d0df89d8315c70156e))
+
 ## [0.1.28](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.27...0.1.28) (2024-07-06)
 
 
