@@ -1,3 +1,21 @@
+## [0.1.30](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.29...0.1.30) (2025-02-03)
+
+
+### Bug Fixes
+
+* disable grype seeing issues with megalinter ([6a7f672](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/6a7f672bac500d95ad24d45db92fcd2c61bd60d6))
+* ignore markdownlint 80 char line limit ([526878d](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/526878dfe84011a9796956e36b0c4130b073cf93))
+* **chore:** lint fixes ([6ff62bc](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/6ff62bc618597c4eff83e5322e1e24ec172621d5))
+* **chore:** lint fixes ([5cce7fd](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/5cce7fd42095ef6010d14b480294ac4de676491a))
+* lint line ends fix ([6f40a7a](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/6f40a7a87f520bf5fccf3d036b4047d4c189d0d7))
+* **lint:** prettier error for json format ([ccfb082](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/ccfb082fd3c5bb0ce1cd024666a5d5dbc3ad6759))
+* stop parallel running of megalinter workarounf gh [#4591](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/issues/4591) ([a10fe3b](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/a10fe3b728d64f4c65231afdd117d4b92caca312))
+
+
+### Features
+
+* standardising mega-linter config for tf modules ([490c067](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/490c0675f09faab63284b72f82251293a2c0d46b))
+
 ## [0.1.29](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.28...0.1.29) (2025-01-25)
 
 
