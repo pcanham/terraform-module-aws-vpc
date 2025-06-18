@@ -1,3 +1,18 @@
+## [0.1.31](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.30...0.1.31) (2025-06-18)
+
+
+### Bug Fixes
+
+* bump pipeline version for image fixes ([6f6488f](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/6f6488fb4eab3c5c0e2ff0f1e9bd67cf60f740f2))
+* bump pipeline version to fix alpine OS image upgrade ([a5931be](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/a5931be20961ee742e6d60ebb0dba00f4820f18f))
+* release part of pipeline fixed ([3d77588](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/3d77588fcfb24d39332fb56e44efd705bb691831))
+* remove alpine version deps from pipeline ([066a519](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/066a5192e150851ca807c4e1d0ee8457aaecfc24))
+
+
+### Features
+
+* move to central gitlab-ci template repo ([5e6a292](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/5e6a29242a3e5c4cdca54316240485e13a00a6be))
+
 ## [0.1.30](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.29...0.1.30) (2025-02-03)
 
 
