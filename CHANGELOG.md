@@ -1,3 +1,10 @@
+## [0.1.32](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.31...0.1.32) (2025-06-20)
+
+
+### Features
+
+* allow IPAM usage ([379f35a](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/379f35a7694b8a88f443822fb49b228a7845970a))
+
 ## [0.1.31](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.30...0.1.31) (2025-06-18)
 
 
