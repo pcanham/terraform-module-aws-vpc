@@ -40,6 +40,12 @@ variable "ipv4_ipam_pool_id" {
   default     = ""
 }
 
+variable "ipv4_netmask_length" {
+  description = "(Optional) The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a ipv4_ipam_pool_id"
+  type        = number
+  default     = null
+}
+
 variable "public_cidr_blocks" {
   type        = list(any)
   description = "CIDR Blocks for Public Subnets"
