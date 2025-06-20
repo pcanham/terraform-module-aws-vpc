@@ -34,6 +34,12 @@ variable "one_nat_gateway_per_az" {
   default     = true
 }
 
+variable "ipv4_ipam_pool_id" {
+  type        = string
+  description = "Use IPv4 IPAM Pool for VPC"
+  default     = ""
+}
+
 variable "public_cidr_blocks" {
   type        = list(any)
   description = "CIDR Blocks for Public Subnets"
