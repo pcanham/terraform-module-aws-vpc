@@ -1,3 +1,10 @@
+## [0.1.33](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.32...0.1.33) (2025-06-20)
+
+
+### Bug Fixes
+
+* support ipam ([e6e6694](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/e6e6694ed364b0bebc6fc9dc6b5a9003726f826a))
+
 ## [0.1.32](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.31...0.1.32) (2025-06-20)
 
 
