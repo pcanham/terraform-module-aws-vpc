@@ -1,4 +1,5 @@
 resource "aws_vpc" "pro" {
+  ipv4_ipam_pool_id    = var.ipv4_ipam_pool_id == "" ? null : var.ipv4_ipam_pool_id
   cidr_block           = var.master_cidr_block
   enable_dns_support   = var.vpc_enable_dns_support
   enable_dns_hostnames = var.vpc_enable_dns_hostnames
