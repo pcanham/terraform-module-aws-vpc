@@ -1,3 +1,18 @@
+## [0.1.34](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.33...0.1.34) (2025-06-22)
+
+
+### Bug Fixes
+
+* adding in missing varable for priv 04 subnet ([e8f972d](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/e8f972d1089c891ff6e2ca0f35cb9b3edc1b3596))
+* remove ref to project and environment variable ([ba06f1a](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/ba06f1a483ca55fccaf0e770411a1aacdbf788fd))
+
+
+### Features
+
+* add custom tagging per private subnet and routing table ([93bc6e6](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/93bc6e68019259223c9861e77c8f1af2c35fb283))
+* add in another private subnet ([73084bb](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/73084bb0f52196d9166c03ccd691e816fda1168b))
+* change tagging names making more generic ([b615abe](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/b615abe160797d2703f08a61d06076c6ef893fe7))
+
 ## [0.1.33](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.32...0.1.33) (2025-06-20)
 
 
