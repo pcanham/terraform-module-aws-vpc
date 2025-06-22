@@ -1,3 +1,10 @@
+## [0.1.36](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.35...0.1.36) (2025-06-22)
+
+
+### Bug Fixes
+
+* add in missing vpv endpoint for subnet 04 ([b488b7d](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/b488b7d9ee50e4915add3129f73d8755804e11e7))
+
 ## [0.1.35](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.34...0.1.35) (2025-06-22)
 
 
