@@ -106,3 +106,30 @@ resource "aws_subnet" "pm_pro_private03" {
     local.tags_k8s_values
   )
 }
+
+resource "aws_subnet" "pm_pro_private04" {
+  vpc_id                  = aws_vpc.pro.id
+  count                   = length(var.private_cidr_blocks04)
+  availability_zone       = element(var.availability_zones, count.index)
+  cidr_block              = element(var.private_cidr_blocks04, count.index)
+  map_public_ip_on_launch = false
+
+  tags = merge(
+    var.tags,
+    var.private_subnet_tags,
+    {
+      "Name" = lower(
+        format(
+          "snprv%02d%s-%s",
+          4,
+          substr(element(var.availability_zones, count.index), -1, 1),
+          var.name,
+        ),
+      )
+    },
+    {
+      "Tier" = var.private04_tier_name
+    },
+    local.tags_k8s_values
+  )
+}

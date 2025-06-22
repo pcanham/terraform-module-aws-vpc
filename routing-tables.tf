@@ -133,6 +133,42 @@ resource "aws_route" "private03_ngw" {
   nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw[0].id : element(aws_nat_gateway.nat_gw[*].id, count.index)
 }
 
+resource "aws_route_table" "private04" {
+  vpc_id = aws_vpc.pro.id
+  count  = length(var.private_cidr_blocks04)
+
+  tags = merge(
+    var.tags,
+    var.private_routing_tables_tags,
+    { "Name" = lower(
+      format(
+        "rtprv%02d%s-%s",
+        4,
+        substr(element(var.availability_zones, count.index), -1, 1),
+        var.name,
+      ),
+      )
+    },
+    {
+      "Tier" = var.private04_tier_name
+    }
+  )
+
+  lifecycle {
+    # When attaching VPN gateways it is common to define aws_vpn_gateway_route_propagation
+    # resources that manipulate the attributes of the routing table (typically for the private subnets)
+    ignore_changes = [propagating_vgws]
+  }
+}
+
+resource "aws_route" "private04_ngw" {
+  count = var.nat_gateway ? length(var.private_cidr_blocks04) : 0
+
+  route_table_id         = aws_route_table.private04[count.index].id
+  destination_cidr_block = "0.0.0.0/0"
+  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw[0].id : element(aws_nat_gateway.nat_gw[*].id, count.index)
+}
+
 resource "aws_route_table_association" "public" {
   count          = length(var.public_cidr_blocks)
   subnet_id      = element(aws_subnet.pm_pro_public[*].id, count.index)
@@ -155,4 +191,10 @@ resource "aws_route_table_association" "private03" {
   count          = length(var.private_cidr_blocks03)
   subnet_id      = element(aws_subnet.pm_pro_private03[*].id, count.index)
   route_table_id = element(aws_route_table.private03[*].id, count.index)
+}
+
+resource "aws_route_table_association" "private04" {
+  count          = length(var.private_cidr_blocks04)
+  subnet_id      = element(aws_subnet.pm_pro_private04[*].id, count.index)
+  route_table_id = element(aws_route_table.private04[*].id, count.index)
 }

@@ -85,16 +85,22 @@ variable "public_tier_name" {
 variable "private01_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
-  default     = "web"
+  default     = "lb"
 }
 
 variable "private02_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
-  default     = "app"
+  default     = "web"
 }
 
 variable "private03_tier_name" {
+  type        = string
+  description = "Tag value for tier subnet"
+  default     = "app"
+}
+
+variable "private04_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
   default     = "data"
