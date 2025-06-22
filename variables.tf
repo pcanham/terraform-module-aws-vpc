@@ -54,19 +54,25 @@ variable "public_cidr_blocks" {
 
 variable "private_cidr_blocks01" {
   type        = list(any)
-  description = "CIDR Blocks for Private Subnets"
+  description = "CIDR Blocks for Private 01 Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks02" {
   type        = list(any)
-  description = "CIDR Blocks for Private Subnets"
+  description = "CIDR Blocks for Private 02 Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks03" {
   type        = list(any)
-  description = "CIDR Blocks for Private Subnets"
+  description = "CIDR Blocks for Private 03 Subnets"
+  default     = []
+}
+
+variable "private_cidr_blocks04" {
+  type        = list(any)
+  description = "CIDR Blocks for Private 04 Subnets"
   default     = []
 }
 
