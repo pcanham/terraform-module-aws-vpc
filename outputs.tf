@@ -24,7 +24,7 @@ output "public_subnet_ids" {
 }
 
 output "private_subnet_ids" {
-  value       = concat(aws_subnet.pm_pro_private01[*].id, aws_subnet.pm_pro_private02[*].id, aws_subnet.pm_pro_private03[*].id)
+  value       = concat(aws_subnet.pm_pro_private01[*].id, aws_subnet.pm_pro_private02[*].id, aws_subnet.pm_pro_private03[*].id, aws_subnet.pm_pro_private04[*].id)
   description = "List all used private subnet ids"
 }
 
@@ -41,6 +41,11 @@ output "private_subnet02_ids" {
 output "private_subnet03_ids" {
   value       = aws_subnet.pm_pro_private03[*].id
   description = "List all used private 03 subnet ids"
+}
+
+output "private_subnet04_ids" {
+  value       = aws_subnet.pm_pro_private04[*].id
+  description = "List all used private 04 subnet ids"
 }
 
 output "nat_gw_eips" {
@@ -68,6 +73,11 @@ output "private03_tier_name" {
   description = "Tag being used for describing private subnet 03 tier"
 }
 
+output "private04_tier_name" {
+  value       = var.private04_tier_name
+  description = "Tag being used for describing private subnet 04 tier"
+}
+
 output "public_routing_table_ids" {
   value       = aws_route_table.public[*].id
   description = "Routing table ids for public subnets"
@@ -86,4 +96,9 @@ output "private02_routing_table_ids" {
 output "private03_routing_table_ids" {
   value       = aws_route_table.private03[*].id
   description = "Routing table ids for private 03 subnets"
+}
+
+output "private04_routing_table_ids" {
+  value       = aws_route_table.private04[*].id
+  description = "Routing table ids for private 04 subnets"
 }

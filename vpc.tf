@@ -10,9 +10,8 @@ resource "aws_vpc" "pro" {
     var.vpc_tags,
     { "Name" = lower(
       format(
-        "vpc-%s-%s-%s",
-        var.project_tag,
-        var.environment_tag,
+        "vpc-%s-%s",
+        var.name,
         var.aws_region,
       ),
       )
@@ -28,9 +27,8 @@ resource "aws_default_security_group" "default" {
     var.tags,
     { "Name" = lower(
       format(
-        "def-secgrp-%s-%s",
-        var.project_tag,
-        var.environment_tag,
+        "def-secgrp-%s",
+        var.name,
       ),
       )
     }
@@ -44,10 +42,9 @@ resource "aws_internet_gateway" "internet_gw" {
     var.tags,
     { "Name" = lower(
       format(
-        "igw%02d-%s-%s",
+        "igw%02d-%s",
         1,
-        var.project_tag,
-        var.environment_tag,
+        var.name,
       ),
       )
     }

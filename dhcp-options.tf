@@ -7,11 +7,11 @@ resource "aws_vpc_dhcp_options" "dhcp_options" {
 
   tags = merge(
     var.tags,
+    var.dhcp_options_tags,
     { "Name" = lower(
       format(
-        "dhcp-opts-%s-%s",
-        var.project_tag,
-        var.environment_tag,
+        "dhcp-opts-%s",
+        var.name,
       ),
       )
     }

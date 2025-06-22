@@ -54,20 +54,32 @@ variable "public_cidr_blocks" {
 
 variable "private_cidr_blocks01" {
   type        = list(any)
-  description = "CIDR Blocks for Private Subnets"
+  description = "CIDR Blocks for Private 01 Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks02" {
   type        = list(any)
-  description = "CIDR Blocks for Private Subnets"
+  description = "CIDR Blocks for Private 02 Subnets"
   default     = []
 }
 
 variable "private_cidr_blocks03" {
   type        = list(any)
-  description = "CIDR Blocks for Private Subnets"
+  description = "CIDR Blocks for Private 03 Subnets"
   default     = []
+}
+
+variable "private_cidr_blocks04" {
+  type        = list(any)
+  description = "CIDR Blocks for Private 04 Subnets"
+  default     = []
+}
+
+variable "name" {
+  type        = string
+  description = "VPC Name"
+  default     = ""
 }
 
 variable "public_tier_name" {
@@ -79,16 +91,22 @@ variable "public_tier_name" {
 variable "private01_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
-  default     = "web"
+  default     = "lb"
 }
 
 variable "private02_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
-  default     = "app"
+  default     = "web"
 }
 
 variable "private03_tier_name" {
+  type        = string
+  description = "Tag value for tier subnet"
+  default     = "app"
+}
+
+variable "private04_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
   default     = "data"
@@ -112,18 +130,6 @@ variable "k8s_clustername" {
   default     = null
 }
 
-variable "environment_tag" {
-  type        = string
-  description = "Define the type of environment"
-  default     = ""
-}
-
-variable "project_tag" {
-  type        = string
-  description = "Project code name or name"
-  default     = ""
-}
-
 variable "tags" {
   type        = map(string)
   description = "A map of tags to add to all resources."
@@ -142,6 +148,30 @@ variable "private_subnet_tags" {
   default     = {}
 }
 
+variable "private01_subnet_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private subnet 01."
+  default     = {}
+}
+
+variable "private02_subnet_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private subnet 02."
+  default     = {}
+}
+
+variable "private03_subnet_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private subnet 03."
+  default     = {}
+}
+
+variable "private04_subnet_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private subnet 04."
+  default     = {}
+}
+
 variable "public_subnet_tags" {
   type        = map(string)
   description = "A map of tags to assign to public subnets."
@@ -154,9 +184,45 @@ variable "private_routing_tables_tags" {
   default     = {}
 }
 
+variable "private01_routing_tables_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private01 routing tables."
+  default     = {}
+}
+
+variable "private02_routing_tables_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private02 routing tables."
+  default     = {}
+}
+
+variable "private03_routing_tables_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private03 routing tables."
+  default     = {}
+}
+
+variable "private04_routing_tables_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private04 routing tables."
+  default     = {}
+}
+
 variable "public_routing_tables_tags" {
   type        = map(string)
   description = "A map of tags to assign to public routing tables."
+  default     = {}
+}
+
+variable "dhcp_options_tags" {
+  type        = map(string)
+  description = "A map of tags to add to DHCP Options."
+  default     = {}
+}
+
+variable "nat_gateway_tags" {
+  type        = map(string)
+  description = "A map of tags to add to NAT Gateway."
   default     = {}
 }
 
