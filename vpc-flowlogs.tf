@@ -60,9 +60,8 @@ data "aws_iam_policy_document" "vpc_flow_logs_assume_role" {
 resource "aws_iam_role" "vpc_flow_log_cloudwatch" {
   name_prefix = lower(
     format(
-      "VpCFlowLog-%s-%s",
-      var.project_tag,
-      var.environment_tag,
+      "VpCFlowLog-%s",
+      var.name,
     ),
   )
   path               = "/system/"
