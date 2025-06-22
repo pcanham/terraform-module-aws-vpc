@@ -3,9 +3,8 @@ resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
   #checkov:skip=CKV_AWS_158:Customer choice on using custom KMS key, will be down to security versus cost
   name_prefix = lower(
     format(
-      "/%s/%s/vpc/flowlog-accept_",
-      var.project_tag,
-      var.environment_tag,
+      "/%s/vpc/flowlog-accept_",
+      var.name,
     ),
   )
   retention_in_days = var.vpcflow_log_accepted_retention
@@ -17,9 +16,8 @@ resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
   #checkov:skip=CKV_AWS_158:Customer choice on using custom KMS key, will be down to security versus cost
   name_prefix = lower(
     format(
-      "/%s/%s/vpc/flowlog-reject_",
-      var.project_tag,
-      var.environment_tag,
+      "/%s/vpc/flowlog-reject_",
+      var.name,
     ),
   )
   retention_in_days = var.vpcflow_log_rejected_retention

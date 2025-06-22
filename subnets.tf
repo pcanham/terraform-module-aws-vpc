@@ -11,11 +11,10 @@ resource "aws_subnet" "pm_pro_public" {
     {
       "Name" = lower(
         format(
-          "snpub%02d%s-%s-%s",
+          "snpub%02d%s-%s",
           1,
           substr(element(var.availability_zones, count.index), -1, 1),
-          var.project_tag,
-          var.environment_tag,
+          var.name,
         ),
       )
     },
@@ -40,11 +39,10 @@ resource "aws_subnet" "pm_pro_private01" {
     {
       "Name" = lower(
         format(
-          "snprv%02d%s-%s-%s",
+          "snprv%02d%s-%s",
           1,
           substr(element(var.availability_zones, count.index), -1, 1),
-          var.project_tag,
-          var.environment_tag,
+          var.name,
         ),
       )
     },
@@ -68,11 +66,10 @@ resource "aws_subnet" "pm_pro_private02" {
     {
       "Name" = lower(
         format(
-          "snprv%02d%s-%s-%s",
+          "snprv%02d%s-%s",
           2,
           substr(element(var.availability_zones, count.index), -1, 1),
-          var.project_tag,
-          var.environment_tag,
+          var.name,
         ),
       )
     },
@@ -96,11 +93,10 @@ resource "aws_subnet" "pm_pro_private03" {
     {
       "Name" = lower(
         format(
-          "snprv%02d%s-%s-%s",
+          "snprv%02d%s-%s",
           3,
           substr(element(var.availability_zones, count.index), -1, 1),
-          var.project_tag,
-          var.environment_tag,
+          var.name,
         ),
       )
     },

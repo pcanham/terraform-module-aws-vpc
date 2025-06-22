@@ -70,6 +70,12 @@ variable "private_cidr_blocks03" {
   default     = []
 }
 
+variable "name" {
+  type        = string
+  description = "VPC Name"
+  default     = ""
+}
+
 variable "public_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
@@ -110,18 +116,6 @@ variable "k8s_clustername" {
   type        = string
   description = "EKS/k8s Cluster Name"
   default     = null
-}
-
-variable "environment_tag" {
-  type        = string
-  description = "Define the type of environment"
-  default     = ""
-}
-
-variable "project_tag" {
-  type        = string
-  description = "Project code name or name"
-  default     = ""
 }
 
 variable "tags" {

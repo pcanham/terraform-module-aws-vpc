@@ -12,10 +12,9 @@ resource "aws_route_table" "public" {
     var.public_routing_tables_tags,
     { "Name" = lower(
       format(
-        "rtpub%02d-%s-%s",
+        "rtpub%02d-%s",
         count.index + 1,
-        var.project_tag,
-        var.environment_tag,
+        var.name,
       ),
       )
     },
@@ -35,11 +34,10 @@ resource "aws_route_table" "private01" {
     var.private_routing_tables_tags,
     { "Name" = lower(
       format(
-        "rtprv%02d%s-%s-%s",
+        "rtprv%02d%s-%s",
         1,
         substr(element(var.availability_zones, count.index), -1, 1),
-        var.project_tag,
-        var.environment_tag,
+        var.name,
       ),
       )
     },
@@ -72,11 +70,10 @@ resource "aws_route_table" "private02" {
     var.private_routing_tables_tags,
     { "Name" = lower(
       format(
-        "rtprv%02d%s-%s-%s",
+        "rtprv%02d%s-%s",
         2,
         substr(element(var.availability_zones, count.index), -1, 1),
-        var.project_tag,
-        var.environment_tag,
+        var.name,
       ),
       )
     },
@@ -109,11 +106,10 @@ resource "aws_route_table" "private03" {
     var.private_routing_tables_tags,
     { "Name" = lower(
       format(
-        "rtprv%02d%s-%s-%s",
+        "rtprv%02d%s-%s",
         3,
         substr(element(var.availability_zones, count.index), -1, 1),
-        var.project_tag,
-        var.environment_tag,
+        var.name,
       ),
       )
     },

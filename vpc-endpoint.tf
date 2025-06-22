@@ -10,9 +10,8 @@ resource "aws_vpc_endpoint" "s3" {
     var.tags,
     { "Name" = lower(
       format(
-        "vpc-endpoint-s3-%s-%s",
-        var.project_tag,
-        var.environment_tag,
+        "vpc-endpoint-s3-%s",
+        var.name,
       ),
       )
     }

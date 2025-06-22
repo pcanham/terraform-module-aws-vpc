@@ -12,10 +12,9 @@ resource "aws_eip" "nat_ip" {
     var.tags,
     { "Name" = lower(
       format(
-        "ngw-eip%02d-%s-%s",
+        "ngw-eip%02d-%s",
         count.index + 1,
-        var.project_tag,
-        var.environment_tag,
+        var.name,
       ),
       )
     }
@@ -32,11 +31,10 @@ resource "aws_nat_gateway" "nat_gw" {
     var.tags,
     { "Name" = lower(
       format(
-        "ngw%02d%s-%s-%s",
+        "ngw%02d%s-%s",
         count.index + 1,
         substr(var.availability_zones[count.index], -1, 1),
-        var.project_tag,
-        var.environment_tag,
+        var.name,
       ),
       )
     },
