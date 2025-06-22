@@ -1,3 +1,10 @@
+## [0.1.35](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.34...0.1.35) (2025-06-22)
+
+
+### Bug Fixes
+
+* update README ([fd334c2](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/fd334c281909540094607825e55f1cb21a777cb9))
+
 ## [0.1.34](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.33...0.1.34) (2025-06-22)
 
 
