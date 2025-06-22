@@ -41,3 +41,9 @@ resource "aws_vpc_endpoint_route_table_association" "private03_s3" {
   vpc_endpoint_id = aws_vpc_endpoint.s3[0].id
   route_table_id  = element(aws_route_table.private03[*].id, count.index)
 }
+
+resource "aws_vpc_endpoint_route_table_association" "private04_s3" {
+  count           = var.enable_vpc_s3_endpoint && length(var.private_cidr_blocks04) > 0 ? 1 : 0
+  vpc_endpoint_id = aws_vpc_endpoint.s3[0].id
+  route_table_id  = element(aws_route_table.private04[*].id, count.index)
+}
