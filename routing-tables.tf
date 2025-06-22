@@ -32,6 +32,7 @@ resource "aws_route_table" "private01" {
   tags = merge(
     var.tags,
     var.private_routing_tables_tags,
+    var.private01_routing_tables_tags,
     { "Name" = lower(
       format(
         "rtprv%02d%s-%s",
@@ -68,6 +69,7 @@ resource "aws_route_table" "private02" {
   tags = merge(
     var.tags,
     var.private_routing_tables_tags,
+    var.private02_routing_tables_tags,
     { "Name" = lower(
       format(
         "rtprv%02d%s-%s",
@@ -104,6 +106,7 @@ resource "aws_route_table" "private03" {
   tags = merge(
     var.tags,
     var.private_routing_tables_tags,
+    var.private03_routing_tables_tags,
     { "Name" = lower(
       format(
         "rtprv%02d%s-%s",
@@ -140,6 +143,7 @@ resource "aws_route_table" "private04" {
   tags = merge(
     var.tags,
     var.private_routing_tables_tags,
+    var.private04_routing_tables_tags,
     { "Name" = lower(
       format(
         "rtprv%02d%s-%s",

@@ -9,6 +9,7 @@ resource "aws_eip" "nat_ip" {
   domain = "vpc"
 
   tags = merge(
+    var.nat_gateway_tags,
     var.tags,
     { "Name" = lower(
       format(
@@ -28,6 +29,7 @@ resource "aws_nat_gateway" "nat_gw" {
   depends_on    = [aws_internet_gateway.internet_gw]
 
   tags = merge(
+    var.nat_gateway_tags,
     var.tags,
     { "Name" = lower(
       format(

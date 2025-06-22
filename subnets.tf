@@ -36,6 +36,7 @@ resource "aws_subnet" "pm_pro_private01" {
   tags = merge(
     var.tags,
     var.private_subnet_tags,
+    var.private01_subnet_tags,
     {
       "Name" = lower(
         format(
@@ -63,6 +64,7 @@ resource "aws_subnet" "pm_pro_private02" {
   tags = merge(
     var.tags,
     var.private_subnet_tags,
+    var.private02_subnet_tags,
     {
       "Name" = lower(
         format(
@@ -90,6 +92,7 @@ resource "aws_subnet" "pm_pro_private03" {
   tags = merge(
     var.tags,
     var.private_subnet_tags,
+    var.private03_subnet_tags,
     {
       "Name" = lower(
         format(
@@ -117,6 +120,7 @@ resource "aws_subnet" "pm_pro_private04" {
   tags = merge(
     var.tags,
     var.private_subnet_tags,
+    var.private04_subnet_tags,
     {
       "Name" = lower(
         format(

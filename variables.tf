@@ -142,6 +142,30 @@ variable "private_subnet_tags" {
   default     = {}
 }
 
+variable "private01_subnet_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private subnet 01."
+  default     = {}
+}
+
+variable "private02_subnet_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private subnet 02."
+  default     = {}
+}
+
+variable "private03_subnet_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private subnet 03."
+  default     = {}
+}
+
+variable "private04_subnet_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private subnet 04."
+  default     = {}
+}
+
 variable "public_subnet_tags" {
   type        = map(string)
   description = "A map of tags to assign to public subnets."
@@ -154,9 +178,45 @@ variable "private_routing_tables_tags" {
   default     = {}
 }
 
+variable "private01_routing_tables_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private01 routing tables."
+  default     = {}
+}
+
+variable "private02_routing_tables_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private02 routing tables."
+  default     = {}
+}
+
+variable "private03_routing_tables_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private03 routing tables."
+  default     = {}
+}
+
+variable "private04_routing_tables_tags" {
+  type        = map(string)
+  description = "A map of tags to assign to private04 routing tables."
+  default     = {}
+}
+
 variable "public_routing_tables_tags" {
   type        = map(string)
   description = "A map of tags to assign to public routing tables."
+  default     = {}
+}
+
+variable "dhcp_options_tags" {
+  type        = map(string)
+  description = "A map of tags to add to DHCP Options."
+  default     = {}
+}
+
+variable "nat_gateway_tags" {
+  type        = map(string)
+  description = "A map of tags to add to NAT Gateway."
   default     = {}
 }
 
