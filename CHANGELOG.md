@@ -1,3 +1,10 @@
+## [0.1.37](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.36...0.1.37) (2025-09-11)
+
+
+### Features
+
+* upgrade pre-commit ([d3c7a07](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/d3c7a071359d5e2e395127f44d801b011408594f))
+
 ## [0.1.36](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.35...0.1.36) (2025-06-22)
 
 
