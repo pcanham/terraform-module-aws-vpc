@@ -1,3 +1,12 @@
+## [0.1.38](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.37...0.1.38) (2025-09-12)
+
+
+### Features
+
+* adding in nullable options into variables. ([8398323](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/839832380a468a22ea013e7303bd8d8cbfbe6975))
+* marking more variables as not nullable ([53c7b2b](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/53c7b2b01b4ce5fb55ced7203c90e294046e780d))
+* README update ([1efb1a3](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/1efb1a3489b5ddb28db2d1b0355360f91bcf66ef))
+
 ## [0.1.37](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/0.1.36...0.1.37) (2025-09-11)
 
 
