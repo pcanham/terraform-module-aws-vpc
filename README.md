@@ -36,13 +36,13 @@ This Module can deploy a 4-tier VPC layout, if you do not wish to have the 4th t
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.100.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 6.13.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.100.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.56.1 |
 
 ## Modules
 
@@ -52,56 +52,56 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_cloudwatch_log_group.LogGroup-Accept](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cloudwatch_log_group) | resource |
-| [aws_cloudwatch_log_group.LogGroup-Reject](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cloudwatch_log_group) | resource |
-| [aws_default_security_group.default](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/default_security_group) | resource |
-| [aws_eip.nat_ip](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eip) | resource |
-| [aws_flow_log.VpcFlowLog-Accept](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/flow_log) | resource |
-| [aws_flow_log.VpcFlowLog-Reject](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/flow_log) | resource |
-| [aws_iam_policy.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iam_policy) | resource |
-| [aws_iam_role.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iam_role) | resource |
-| [aws_iam_role_policy_attachment.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iam_role_policy_attachment) | resource |
-| [aws_internet_gateway.internet_gw](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/internet_gateway) | resource |
-| [aws_nat_gateway.nat_gw](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/nat_gateway) | resource |
-| [aws_route.private01_ngw](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route) | resource |
-| [aws_route.private02_ngw](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route) | resource |
-| [aws_route.private03_ngw](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route) | resource |
-| [aws_route.private04_ngw](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route) | resource |
-| [aws_route_table.private01](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route_table) | resource |
-| [aws_route_table.private02](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route_table) | resource |
-| [aws_route_table.private03](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route_table) | resource |
-| [aws_route_table.private04](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route_table) | resource |
-| [aws_route_table.public](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route_table) | resource |
-| [aws_route_table_association.private01](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route_table_association) | resource |
-| [aws_route_table_association.private02](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route_table_association) | resource |
-| [aws_route_table_association.private03](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route_table_association) | resource |
-| [aws_route_table_association.private04](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route_table_association) | resource |
-| [aws_route_table_association.public](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route_table_association) | resource |
-| [aws_subnet.pm_pro_private01](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/subnet) | resource |
-| [aws_subnet.pm_pro_private02](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/subnet) | resource |
-| [aws_subnet.pm_pro_private03](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/subnet) | resource |
-| [aws_subnet.pm_pro_private04](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/subnet) | resource |
-| [aws_subnet.pm_pro_public](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/subnet) | resource |
-| [aws_vpc.pro](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/vpc) | resource |
-| [aws_vpc_dhcp_options.dhcp_options](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/vpc_dhcp_options) | resource |
-| [aws_vpc_dhcp_options_association.dhcp_options](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/vpc_dhcp_options_association) | resource |
-| [aws_vpc_endpoint.s3](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/vpc_endpoint) | resource |
-| [aws_vpc_endpoint_route_table_association.private01_s3](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/vpc_endpoint_route_table_association) | resource |
-| [aws_vpc_endpoint_route_table_association.private02_s3](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/vpc_endpoint_route_table_association) | resource |
-| [aws_vpc_endpoint_route_table_association.private03_s3](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/vpc_endpoint_route_table_association) | resource |
-| [aws_vpc_endpoint_route_table_association.private04_s3](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/vpc_endpoint_route_table_association) | resource |
-| [aws_vpc_endpoint_route_table_association.public_s3](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/vpc_endpoint_route_table_association) | resource |
-| [aws_iam_policy_document.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/iam_policy_document) | data source |
-| [aws_iam_policy_document.vpc_flow_logs_assume_role](https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_cloudwatch_log_group.LogGroup-Accept](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/cloudwatch_log_group) | resource |
+| [aws_cloudwatch_log_group.LogGroup-Reject](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/cloudwatch_log_group) | resource |
+| [aws_default_security_group.default](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/default_security_group) | resource |
+| [aws_eip.nat_ip](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/eip) | resource |
+| [aws_flow_log.VpcFlowLog-Accept](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/flow_log) | resource |
+| [aws_flow_log.VpcFlowLog-Reject](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/flow_log) | resource |
+| [aws_iam_policy.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/iam_policy) | resource |
+| [aws_iam_role.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy_attachment.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_internet_gateway.internet_gw](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/internet_gateway) | resource |
+| [aws_nat_gateway.nat_gw](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/nat_gateway) | resource |
+| [aws_route.private01_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route) | resource |
+| [aws_route.private02_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route) | resource |
+| [aws_route.private03_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route) | resource |
+| [aws_route.private04_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route) | resource |
+| [aws_route_table.private01](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route_table) | resource |
+| [aws_route_table.private02](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route_table) | resource |
+| [aws_route_table.private03](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route_table) | resource |
+| [aws_route_table.private04](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route_table) | resource |
+| [aws_route_table.public](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route_table) | resource |
+| [aws_route_table_association.private01](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route_table_association) | resource |
+| [aws_route_table_association.private02](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route_table_association) | resource |
+| [aws_route_table_association.private03](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route_table_association) | resource |
+| [aws_route_table_association.private04](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route_table_association) | resource |
+| [aws_route_table_association.public](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/route_table_association) | resource |
+| [aws_subnet.pm_pro_private01](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/subnet) | resource |
+| [aws_subnet.pm_pro_private02](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/subnet) | resource |
+| [aws_subnet.pm_pro_private03](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/subnet) | resource |
+| [aws_subnet.pm_pro_private04](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/subnet) | resource |
+| [aws_subnet.pm_pro_public](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/subnet) | resource |
+| [aws_vpc.pro](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/vpc) | resource |
+| [aws_vpc_dhcp_options.dhcp_options](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/vpc_dhcp_options) | resource |
+| [aws_vpc_dhcp_options_association.dhcp_options](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/vpc_dhcp_options_association) | resource |
+| [aws_vpc_endpoint.s3](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/vpc_endpoint) | resource |
+| [aws_vpc_endpoint_route_table_association.private01_s3](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/vpc_endpoint_route_table_association) | resource |
+| [aws_vpc_endpoint_route_table_association.private02_s3](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/vpc_endpoint_route_table_association) | resource |
+| [aws_vpc_endpoint_route_table_association.private03_s3](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/vpc_endpoint_route_table_association) | resource |
+| [aws_vpc_endpoint_route_table_association.private04_s3](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/vpc_endpoint_route_table_association) | resource |
+| [aws_vpc_endpoint_route_table_association.public_s3](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/resources/vpc_endpoint_route_table_association) | resource |
+| [aws_iam_policy_document.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.vpc_flow_logs_assume_role](https://registry.terraform.io/providers/hashicorp/aws/6.13.0/docs/data-sources/iam_policy_document) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_availability_zones"></a> [availability\_zones](#input\_availability\_zones) | AWS region to launch servers. | `list(any)` | <pre>[<br>  "eu-west-1a",<br>  "eu-west-1b"<br>]</pre> | no |
+| <a name="input_availability_zones"></a> [availability\_zones](#input\_availability\_zones) | AWS region to launch servers. | `list(any)` | <pre>[<br/>  "eu-west-1a",<br/>  "eu-west-1b"<br/>]</pre> | no |
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | AWS region to launch servers. | `string` | `"eu-west-1"` | no |
 | <a name="input_dhcp_domain_name"></a> [dhcp\_domain\_name](#input\_dhcp\_domain\_name) | Enter a domain name (such as example.com). | `string` | `""` | no |
-| <a name="input_dhcp_domain_name_servers"></a> [dhcp\_domain\_name\_servers](#input\_dhcp\_domain\_name\_servers) | Enter up to 4 DNS server IP addresses or AmazonProvidedDNS for AWS Defaults | `list(any)` | <pre>[<br>  "AmazonProvidedDNS"<br>]</pre> | no |
+| <a name="input_dhcp_domain_name_servers"></a> [dhcp\_domain\_name\_servers](#input\_dhcp\_domain\_name\_servers) | Enter up to 4 DNS server IP addresses or AmazonProvidedDNS for AWS Defaults | `list(any)` | <pre>[<br/>  "AmazonProvidedDNS"<br/>]</pre> | no |
 | <a name="input_dhcp_netbios_name_servers"></a> [dhcp\_netbios\_name\_servers](#input\_dhcp\_netbios\_name\_servers) | Enter up to four NetBIOS name server IP addresses | `list(any)` | `[]` | no |
 | <a name="input_dhcp_netbios_node_type"></a> [dhcp\_netbios\_node\_type](#input\_dhcp\_netbios\_node\_type) | Enter the NetBIOS node type, for example, 2 | `string` | `""` | no |
 | <a name="input_dhcp_ntp_servers"></a> [dhcp\_ntp\_servers](#input\_dhcp\_ntp\_servers) | Enter up to four Network Time Protocol (NTP) server IP addresses | `list(any)` | `[]` | no |
