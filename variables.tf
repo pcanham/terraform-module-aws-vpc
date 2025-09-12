@@ -90,48 +90,56 @@ variable "public_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
   default     = "dmz"
+  nullable    = false
 }
 
 variable "private01_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
   default     = "lb"
+  nullable    = false
 }
 
 variable "private02_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
   default     = "web"
+  nullable    = false
 }
 
 variable "private03_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
   default     = "app"
+  nullable    = false
 }
 
 variable "private04_tier_name" {
   type        = string
   description = "Tag value for tier subnet"
   default     = "data"
+  nullable    = false
 }
 
 variable "vpcflow_log_accepted_retention" {
   type        = string
   description = "How many day's worth of VPC Flow logs to keep for accepted connections"
   default     = "14"
+  nullable    = false
 }
 
 variable "vpcflow_log_rejected_retention" {
   type        = string
   description = "How many day's worth of VPC Flow logs to keep for rejected connections"
   default     = "14"
+  nullable    = false
 }
 
 variable "k8s_clustername" {
   type        = string
   description = "EKS/k8s Cluster Name"
   default     = null
+  nullable    = true
 }
 
 variable "tags" {
