@@ -2,18 +2,21 @@ variable "aws_region" {
   type        = string
   description = "AWS region to launch servers."
   default     = "eu-west-1"
+  nullable    = false
 }
 
 variable "availability_zones" {
   type        = list(any)
   description = "AWS region to launch servers."
   default     = ["eu-west-1a", "eu-west-1b"]
+  nullable    = false
 }
 
 variable "master_cidr_block" {
   type        = string
   description = "VPC CIDR Block"
   default     = ""
+  nullable    = false
 }
 
 variable "nat_gateway" {
@@ -44,6 +47,7 @@ variable "ipv4_netmask_length" {
   description = "(Optional) The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a ipv4_ipam_pool_id"
   type        = number
   default     = null
+  nullable    = true
 }
 
 variable "public_cidr_blocks" {
