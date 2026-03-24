@@ -1,8 +1,35 @@
-resource "aws_subnet" "pm_pro_public" {
-  vpc_id                  = aws_vpc.pro.id
-  count                   = length(var.public_cidr_blocks)
-  availability_zone       = element(var.availability_zones, count.index)
-  cidr_block              = element(var.public_cidr_blocks, count.index)
+locals {
+  public_subnets = { for idx, cidr in var.public_cidr_blocks : idx => {
+    cidr = cidr
+    az   = var.availability_zones[idx]
+  } }
+
+  private01_subnets = { for idx, cidr in var.private_cidr_blocks01 : idx => {
+    cidr = cidr
+    az   = var.availability_zones[idx]
+  } }
+
+  private02_subnets = { for idx, cidr in var.private_cidr_blocks02 : idx => {
+    cidr = cidr
+    az   = var.availability_zones[idx]
+  } }
+
+  private03_subnets = { for idx, cidr in var.private_cidr_blocks03 : idx => {
+    cidr = cidr
+    az   = var.availability_zones[idx]
+  } }
+
+  private04_subnets = { for idx, cidr in var.private_cidr_blocks04 : idx => {
+    cidr = cidr
+    az   = var.availability_zones[idx]
+  } }
+}
+
+resource "aws_subnet" "public" {
+  for_each                = local.public_subnets
+  vpc_id                  = aws_vpc.main.id
+  availability_zone       = each.value.az
+  cidr_block              = each.value.cidr
   map_public_ip_on_launch = false
 
   tags = merge(
@@ -13,7 +40,7 @@ resource "aws_subnet" "pm_pro_public" {
         format(
           "snpub%02d%s-%s",
           1,
-          substr(element(var.availability_zones, count.index), -1, 1),
+          substr(each.value.az, -1, 1),
           var.name,
         ),
       )
@@ -26,11 +53,11 @@ resource "aws_subnet" "pm_pro_public" {
   )
 }
 
-resource "aws_subnet" "pm_pro_private01" {
-  vpc_id                  = aws_vpc.pro.id
-  count                   = length(var.private_cidr_blocks01)
-  availability_zone       = element(var.availability_zones, count.index)
-  cidr_block              = element(var.private_cidr_blocks01, count.index)
+resource "aws_subnet" "private01" {
+  for_each                = local.private01_subnets
+  vpc_id                  = aws_vpc.main.id
+  availability_zone       = each.value.az
+  cidr_block              = each.value.cidr
   map_public_ip_on_launch = false
 
   tags = merge(
@@ -42,7 +69,7 @@ resource "aws_subnet" "pm_pro_private01" {
         format(
           "snprv%02d%s-%s",
           1,
-          substr(element(var.availability_zones, count.index), -1, 1),
+          substr(each.value.az, -1, 1),
           var.name,
         ),
       )
@@ -54,11 +81,11 @@ resource "aws_subnet" "pm_pro_private01" {
   )
 }
 
-resource "aws_subnet" "pm_pro_private02" {
-  vpc_id                  = aws_vpc.pro.id
-  count                   = length(var.private_cidr_blocks02)
-  availability_zone       = element(var.availability_zones, count.index)
-  cidr_block              = element(var.private_cidr_blocks02, count.index)
+resource "aws_subnet" "private02" {
+  for_each                = local.private02_subnets
+  vpc_id                  = aws_vpc.main.id
+  availability_zone       = each.value.az
+  cidr_block              = each.value.cidr
   map_public_ip_on_launch = false
 
   tags = merge(
@@ -70,7 +97,7 @@ resource "aws_subnet" "pm_pro_private02" {
         format(
           "snprv%02d%s-%s",
           2,
-          substr(element(var.availability_zones, count.index), -1, 1),
+          substr(each.value.az, -1, 1),
           var.name,
         ),
       )
@@ -82,11 +109,11 @@ resource "aws_subnet" "pm_pro_private02" {
   )
 }
 
-resource "aws_subnet" "pm_pro_private03" {
-  vpc_id                  = aws_vpc.pro.id
-  count                   = length(var.private_cidr_blocks03)
-  availability_zone       = element(var.availability_zones, count.index)
-  cidr_block              = element(var.private_cidr_blocks03, count.index)
+resource "aws_subnet" "private03" {
+  for_each                = local.private03_subnets
+  vpc_id                  = aws_vpc.main.id
+  availability_zone       = each.value.az
+  cidr_block              = each.value.cidr
   map_public_ip_on_launch = false
 
   tags = merge(
@@ -98,7 +125,7 @@ resource "aws_subnet" "pm_pro_private03" {
         format(
           "snprv%02d%s-%s",
           3,
-          substr(element(var.availability_zones, count.index), -1, 1),
+          substr(each.value.az, -1, 1),
           var.name,
         ),
       )
@@ -110,11 +137,11 @@ resource "aws_subnet" "pm_pro_private03" {
   )
 }
 
-resource "aws_subnet" "pm_pro_private04" {
-  vpc_id                  = aws_vpc.pro.id
-  count                   = length(var.private_cidr_blocks04)
-  availability_zone       = element(var.availability_zones, count.index)
-  cidr_block              = element(var.private_cidr_blocks04, count.index)
+resource "aws_subnet" "private04" {
+  for_each                = local.private04_subnets
+  vpc_id                  = aws_vpc.main.id
+  availability_zone       = each.value.az
+  cidr_block              = each.value.cidr
   map_public_ip_on_launch = false
 
   tags = merge(
@@ -126,7 +153,7 @@ resource "aws_subnet" "pm_pro_private04" {
         format(
           "snprv%02d%s-%s",
           4,
-          substr(element(var.availability_zones, count.index), -1, 1),
+          substr(each.value.az, -1, 1),
           var.name,
         ),
       )

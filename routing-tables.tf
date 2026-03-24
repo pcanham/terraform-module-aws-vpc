@@ -1,6 +1,5 @@
 resource "aws_route_table" "public" {
-  vpc_id = aws_vpc.pro.id
-  count  = length(var.public_cidr_blocks)
+  vpc_id = aws_vpc.main.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -12,8 +11,7 @@ resource "aws_route_table" "public" {
     var.public_routing_tables_tags,
     { "Name" = lower(
       format(
-        "rtpub%02d-%s",
-        count.index + 1,
+        "rtpub-%s",
         var.name,
       ),
       )
@@ -26,8 +24,8 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_route_table" "private01" {
-  vpc_id = aws_vpc.pro.id
-  count  = length(var.private_cidr_blocks01)
+  for_each = local.private01_subnets
+  vpc_id   = aws_vpc.main.id
 
   tags = merge(
     var.tags,
@@ -37,7 +35,7 @@ resource "aws_route_table" "private01" {
       format(
         "rtprv%02d%s-%s",
         1,
-        substr(element(var.availability_zones, count.index), -1, 1),
+        substr(each.value.az, -1, 1),
         var.name,
       ),
       )
@@ -55,16 +53,16 @@ resource "aws_route_table" "private01" {
 }
 
 resource "aws_route" "private01_ngw" {
-  count = var.nat_gateway ? length(var.private_cidr_blocks01) : 0
+  for_each = var.nat_gateway ? local.private01_subnets : {}
 
-  route_table_id         = aws_route_table.private01[count.index].id
+  route_table_id         = aws_route_table.private01[each.key].id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw[0].id : element(aws_nat_gateway.nat_gw[*].id, count.index)
+  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw["0"].id : aws_nat_gateway.nat_gw[each.key].id
 }
 
 resource "aws_route_table" "private02" {
-  vpc_id = aws_vpc.pro.id
-  count  = length(var.private_cidr_blocks02)
+  for_each = local.private02_subnets
+  vpc_id   = aws_vpc.main.id
 
   tags = merge(
     var.tags,
@@ -74,7 +72,7 @@ resource "aws_route_table" "private02" {
       format(
         "rtprv%02d%s-%s",
         2,
-        substr(element(var.availability_zones, count.index), -1, 1),
+        substr(each.value.az, -1, 1),
         var.name,
       ),
       )
@@ -92,16 +90,16 @@ resource "aws_route_table" "private02" {
 }
 
 resource "aws_route" "private02_ngw" {
-  count = var.nat_gateway ? length(var.private_cidr_blocks02) : 0
+  for_each = var.nat_gateway ? local.private02_subnets : {}
 
-  route_table_id         = aws_route_table.private02[count.index].id
+  route_table_id         = aws_route_table.private02[each.key].id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw[0].id : element(aws_nat_gateway.nat_gw[*].id, count.index)
+  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw["0"].id : aws_nat_gateway.nat_gw[each.key].id
 }
 
 resource "aws_route_table" "private03" {
-  vpc_id = aws_vpc.pro.id
-  count  = length(var.private_cidr_blocks03)
+  for_each = local.private03_subnets
+  vpc_id   = aws_vpc.main.id
 
   tags = merge(
     var.tags,
@@ -111,7 +109,7 @@ resource "aws_route_table" "private03" {
       format(
         "rtprv%02d%s-%s",
         3,
-        substr(element(var.availability_zones, count.index), -1, 1),
+        substr(each.value.az, -1, 1),
         var.name,
       ),
       )
@@ -129,16 +127,16 @@ resource "aws_route_table" "private03" {
 }
 
 resource "aws_route" "private03_ngw" {
-  count = var.nat_gateway ? length(var.private_cidr_blocks03) : 0
+  for_each = var.nat_gateway ? local.private03_subnets : {}
 
-  route_table_id         = aws_route_table.private03[count.index].id
+  route_table_id         = aws_route_table.private03[each.key].id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw[0].id : element(aws_nat_gateway.nat_gw[*].id, count.index)
+  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw["0"].id : aws_nat_gateway.nat_gw[each.key].id
 }
 
 resource "aws_route_table" "private04" {
-  vpc_id = aws_vpc.pro.id
-  count  = length(var.private_cidr_blocks04)
+  for_each = local.private04_subnets
+  vpc_id   = aws_vpc.main.id
 
   tags = merge(
     var.tags,
@@ -148,7 +146,7 @@ resource "aws_route_table" "private04" {
       format(
         "rtprv%02d%s-%s",
         4,
-        substr(element(var.availability_zones, count.index), -1, 1),
+        substr(each.value.az, -1, 1),
         var.name,
       ),
       )
@@ -166,39 +164,39 @@ resource "aws_route_table" "private04" {
 }
 
 resource "aws_route" "private04_ngw" {
-  count = var.nat_gateway ? length(var.private_cidr_blocks04) : 0
+  for_each = var.nat_gateway ? local.private04_subnets : {}
 
-  route_table_id         = aws_route_table.private04[count.index].id
+  route_table_id         = aws_route_table.private04[each.key].id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw[0].id : element(aws_nat_gateway.nat_gw[*].id, count.index)
+  nat_gateway_id         = var.single_nat_gateway ? aws_nat_gateway.nat_gw["0"].id : aws_nat_gateway.nat_gw[each.key].id
 }
 
 resource "aws_route_table_association" "public" {
-  count          = length(var.public_cidr_blocks)
-  subnet_id      = element(aws_subnet.pm_pro_public[*].id, count.index)
-  route_table_id = element(aws_route_table.public[*].id, count.index)
+  for_each       = local.public_subnets
+  subnet_id      = aws_subnet.public[each.key].id
+  route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table_association" "private01" {
-  count          = length(var.private_cidr_blocks01)
-  subnet_id      = element(aws_subnet.pm_pro_private01[*].id, count.index)
-  route_table_id = element(aws_route_table.private01[*].id, count.index)
+  for_each       = local.private01_subnets
+  subnet_id      = aws_subnet.private01[each.key].id
+  route_table_id = aws_route_table.private01[each.key].id
 }
 
 resource "aws_route_table_association" "private02" {
-  count          = length(var.private_cidr_blocks02)
-  subnet_id      = element(aws_subnet.pm_pro_private02[*].id, count.index)
-  route_table_id = element(aws_route_table.private02[*].id, count.index)
+  for_each       = local.private02_subnets
+  subnet_id      = aws_subnet.private02[each.key].id
+  route_table_id = aws_route_table.private02[each.key].id
 }
 
 resource "aws_route_table_association" "private03" {
-  count          = length(var.private_cidr_blocks03)
-  subnet_id      = element(aws_subnet.pm_pro_private03[*].id, count.index)
-  route_table_id = element(aws_route_table.private03[*].id, count.index)
+  for_each       = local.private03_subnets
+  subnet_id      = aws_subnet.private03[each.key].id
+  route_table_id = aws_route_table.private03[each.key].id
 }
 
 resource "aws_route_table_association" "private04" {
-  count          = length(var.private_cidr_blocks04)
-  subnet_id      = element(aws_subnet.pm_pro_private04[*].id, count.index)
-  route_table_id = element(aws_route_table.private04[*].id, count.index)
+  for_each       = local.private04_subnets
+  subnet_id      = aws_subnet.private04[each.key].id
+  route_table_id = aws_route_table.private04[each.key].id
 }

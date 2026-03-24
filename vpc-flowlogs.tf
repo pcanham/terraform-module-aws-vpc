@@ -1,6 +1,4 @@
-#tfsec:ignore:aws-cloudwatch-log-group-customer-key
 resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
-  #checkov:skip=CKV_AWS_158:Customer choice on using custom KMS key, will be down to security versus cost
   name_prefix = lower(
     format(
       "/%s/vpc/flowlog-accept_",
@@ -8,12 +6,11 @@ resource "aws_cloudwatch_log_group" "LogGroup-Accept" {
     ),
   )
   retention_in_days = var.vpcflow_log_accepted_retention
+  kms_key_id        = var.vpcflow_log_kms_key_id
   tags              = var.tags
 }
 
-#tfsec:ignore:aws-cloudwatch-log-group-customer-key
 resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
-  #checkov:skip=CKV_AWS_158:Customer choice on using custom KMS key, will be down to security versus cost
   name_prefix = lower(
     format(
       "/%s/vpc/flowlog-reject_",
@@ -21,6 +18,7 @@ resource "aws_cloudwatch_log_group" "LogGroup-Reject" {
     ),
   )
   retention_in_days = var.vpcflow_log_rejected_retention
+  kms_key_id        = var.vpcflow_log_kms_key_id
   tags              = var.tags
 }
 
@@ -29,7 +27,7 @@ resource "aws_flow_log" "VpcFlowLog-Reject" {
   log_destination_type = "cloud-watch-logs"
   log_destination      = aws_cloudwatch_log_group.LogGroup-Reject.arn
   iam_role_arn         = aws_iam_role.vpc_flow_log_cloudwatch.arn
-  vpc_id               = aws_vpc.pro.id
+  vpc_id               = aws_vpc.main.id
   traffic_type         = "REJECT"
   tags                 = var.tags
 }
@@ -39,7 +37,7 @@ resource "aws_flow_log" "VpcFlowLog-Accept" {
   log_destination_type = "cloud-watch-logs"
   log_destination      = aws_cloudwatch_log_group.LogGroup-Accept.arn
   iam_role_arn         = aws_iam_role.vpc_flow_log_cloudwatch.arn
-  vpc_id               = aws_vpc.pro.id
+  vpc_id               = aws_vpc.main.id
   traffic_type         = "ACCEPT"
   tags                 = var.tags
 }

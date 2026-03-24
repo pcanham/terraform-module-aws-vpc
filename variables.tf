@@ -6,7 +6,7 @@ variable "aws_region" {
 }
 
 variable "availability_zones" {
-  type        = list(any)
+  type        = list(string)
   description = "AWS region to launch servers."
   default     = ["eu-west-1a", "eu-west-1b"]
   nullable    = false
@@ -17,6 +17,11 @@ variable "master_cidr_block" {
   description = "VPC CIDR Block"
   default     = ""
   nullable    = false
+
+  validation {
+    condition     = var.master_cidr_block == "" || can(cidrhost(var.master_cidr_block, 0))
+    error_message = "The master_cidr_block must be a valid IPv4 CIDR block (e.g., 10.0.0.0/16)."
+  }
 }
 
 variable "nat_gateway" {
@@ -51,33 +56,58 @@ variable "ipv4_netmask_length" {
 }
 
 variable "public_cidr_blocks" {
-  type        = list(any)
+  type        = list(string)
   description = "CIDR Blocks for Public Subnets"
   default     = []
+
+  validation {
+    condition     = alltrue([for cidr in var.public_cidr_blocks : can(cidrhost(cidr, 0))])
+    error_message = "All public_cidr_blocks must be valid IPv4 CIDR blocks."
+  }
 }
 
 variable "private_cidr_blocks01" {
-  type        = list(any)
+  type        = list(string)
   description = "CIDR Blocks for Private 01 Subnets"
   default     = []
+
+  validation {
+    condition     = alltrue([for cidr in var.private_cidr_blocks01 : can(cidrhost(cidr, 0))])
+    error_message = "All private_cidr_blocks01 must be valid IPv4 CIDR blocks."
+  }
 }
 
 variable "private_cidr_blocks02" {
-  type        = list(any)
+  type        = list(string)
   description = "CIDR Blocks for Private 02 Subnets"
   default     = []
+
+  validation {
+    condition     = alltrue([for cidr in var.private_cidr_blocks02 : can(cidrhost(cidr, 0))])
+    error_message = "All private_cidr_blocks02 must be valid IPv4 CIDR blocks."
+  }
 }
 
 variable "private_cidr_blocks03" {
-  type        = list(any)
+  type        = list(string)
   description = "CIDR Blocks for Private 03 Subnets"
   default     = []
+
+  validation {
+    condition     = alltrue([for cidr in var.private_cidr_blocks03 : can(cidrhost(cidr, 0))])
+    error_message = "All private_cidr_blocks03 must be valid IPv4 CIDR blocks."
+  }
 }
 
 variable "private_cidr_blocks04" {
-  type        = list(any)
+  type        = list(string)
   description = "CIDR Blocks for Private 04 Subnets"
   default     = []
+
+  validation {
+    condition     = alltrue([for cidr in var.private_cidr_blocks04 : can(cidrhost(cidr, 0))])
+    error_message = "All private_cidr_blocks04 must be valid IPv4 CIDR blocks."
+  }
 }
 
 variable "name" {
@@ -122,16 +152,16 @@ variable "private04_tier_name" {
 }
 
 variable "vpcflow_log_accepted_retention" {
-  type        = string
+  type        = number
   description = "How many day's worth of VPC Flow logs to keep for accepted connections"
-  default     = "14"
+  default     = 14
   nullable    = false
 }
 
 variable "vpcflow_log_rejected_retention" {
-  type        = string
+  type        = number
   description = "How many day's worth of VPC Flow logs to keep for rejected connections"
-  default     = "14"
+  default     = 14
   nullable    = false
 }
 
@@ -245,19 +275,19 @@ variable "dhcp_domain_name" {
 }
 
 variable "dhcp_domain_name_servers" {
-  type        = list(any)
+  type        = list(string)
   description = "Enter up to 4 DNS server IP addresses or AmazonProvidedDNS for AWS Defaults"
   default     = ["AmazonProvidedDNS"]
 }
 
 variable "dhcp_ntp_servers" {
-  type        = list(any)
+  type        = list(string)
   description = "Enter up to four Network Time Protocol (NTP) server IP addresses"
   default     = []
 }
 
 variable "dhcp_netbios_name_servers" {
-  type        = list(any)
+  type        = list(string)
   description = "Enter up to four NetBIOS name server IP addresses"
   default     = []
 }
@@ -274,6 +304,13 @@ variable "enable_vpc_s3_endpoint" {
   default     = false
 }
 
+variable "vpc_s3_endpoint_policy" {
+  type        = string
+  description = "A policy to attach to the S3 endpoint that controls access. If not specified, full access is allowed."
+  default     = null
+  nullable    = true
+}
+
 variable "vpc_enable_dns_support" {
   type        = bool
   description = "Enable VPC DNS Support"
@@ -284,4 +321,11 @@ variable "vpc_enable_dns_hostnames" {
   type        = bool
   description = "Enable VPC DNS hostnames"
   default     = true
+}
+
+variable "vpcflow_log_kms_key_id" {
+  type        = string
+  description = "KMS key ID for encrypting VPC Flow Logs. If not specified, AWS managed encryption is used."
+  default     = null
+  nullable    = true
 }

@@ -1,4 +1,4 @@
-resource "aws_vpc" "pro" {
+resource "aws_vpc" "main" {
   ipv4_ipam_pool_id    = var.ipv4_ipam_pool_id == "" ? null : var.ipv4_ipam_pool_id
   ipv4_netmask_length  = var.ipv4_ipam_pool_id == "" ? null : var.ipv4_netmask_length
   cidr_block           = var.ipv4_ipam_pool_id == "" ? var.master_cidr_block : null
@@ -21,7 +21,7 @@ resource "aws_vpc" "pro" {
 }
 
 resource "aws_default_security_group" "default" {
-  vpc_id = aws_vpc.pro.id
+  vpc_id = aws_vpc.main.id
 
   tags = merge(
     var.tags,
@@ -36,7 +36,7 @@ resource "aws_default_security_group" "default" {
 }
 
 resource "aws_internet_gateway" "internet_gw" {
-  vpc_id = aws_vpc.pro.id
+  vpc_id = aws_vpc.main.id
 
   tags = merge(
     var.tags,
