@@ -400,15 +400,19 @@ resource "aws_security_group_rule" "example" {
 7. **Monitor Flow Logs** for security and troubleshooting
 8. **Review the migration guide** before upgrading major versions
 
-## Examples
+## Additional Examples
 
-Additional examples can be found in the [examples/](examples/) directory:
+All usage examples are provided inline in this README above. The examples cover:
 
-- `basic/` - Simple VPC with minimal configuration
-- `multi-tier/` - Full 4-tier architecture
-- `eks/` - EKS-optimized VPC
-- `ipam/` - VPC using AWS IPAM
-- `secure/` - Hardened VPC with all security features
+- ✅ Basic VPC with NAT Gateway
+- ✅ VPC with S3 Endpoint and custom policy
+- ✅ KMS encrypted VPC Flow Logs
+- ✅ EKS-ready VPC configuration
+- ✅ Cost-optimized single NAT setup
+- ✅ IPAM-based VPC
+- ✅ Custom subnet naming
+- ✅ Granular tagging
+- ✅ Custom DHCP options
 
 ## Development
 
@@ -455,10 +459,6 @@ This module is primarily maintained for personal use, but contributions are welc
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for version history and release notes.
-
-## License
-
-This module is available under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Support
 
