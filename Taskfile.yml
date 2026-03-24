@@ -1,0 +1,273 @@
+version: '3'
+
+vars:
+  PROJECT_NAME: terraform-module-aws-vpc
+  TERRAFORM_DOCS_VERSION: v0.20.0
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list-all
+    silent: true
+
+  changelog:
+    desc: Generate CHANGELOG.md for all releases
+    cmds:
+      - echo "📝 Generating CHANGELOG.md..."
+      - git-chglog -o CHANGELOG.md
+      - echo "✅ CHANGELOG.md generated successfully"
+
+  changelog:next:
+    desc: Generate CHANGELOG including unreleased commits (usage - task changelog:next TAG=v2.0.0)
+    cmds:
+      - |
+        if [ -z "{{.TAG}}" ]; then
+          echo "❌ Error: TAG variable is required"
+          echo "Usage: task changelog:next TAG=v2.0.0"
+          exit 1
+        fi
+      - echo "📝 Generating CHANGELOG.md with unreleased commits tagged as {{.TAG}}..."
+      - git-chglog --next-tag {{.TAG}} -o CHANGELOG.md
+      - echo "✅ CHANGELOG.md generated with {{.TAG}} tag"
+
+  changelog:tag:
+    desc: Generate changelog for specific tag (usage - task changelog:tag TAG=v1.0.0)
+    cmds:
+      - |
+        if [ -z "{{.TAG}}" ]; then
+          echo "❌ Error: TAG variable is required"
+          echo "Usage: task changelog:tag TAG=v1.0.0"
+          exit 1
+        fi
+      - echo "📝 Generating changelog for {{.TAG}}..."
+      - git-chglog {{.TAG}}
+
+  changelog:check:
+    desc: Check if CHANGELOG needs updating
+    cmds:
+      - ./scripts/generate-changelog.sh --check
+
+  changelog:unreleased:
+    desc: Show unreleased commits since last tag
+    aliases: [unreleased]
+    cmds:
+      - ./scripts/generate-changelog.sh --unreleased
+
+  docs:
+    desc: Generate documentation with terraform-docs
+    cmds:
+      - echo "📚 Generating documentation..."
+      - terraform-docs markdown table . --output-file README.md --output-mode inject
+      - echo "✅ Documentation generated successfully"
+
+  docs:check:
+    desc: Check if documentation is up to date
+    cmds:
+      - |
+        terraform-docs markdown table . --output-file /dev/null --output-mode inject > /dev/null 2>&1 && \
+        echo "✅ Documentation is up to date" || \
+        (echo "❌ Documentation needs updating. Run 'task docs'"; exit 1)
+
+  fmt:
+    desc: Format Terraform files
+    cmds:
+      - echo "🎨 Formatting Terraform files..."
+      - terraform fmt -recursive
+      - echo "✅ Files formatted successfully"
+
+  fmt:check:
+    desc: Check if Terraform files are formatted
+    cmds:
+      - terraform fmt -recursive -check
+
+  validate:
+    desc: Validate Terraform configuration
+    cmds:
+      - echo "🔍 Validating Terraform configuration..."
+      - terraform init -backend=false
+      - terraform validate
+      - echo "✅ Validation successful"
+
+  lint:
+    desc: Run tflint on Terraform files
+    cmds:
+      - echo "🔍 Running tflint..."
+      - tflint --init
+      - tflint
+
+  security:
+    desc: Run security scans (trivy, tfsec, checkov)
+    cmds:
+      - task: security:trivy
+      - task: security:tfsec
+      - task: security:checkov
+
+  security:trivy:
+    desc: Run Trivy security scanner
+    cmds:
+      - echo "🔒 Running Trivy security scan..."
+      - trivy config . --exit-code 0
+
+  security:tfsec:
+    desc: Run tfsec security scanner
+    cmds:
+      - echo "🔒 Running tfsec security scan..."
+      - tfsec . || true
+
+  security:checkov:
+    desc: Run Checkov security scanner
+    cmds:
+      - echo "🔒 Running Checkov security scan..."
+      - checkov -d . --quiet || true
+
+  test:
+    desc: Run all tests (fmt, validate, docs check)
+    cmds:
+      - task: fmt:check
+      - task: validate
+      - task: docs:check
+      - echo "✅ All tests passed"
+
+  test:all:
+    desc: Run comprehensive tests including security scans
+    cmds:
+      - task: test
+      - task: lint
+      - task: security
+
+  pre-commit:
+    desc: Run pre-commit hooks on all files
+    cmds:
+      - echo "🎯 Running pre-commit hooks..."
+      - pre-commit run --all-files
+
+  pre-commit:install:
+    desc: Install pre-commit hooks
+    cmds:
+      - echo "📦 Installing pre-commit hooks..."
+      - pre-commit install
+      - echo "✅ Pre-commit hooks installed"
+
+  pre-commit:update:
+    desc: Update pre-commit hook versions
+    cmds:
+      - echo "⬆️  Updating pre-commit hooks..."
+      - pre-commit autoupdate
+
+  pre-commit:changelog:
+    desc: Run git-chglog via pre-commit
+    cmds:
+      - echo "📝 Running git-chglog via pre-commit..."
+      - pre-commit run git-chglog --hook-stage manual --all-files
+
+  clean:
+    desc: Clean generated files
+    cmds:
+      - echo "🧹 Cleaning generated files..."
+      - rm -rf .terraform
+      - rm -f .terraform.lock.hcl
+      - echo "✅ Cleanup complete"
+
+  version:
+    desc: Show current version from latest git tag
+    cmds:
+      - git describe --tags --abbrev=0 2>/dev/null || echo "No tags found"
+    silent: true
+
+  version:next:
+    desc: Suggest next version based on commits
+    cmds:
+      - |
+        LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+        echo "Current version: $LAST_TAG"
+        echo ""
+        echo "Commits since $LAST_TAG:"
+        git log ${LAST_TAG}..HEAD --oneline --no-merges | head -10
+        echo ""
+        echo "Suggested next versions:"
+        echo "  Patch: (bug fixes only)"
+        echo "  Minor: (new features, backwards compatible)"
+        echo "  Major: (breaking changes)"
+
+  init:
+    desc: Initialize project (install tools and hooks)
+    cmds:
+      - task: pre-commit:install
+      - echo "✅ Project initialized"
+
+  release:prepare:
+    desc: Prepare for a new release (usage - task release:prepare TAG=v2.0.0)
+    cmds:
+      - |
+        if [ -z "{{.TAG}}" ]; then
+          echo "❌ Error: TAG variable is required"
+          echo "Usage: task release:prepare TAG=v2.0.0"
+          exit 1
+        fi
+      - echo "🚀 Preparing release {{.TAG}}..."
+      - task: test:all
+      - task: docs
+      - task: changelog:next TAG={{.TAG}}
+      - |
+        echo ""
+        echo "✅ Release prepared!"
+        echo ""
+        echo "Next steps:"
+        echo "  1. Review CHANGELOG.md"
+        echo "  2. Commit changes: git add CHANGELOG.md && git commit -m 'chore: release {{.TAG}}'"
+        echo "  3. Create tag: git tag -a {{.TAG}} -m 'Release {{.TAG}}'"
+        echo "  4. Push: git push origin main --tags"
+
+  release:tag:
+    desc: Create and push release tag (usage - task release:tag TAG=v2.0.0)
+    cmds:
+      - |
+        if [ -z "{{.TAG}}" ]; then
+          echo "❌ Error: TAG variable is required"
+          echo "Usage: task release:tag TAG=v2.0.0"
+          exit 1
+        fi
+      - echo "🏷️  Creating tag {{.TAG}}..."
+      - git tag -a {{.TAG}} -m "Release {{.TAG}}"
+      - echo "📤 Pushing tag..."
+      - git push origin {{.TAG}}
+      - echo "✅ Tag {{.TAG}} created and pushed"
+
+  help:
+    desc: Show detailed help information
+    cmds:
+      - |
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "  {{.PROJECT_NAME}} - Task Runner"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo ""
+        echo "📋 Available tasks:"
+        echo ""
+        task --list-all
+        echo ""
+        echo "💡 Quick Start:"
+        echo "  task init              Initialize project"
+        echo "  task test              Run all tests"
+        echo "  task changelog         Generate changelog"
+        echo "  task docs              Generate docs"
+        echo ""
+        echo "📝 Changelog:"
+        echo "  task changelog                    Generate full changelog"
+        echo "  task changelog:next TAG=v2.0.0    Include unreleased commits"
+        echo "  task changelog:unreleased         Show unreleased commits"
+        echo ""
+        echo "🚀 Release:"
+        echo "  task release:prepare TAG=v2.0.0   Prepare release"
+        echo "  task release:tag TAG=v2.0.0       Create and push tag"
+        echo ""
+        echo "🔧 Development:"
+        echo "  task fmt               Format code"
+        echo "  task validate          Validate Terraform"
+        echo "  task lint              Run linter"
+        echo "  task security          Security scans"
+        echo ""
+        echo "📚 Documentation:"
+        echo "  See CONTRIBUTING.md for detailed usage"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    silent: true

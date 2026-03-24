@@ -19,6 +19,6 @@ resource "aws_vpc_dhcp_options" "dhcp_options" {
 }
 
 resource "aws_vpc_dhcp_options_association" "dhcp_options" {
-  vpc_id          = aws_vpc.pro.id
+  vpc_id          = aws_vpc.main.id
   dhcp_options_id = aws_vpc_dhcp_options.dhcp_options.id
 }
