@@ -35,6 +35,15 @@ repos:
     hooks:
       - id: terraform-docs-go
         args: ["markdown", "table", "--output-file", "README.md", "./"]
+  - repo: local
+    hooks:
+      - id: git-chglog
+        name: Generate CHANGELOG
+        entry: bash -c 'git-chglog -o CHANGELOG.md'
+        language: system
+        pass_filenames: false
+        stages: [manual]
+        always_run: true
 #  - repo: https://github.com/commitizen-tools/commitizen
 #    rev: v3.13.0
 #    hooks:
