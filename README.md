@@ -1,34 +1,471 @@
-# AWS VPC terraform module
+# AWS VPC Terraform Module
 
-## Overview
+> A production-ready, opinionated Terraform module for deploying highly available VPCs on AWS with multi-tier subnet architecture, NAT gateways, VPC Flow Logs, and comprehensive security features.
 
-This is an opinionated terraform module for provisioning a VPC on AWS for my use case. Before you try it out yourself, please remember it...
+## Features
 
-- has been designed for my usage
-- might not work for other people
-- please raise pull requests or issues around the module, but I cannot guarantee when or if I will be able to incorporate them
+- ✅ **Multi-tier subnet architecture** - Up to 4 private subnet tiers plus public subnets
+- ✅ **High availability** - Subnets spread across multiple availability zones
+- ✅ **Flexible NAT Gateway** - Single NAT or one per AZ with automatic routing
+- ✅ **VPC Flow Logs** - Separate logs for accepted and rejected traffic with optional KMS encryption
+- ✅ **Security hardened** - Managed default security group, CIDR validation, and VPC endpoints
+- ✅ **Kubernetes ready** - Optional EKS/k8s cluster tagging
+- ✅ **IPAM support** - Works with AWS VPC IPAM for CIDR management
+- ✅ **S3 VPC Endpoint** - Optional Gateway endpoint with custom policies
+- ✅ **Infrastructure as Code** - Uses `for_each` for predictable resource management
+- ✅ **Cost optimized** - Consolidated public route table reduces AWS costs
 
-Here is a visual presentation of what it looks like
+## Architecture
 
 ![AWS VPC Diagram](diagrams/vpc_diagram.png)
 
-## Util
+### Network Topology
 
-Applications used within this repo to help with CHANGELOG creation and also checking files within the repo
+This module creates a multi-tier VPC with the following components:
 
-- [git-chglog](https://github.com/git-chglog/git-chglog)
-- [semtag](https://github.com/pnikosis/semtag)
-- [pre-commit](https://pre-commit.com/)
-- [gitleaks](https://gitleaks.io/)
+```
+┌─────────────────────────────────────────────────────────────┐
+│                          VPC                                 │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │  Public Subnets (DMZ)                                │  │
+│  │  - Internet Gateway attached                          │  │
+│  │  - One route table (shared across all public subnets)│  │
+│  │  - NAT Gateway(s) deployed here                      │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                              │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │  Private Subnet 01 (Load Balancer tier)             │  │
+│  │  - NAT Gateway for internet access                   │  │
+│  │  - Separate route table per AZ                       │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                              │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │  Private Subnet 02 (Web/App tier)                   │  │
+│  │  - NAT Gateway for internet access                   │  │
+│  │  - Separate route table per AZ                       │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                              │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │  Private Subnet 03 (Application tier)               │  │
+│  │  - NAT Gateway for internet access                   │  │
+│  │  - Separate route table per AZ                       │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                              │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │  Private Subnet 04 (Data tier) - Optional           │  │
+│  │  - NAT Gateway for internet access                   │  │
+│  │  - Separate route table per AZ                       │  │
+│  └──────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────┘
+```
 
-## Subnet Layout
+### Subnet Layout
 
-This Module can deploy a 4-tier VPC layout, if you do not wish to have the 4th tier, do not add in the CIDR ranges to private_cidr_blocks03
+The module supports a flexible 4-tier private subnet architecture:
 
-- Public Subnet - DMZ
-- Private Subnet 01 - Web Subnet
-- Private Subnet 02 - Application Subnet
-- Private Subnet 03 - Data Subnet
+| Tier | Default Name | Purpose | Internet Access |
+|------|--------------|---------|-----------------|
+| **Public** | `dmz` | Internet-facing resources (ALB, NAT Gateway) | Via Internet Gateway |
+| **Private 01** | `lb` | Internal load balancers | Via NAT Gateway |
+| **Private 02** | `web` | Web/application servers | Via NAT Gateway |
+| **Private 03** | `app` | Application services | Via NAT Gateway |
+| **Private 04** | `data` | Databases and data stores | Via NAT Gateway |
+
+**Note**: You can deploy 1-4 private tiers by providing CIDR blocks. Empty tiers are not created.
+
+## Usage
+
+### Basic VPC with NAT Gateway
+
+```hcl
+module "vpc" {
+  source = "path/to/module"
+
+  name               = "production"
+  aws_region         = "us-east-1"
+  availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
+
+  master_cidr_block = "10.0.0.0/16"
+
+  # Subnets across 3 AZs
+  public_cidr_blocks     = ["10.0.0.0/24", "10.0.1.0/24", "10.0.2.0/24"]
+  private_cidr_blocks01  = ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24"]
+  private_cidr_blocks02  = ["10.0.20.0/24", "10.0.21.0/24", "10.0.22.0/24"]
+  private_cidr_blocks03  = ["10.0.30.0/24", "10.0.31.0/24", "10.0.32.0/24"]
+
+  # NAT Gateway configuration
+  nat_gateway            = true
+  one_nat_gateway_per_az = true
+
+  tags = {
+    Environment = "production"
+    Terraform   = "true"
+  }
+}
+```
+
+### VPC with S3 Endpoint and Custom Policy
+
+```hcl
+module "vpc" {
+  source = "path/to/module"
+
+  name              = "secure-vpc"
+  master_cidr_block = "10.1.0.0/16"
+
+  public_cidr_blocks    = ["10.1.0.0/24", "10.1.1.0/24"]
+  private_cidr_blocks01 = ["10.1.10.0/24", "10.1.11.0/24"]
+
+  # Enable S3 VPC Endpoint
+  enable_vpc_s3_endpoint = true
+  vpc_s3_endpoint_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:*"
+        Resource  = [
+          "arn:aws:s3:::my-bucket/*",
+          "arn:aws:s3:::my-bucket"
+        ]
+      }
+    ]
+  })
+}
+```
+
+### VPC with KMS Encrypted Flow Logs
+
+```hcl
+module "vpc" {
+  source = "path/to/module"
+
+  name              = "compliant-vpc"
+  master_cidr_block = "10.2.0.0/16"
+
+  public_cidr_blocks    = ["10.2.0.0/24"]
+  private_cidr_blocks01 = ["10.2.10.0/24"]
+
+  # KMS encryption for VPC Flow Logs
+  vpcflow_log_kms_key_id         = aws_kms_key.vpc_flow_logs.id
+  vpcflow_log_accepted_retention = 30
+  vpcflow_log_rejected_retention = 90
+
+  tags = {
+    Compliance = "pci-dss"
+  }
+}
+```
+
+### EKS-Ready VPC
+
+```hcl
+module "vpc" {
+  source = "path/to/module"
+
+  name               = "eks-vpc"
+  master_cidr_block  = "10.3.0.0/16"
+  availability_zones = ["us-west-2a", "us-west-2b", "us-west-2c"]
+
+  public_cidr_blocks    = ["10.3.0.0/24", "10.3.1.0/24", "10.3.2.0/24"]
+  private_cidr_blocks01 = ["10.3.10.0/24", "10.3.11.0/24", "10.3.12.0/24"]
+
+  # EKS requires specific tags
+  k8s_clustername = "my-eks-cluster"
+
+  nat_gateway            = true
+  one_nat_gateway_per_az = true
+
+  # EKS needs S3 endpoint
+  enable_vpc_s3_endpoint = true
+}
+```
+
+### Cost-Optimized VPC (Single NAT Gateway)
+
+```hcl
+module "vpc" {
+  source = "path/to/module"
+
+  name              = "dev-vpc"
+  master_cidr_block = "10.4.0.0/16"
+
+  public_cidr_blocks    = ["10.4.0.0/24", "10.4.1.0/24"]
+  private_cidr_blocks01 = ["10.4.10.0/24", "10.4.11.0/24"]
+
+  # Single NAT Gateway for cost savings (dev/staging)
+  nat_gateway        = true
+  single_nat_gateway = true
+
+  tags = {
+    Environment = "development"
+    CostCenter  = "engineering"
+  }
+}
+```
+
+### VPC with IPAM
+
+```hcl
+module "vpc" {
+  source = "path/to/module"
+
+  name = "ipam-vpc"
+
+  # Use IPAM instead of specifying CIDR
+  ipv4_ipam_pool_id   = aws_vpc_ipam_pool.main.id
+  ipv4_netmask_length = 24
+
+  # Subnets still need explicit CIDR blocks
+  public_cidr_blocks    = ["10.5.0.0/26", "10.5.0.64/26"]
+  private_cidr_blocks01 = ["10.5.0.128/26", "10.5.0.192/26"]
+}
+```
+
+## NAT Gateway Configurations
+
+The module supports three NAT Gateway configurations:
+
+### 1. No NAT Gateway (Default)
+```hcl
+nat_gateway = false
+```
+- No internet access for private subnets
+- Lowest cost option
+- Use for isolated workloads
+
+### 2. Single NAT Gateway
+```hcl
+nat_gateway        = true
+single_nat_gateway = true
+```
+- One NAT Gateway in the first AZ
+- All private subnets route through it
+- **Cost savings** for dev/staging environments
+- ⚠️ **Single point of failure**
+
+### 3. NAT Gateway per AZ (Recommended for Production)
+```hcl
+nat_gateway            = true
+one_nat_gateway_per_az = true
+```
+- One NAT Gateway per availability zone
+- High availability - no single point of failure
+- Higher cost but production-ready
+- Each AZ's private subnets use their local NAT Gateway
+
+## Security Features
+
+### VPC Flow Logs
+- Automatically enabled for all VPCs
+- Separate log groups for accepted and rejected traffic
+- Configurable retention periods (default: 14 days)
+- Optional KMS encryption for compliance requirements
+
+### Default Security Group
+- Managed by Terraform to prevent untracked rules
+- Empty by default (no ingress/egress rules)
+- Ensures all security groups are explicit
+
+### CIDR Validation
+- All CIDR block inputs are validated
+- Prevents invalid CIDR blocks at plan time
+- Uses Terraform's built-in `cidrhost()` validation
+
+### VPC Endpoint Security
+- S3 Gateway endpoint support
+- Custom endpoint policies to restrict access
+- Reduces data transfer costs and improves security
+
+## Advanced Configuration
+
+### Custom Subnet Naming
+
+```hcl
+module "vpc" {
+  source = "path/to/module"
+
+  name = "custom-vpc"
+
+  # Custom tier names (appear in Name tags)
+  public_tier_name   = "public"
+  private01_tier_name = "alb"
+  private02_tier_name = "app"
+  private03_tier_name = "database"
+  private04_tier_name = "backup"
+}
+```
+
+### Granular Tagging
+
+```hcl
+module "vpc" {
+  source = "path/to/module"
+
+  name = "tagged-vpc"
+
+  # Global tags applied to all resources
+  tags = {
+    Environment = "production"
+    ManagedBy   = "terraform"
+  }
+
+  # Resource-specific tags
+  vpc_tags = {
+    VPCType = "application"
+  }
+
+  public_subnet_tags = {
+    SubnetType = "public"
+    Monitoring = "enabled"
+  }
+
+  private01_subnet_tags = {
+    SubnetType = "private-lb"
+  }
+
+  nat_gateway_tags = {
+    Billing = "networking"
+  }
+}
+```
+
+### Custom DHCP Options
+
+```hcl
+module "vpc" {
+  source = "path/to/module"
+
+  name = "custom-dhcp-vpc"
+
+  # Custom DNS and NTP servers
+  dhcp_domain_name        = "internal.example.com"
+  dhcp_domain_name_servers = ["10.0.0.2", "10.0.1.2"]
+  dhcp_ntp_servers        = ["169.254.169.123"]
+
+  dhcp_options_tags = {
+    DHCPType = "custom"
+  }
+}
+```
+
+## Migration Guide
+
+**⚠️ Version 2.0.0 includes breaking changes!**
+
+If you're upgrading from version 1.x, you **must** run the state migration script to avoid resource recreation.
+
+See [MIGRATION.md](MIGRATION.md) for:
+- Complete list of breaking changes
+- Step-by-step migration instructions
+- Automated state migration script
+- Rollback procedures
+
+Key breaking changes:
+- Resources now use `for_each` instead of `count`
+- VPC and subnet resources renamed
+- Public route table consolidated
+- Variable types changed for better type safety
+
+## Outputs
+
+The module exports comprehensive outputs for integration with other resources:
+
+```hcl
+# Use VPC outputs
+resource "aws_security_group" "example" {
+  vpc_id = module.vpc.vpc_id
+}
+
+# Use subnet outputs
+resource "aws_lb" "example" {
+  subnets = module.vpc.public_subnet_ids
+}
+
+# Use NAT Gateway IPs for firewall rules
+resource "aws_security_group_rule" "example" {
+  cidr_blocks = module.vpc.nat_gw_eips
+}
+```
+
+## Best Practices
+
+1. **Always use NAT Gateway per AZ in production** for high availability
+2. **Enable S3 VPC Endpoint** to reduce data transfer costs
+3. **Use KMS encryption for Flow Logs** in regulated environments
+4. **Tag everything** for cost allocation and resource management
+5. **Validate CIDR blocks** don't overlap with other VPCs or on-premises networks
+6. **Use IPAM** for centralized CIDR management in multi-account setups
+7. **Monitor Flow Logs** for security and troubleshooting
+8. **Review the migration guide** before upgrading major versions
+
+## Examples
+
+Additional examples can be found in the [examples/](examples/) directory:
+
+- `basic/` - Simple VPC with minimal configuration
+- `multi-tier/` - Full 4-tier architecture
+- `eks/` - EKS-optimized VPC
+- `ipam/` - VPC using AWS IPAM
+- `secure/` - Hardened VPC with all security features
+
+## Development
+
+### Tools Required
+
+- [Terraform](https://www.terraform.io/) >= 1.5
+- [terraform-docs](https://terraform-docs.io/) - Generate documentation
+- [pre-commit](https://pre-commit.com/) - Git hooks for quality checks
+- [tfsec](https://github.com/aquasecurity/tfsec) - Security scanning
+- [checkov](https://www.checkov.io/) - Policy-as-code scanning
+
+### Testing Changes
+
+```bash
+# Format code
+terraform fmt -recursive
+
+# Validate syntax
+terraform validate
+
+# Generate documentation
+terraform-docs markdown table . --output-file README.md --output-mode inject
+
+# Run security scans
+tfsec .
+checkov -d .
+
+# Run pre-commit hooks
+pre-commit run --all-files
+```
+
+## Contributing
+
+This module is primarily maintained for personal use, but contributions are welcome:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes with tests
+4. Run pre-commit hooks
+5. Submit a pull request
+
+**Note**: While contributions are appreciated, response times may vary and not all features will be accepted.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history and release notes.
+
+## License
+
+This module is available under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Support
+
+For issues, questions, or feature requests:
+- Open an issue on the repository
+- Check [MIGRATION.md](MIGRATION.md) for upgrade guidance
+- Review existing issues for known problems
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
