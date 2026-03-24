@@ -44,7 +44,8 @@ generate_changelog() {
 
 # Function to check if changelog needs updating
 check_changelog() {
-    local temp_file=$(mktemp)
+    local temp_file
+    temp_file=$(mktemp)
 
     echo -e "${GREEN}🔍 Checking if CHANGELOG.md needs updating...${NC}"
 
@@ -78,7 +79,8 @@ show_unreleased() {
     echo -e "${GREEN}📋 Unreleased commits:${NC}"
     echo ""
 
-    local last_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+    local last_tag
+    last_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
 
     if [ -n "$last_tag" ]; then
         echo "Since $last_tag:"
