@@ -1,3 +1,15 @@
+# [2.0.0](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/1.0.0...2.0.0) (2026-03-24)
+
+
+* Merge branch 'feature/code-refactor' into 'main' ([c549310](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/c5493108a160ddef561a5c894aa77c3f7f445d9a))
+
+
+### BREAKING CHANGES
+
+* improve variable types and add CIDR validation
+
+See merge request automation/terraform/terraform-modules/terraform-module-aws-vpc!18
+
 <!-- markdownlint-disable -->
 
 # Changelog
