@@ -1,3 +1,111 @@
+# [3.0.0](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/2.0.0...3.0.0) (2026-04-01)
+
+
+* refactor(nat)!: migrate NAT gateways to for_each with improved logic ([30ef19d](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/30ef19d84e204bf64c180424aa40d3805f56086d))
+* refactor(outputs)!: update for for_each and add missing outputs ([5c5388a](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/5c5388ac914f35ba6a10bc27be8511ae87f64033))
+* refactor(routing)!: migrate to for_each and consolidate public route table ([5196843](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/5196843ce29dbe817a6dd1d6dcd52abfbacb1c98))
+* refactor(subnets)!: migrate from count to for_each ([93edc99](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/93edc997fff33599ffad0b9514a965b8c07295f6))
+* refactor(vpc)!: rename VPC resources for consistency ([aa33afb](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/aa33afb47298b5a44fa09c4c8e76c0ad9363df55))
+
+
+### Bug Fixes
+
+* **scripts:** resolve shellcheck warnings in generate-changelog.sh ([13155ff](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/13155fff4bfe5f621fab6d084c03c4bbb8dad8d8))
+
+
+### Features
+
+* add in encryption monitoring ([9f7fe8e](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/9f7fe8edc3715219f9ffe263d2c41c8a051815ab))
+* **vpc-flowlogs:** add KMS encryption support for CloudWatch logs ([c7f07a6](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/c7f07a61bc491d4708a49efec45a812d124d7780))
+* **vpc-endpoint:** add S3 endpoint policy support ([a2795f8](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/a2795f8ce7cfb0fc33d3ca93bd630ffbae499819))
+* re-intro changelog ([ba5c20b](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/commit/ba5c20b3befce5e077c173aa9bb1b49d4cb772e8))
+
+
+### BREAKING CHANGES
+
+* Output implementation updated for for_each resources
+- Use values() to extract IDs from for_each maps
+- Maintains same output format (lists of IDs)
+- Downstream consumers should work unchanged
+
+New outputs added:
+- internet_gateway_id: ID of the Internet Gateway
+- default_security_group_id: ID of default security group
+- vpc_flow_log_accept_id: Accepted traffic flow log ID
+- vpc_flow_log_reject_id: Rejected traffic flow log ID
+- vpc_flow_log_accept_cloudwatch_log_group_arn: Accept logs ARN
+- vpc_flow_log_reject_cloudwatch_log_group_arn: Reject logs ARN
+- dhcp_options_id: DHCP Options Set ID
+- vpc_s3_endpoint_id: S3 VPC Endpoint ID (if enabled)
+
+Fixes:
+- all_subnet_ids now correctly includes private04 subnets
+- public_routing_table_ids returns list with single ID
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+* NAT Gateway resources now use for_each
+- aws_eip.nat_ip and aws_nat_gateway.nat_gw use for_each
+- Resource addresses change from [0] to ["0"]
+
+Improvements:
+- Simplified NAT gateway logic with clearer local variables
+- Replaced complex nested ternary with documented locals
+- Better readability and maintainability
+- Creates map-based structure for flexible NAT configuration
+
+Benefits:
+- More predictable when changing NAT gateway count
+- Easier to understand NAT gateway creation logic
+- Better aligns with Terraform best practices
+
+Requires state migration for existing deployments.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+* 1. All route tables and associations now use for_each
+   - Resource addresses change from [0] to ["0"]
+   - More predictable when modifying infrastructure
+
+2. Public route table consolidated to single shared table
+   - All public subnets now share one route table
+   - Reduces AWS costs and simplifies management
+   - Previously: One route table per public subnet
+   - Now: Single aws_route_table.public for all
+
+3. NAT gateway routes migrated to for_each
+   - Cleaner resource references
+   - Better handling when NAT topology changes
+
+4. Replace deprecated element() with direct array indexing
+   - Modern Terraform syntax
+   - Better performance
+
+Requires state migration for existing deployments.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+* Subnet resources now use for_each instead of count
+- aws_subnet.pm_pro_public → aws_subnet.public
+- aws_subnet.pm_pro_private0X → aws_subnet.private0X
+- Resource addresses change from [0] to ["0"]
+- Add local subnet maps for cleaner for_each implementation
+
+Benefits:
+- More predictable resource management
+- No resource shifting when removing items
+- Better resource identification
+- Removes pm_pro naming prefix
+
+Requires state migration for existing deployments.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+* Resource names have changed
+- aws_vpc.pro → aws_vpc.main
+- Remove pm_pro prefix from all resource references
+
+Improves consistency and removes project-specific naming.
+Requires state migration for existing deployments.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
 # [2.0.0](https://gitlab.localrealm.net/automation/terraform/terraform-modules/terraform-module-aws-vpc/compare/1.0.0...2.0.0) (2026-03-24)
 
 
