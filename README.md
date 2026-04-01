@@ -8,6 +8,7 @@
 - ✅ **High availability** - Subnets spread across multiple availability zones
 - ✅ **Flexible NAT Gateway** - Single NAT or one per AZ with automatic routing
 - ✅ **VPC Flow Logs** - Separate logs for accepted and rejected traffic with optional KMS encryption
+- ✅ **VPC Encryption Control** - Enforce or monitor encryption in the VPC
 - ✅ **Security hardened** - Managed default security group, CIDR validation, and VPC endpoints
 - ✅ **Kubernetes ready** - Optional EKS/k8s cluster tagging
 - ✅ **IPAM support** - Works with AWS VPC IPAM for CIDR management
@@ -135,7 +136,7 @@ module "vpc" {
 }
 ```
 
-### VPC with KMS Encrypted Flow Logs
+### VPC with Encryption Controls
 
 ```hcl
 module "vpc" {
@@ -151,6 +152,15 @@ module "vpc" {
   vpcflow_log_kms_key_id         = aws_kms_key.vpc_flow_logs.id
   vpcflow_log_accepted_retention = 30
   vpcflow_log_rejected_retention = 90
+
+  # Enforce EBS encryption in the VPC
+  enable_vpc_encryption_control = true
+  vpc_encryption_control_mode   = "enforce"  # or "monitor" for logging only
+
+  # Optional: Exclude specific AWS services from encryption control
+  vpc_encryption_exclude_lambda                       = "opt-out"  # Exclude Lambda
+  vpc_encryption_exclude_elastic_file_system          = "opt-out"  # Exclude EFS
+  vpc_encryption_exclude_nat_gateway                  = "opt-in"   # Include NAT Gateway
 
   tags = {
     Compliance = "pci-dss"
@@ -277,6 +287,23 @@ one_nat_gateway_per_az = true
 - S3 Gateway endpoint support
 - Custom endpoint policies to restrict access
 - Reduces data transfer costs and improves security
+
+### VPC Encryption Control
+- Optional enforcement of EBS volume encryption for resources in the VPC
+- Two modes available:
+  - **monitor** (default): Logs when unencrypted volumes are created
+  - **enforce**: Blocks creation of unencrypted EBS volumes
+- Service-specific exclusions (opt-in/opt-out):
+  - Internet Gateway
+  - NAT Gateway
+  - Egress-only Internet Gateway
+  - Virtual Private Gateway
+  - VPC Peering
+  - VPC Lattice
+  - Lambda functions
+  - Elastic File System
+- Requires AWS provider >= 6.39.0
+- Helps maintain encryption compliance without manual auditing
 
 ## Advanced Configuration
 
@@ -406,7 +433,7 @@ All usage examples are provided inline in this README above. The examples cover:
 
 - ✅ Basic VPC with NAT Gateway
 - ✅ VPC with S3 Endpoint and custom policy
-- ✅ KMS encrypted VPC Flow Logs
+- ✅ VPC with encryption controls
 - ✅ EKS-ready VPC configuration
 - ✅ Cost-optimized single NAT setup
 - ✅ IPAM-based VPC
@@ -473,13 +500,13 @@ For issues, questions, or feature requests:
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 6.35.1 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 6.39.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.35.1 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.39.0 |
 
 ## Modules
 
@@ -489,47 +516,48 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_cloudwatch_log_group.LogGroup-Accept](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/cloudwatch_log_group) | resource |
-| [aws_cloudwatch_log_group.LogGroup-Reject](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/cloudwatch_log_group) | resource |
-| [aws_default_security_group.default](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/default_security_group) | resource |
-| [aws_eip.nat_ip](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/eip) | resource |
-| [aws_flow_log.VpcFlowLog-Accept](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/flow_log) | resource |
-| [aws_flow_log.VpcFlowLog-Reject](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/flow_log) | resource |
-| [aws_iam_policy.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/iam_policy) | resource |
-| [aws_iam_role.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/iam_role) | resource |
-| [aws_iam_role_policy_attachment.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/iam_role_policy_attachment) | resource |
-| [aws_internet_gateway.internet_gw](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/internet_gateway) | resource |
-| [aws_nat_gateway.nat_gw](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/nat_gateway) | resource |
-| [aws_route.private01_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route) | resource |
-| [aws_route.private02_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route) | resource |
-| [aws_route.private03_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route) | resource |
-| [aws_route.private04_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route) | resource |
-| [aws_route_table.private01](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route_table) | resource |
-| [aws_route_table.private02](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route_table) | resource |
-| [aws_route_table.private03](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route_table) | resource |
-| [aws_route_table.private04](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route_table) | resource |
-| [aws_route_table.public](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route_table) | resource |
-| [aws_route_table_association.private01](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route_table_association) | resource |
-| [aws_route_table_association.private02](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route_table_association) | resource |
-| [aws_route_table_association.private03](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route_table_association) | resource |
-| [aws_route_table_association.private04](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route_table_association) | resource |
-| [aws_route_table_association.public](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/route_table_association) | resource |
-| [aws_subnet.private01](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/subnet) | resource |
-| [aws_subnet.private02](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/subnet) | resource |
-| [aws_subnet.private03](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/subnet) | resource |
-| [aws_subnet.private04](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/subnet) | resource |
-| [aws_subnet.public](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/subnet) | resource |
-| [aws_vpc.main](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/vpc) | resource |
-| [aws_vpc_dhcp_options.dhcp_options](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/vpc_dhcp_options) | resource |
-| [aws_vpc_dhcp_options_association.dhcp_options](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/vpc_dhcp_options_association) | resource |
-| [aws_vpc_endpoint.s3](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/vpc_endpoint) | resource |
-| [aws_vpc_endpoint_route_table_association.private01_s3](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/vpc_endpoint_route_table_association) | resource |
-| [aws_vpc_endpoint_route_table_association.private02_s3](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/vpc_endpoint_route_table_association) | resource |
-| [aws_vpc_endpoint_route_table_association.private03_s3](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/vpc_endpoint_route_table_association) | resource |
-| [aws_vpc_endpoint_route_table_association.private04_s3](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/vpc_endpoint_route_table_association) | resource |
-| [aws_vpc_endpoint_route_table_association.public_s3](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/resources/vpc_endpoint_route_table_association) | resource |
-| [aws_iam_policy_document.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/data-sources/iam_policy_document) | data source |
-| [aws_iam_policy_document.vpc_flow_logs_assume_role](https://registry.terraform.io/providers/hashicorp/aws/6.35.1/docs/data-sources/iam_policy_document) | data source |
+| [aws_cloudwatch_log_group.LogGroup-Accept](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/cloudwatch_log_group) | resource |
+| [aws_cloudwatch_log_group.LogGroup-Reject](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/cloudwatch_log_group) | resource |
+| [aws_default_security_group.default](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/default_security_group) | resource |
+| [aws_eip.nat_ip](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/eip) | resource |
+| [aws_flow_log.VpcFlowLog-Accept](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/flow_log) | resource |
+| [aws_flow_log.VpcFlowLog-Reject](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/flow_log) | resource |
+| [aws_iam_policy.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/iam_policy) | resource |
+| [aws_iam_role.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy_attachment.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_internet_gateway.internet_gw](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/internet_gateway) | resource |
+| [aws_nat_gateway.nat_gw](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/nat_gateway) | resource |
+| [aws_route.private01_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route) | resource |
+| [aws_route.private02_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route) | resource |
+| [aws_route.private03_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route) | resource |
+| [aws_route.private04_ngw](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route) | resource |
+| [aws_route_table.private01](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route_table) | resource |
+| [aws_route_table.private02](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route_table) | resource |
+| [aws_route_table.private03](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route_table) | resource |
+| [aws_route_table.private04](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route_table) | resource |
+| [aws_route_table.public](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route_table) | resource |
+| [aws_route_table_association.private01](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route_table_association) | resource |
+| [aws_route_table_association.private02](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route_table_association) | resource |
+| [aws_route_table_association.private03](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route_table_association) | resource |
+| [aws_route_table_association.private04](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route_table_association) | resource |
+| [aws_route_table_association.public](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/route_table_association) | resource |
+| [aws_subnet.private01](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/subnet) | resource |
+| [aws_subnet.private02](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/subnet) | resource |
+| [aws_subnet.private03](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/subnet) | resource |
+| [aws_subnet.private04](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/subnet) | resource |
+| [aws_subnet.public](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/subnet) | resource |
+| [aws_vpc.main](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/vpc) | resource |
+| [aws_vpc_dhcp_options.dhcp_options](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/vpc_dhcp_options) | resource |
+| [aws_vpc_dhcp_options_association.dhcp_options](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/vpc_dhcp_options_association) | resource |
+| [aws_vpc_encryption_control.this](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/vpc_encryption_control) | resource |
+| [aws_vpc_endpoint.s3](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/vpc_endpoint) | resource |
+| [aws_vpc_endpoint_route_table_association.private01_s3](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/vpc_endpoint_route_table_association) | resource |
+| [aws_vpc_endpoint_route_table_association.private02_s3](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/vpc_endpoint_route_table_association) | resource |
+| [aws_vpc_endpoint_route_table_association.private03_s3](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/vpc_endpoint_route_table_association) | resource |
+| [aws_vpc_endpoint_route_table_association.private04_s3](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/vpc_endpoint_route_table_association) | resource |
+| [aws_vpc_endpoint_route_table_association.public_s3](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/resources/vpc_endpoint_route_table_association) | resource |
+| [aws_iam_policy_document.vpc_flow_log_cloudwatch](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.vpc_flow_logs_assume_role](https://registry.terraform.io/providers/hashicorp/aws/6.39.0/docs/data-sources/iam_policy_document) | data source |
 
 ## Inputs
 
@@ -543,6 +571,7 @@ No modules.
 | <a name="input_dhcp_netbios_node_type"></a> [dhcp\_netbios\_node\_type](#input\_dhcp\_netbios\_node\_type) | Enter the NetBIOS node type, for example, 2 | `string` | `""` | no |
 | <a name="input_dhcp_ntp_servers"></a> [dhcp\_ntp\_servers](#input\_dhcp\_ntp\_servers) | Enter up to four Network Time Protocol (NTP) server IP addresses | `list(string)` | `[]` | no |
 | <a name="input_dhcp_options_tags"></a> [dhcp\_options\_tags](#input\_dhcp\_options\_tags) | A map of tags to add to DHCP Options. | `map(string)` | `{}` | no |
+| <a name="input_enable_vpc_encryption_control"></a> [enable\_vpc\_encryption\_control](#input\_enable\_vpc\_encryption\_control) | Enable VPC encryption control (requires AWS provider >= 6.39.0) | `bool` | `false` | no |
 | <a name="input_enable_vpc_s3_endpoint"></a> [enable\_vpc\_s3\_endpoint](#input\_enable\_vpc\_s3\_endpoint) | Create VPC S3 Endpoint | `bool` | `false` | no |
 | <a name="input_ipv4_ipam_pool_id"></a> [ipv4\_ipam\_pool\_id](#input\_ipv4\_ipam\_pool\_id) | Use IPv4 IPAM Pool for VPC | `string` | `""` | no |
 | <a name="input_ipv4_netmask_length"></a> [ipv4\_netmask\_length](#input\_ipv4\_netmask\_length) | (Optional) The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a ipv4\_ipam\_pool\_id | `number` | `null` | no |
@@ -578,6 +607,16 @@ No modules.
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources. | `map(string)` | `{}` | no |
 | <a name="input_vpc_enable_dns_hostnames"></a> [vpc\_enable\_dns\_hostnames](#input\_vpc\_enable\_dns\_hostnames) | Enable VPC DNS hostnames | `bool` | `true` | no |
 | <a name="input_vpc_enable_dns_support"></a> [vpc\_enable\_dns\_support](#input\_vpc\_enable\_dns\_support) | Enable VPC DNS Support | `bool` | `true` | no |
+| <a name="input_vpc_encryption_control_mode"></a> [vpc\_encryption\_control\_mode](#input\_vpc\_encryption\_control\_mode) | VPC encryption control mode: 'monitor' (default, logs violations) or 'enforce' (blocks unencrypted volumes) | `string` | `"monitor"` | no |
+| <a name="input_vpc_encryption_control_tags"></a> [vpc\_encryption\_control\_tags](#input\_vpc\_encryption\_control\_tags) | Additional tags for VPC encryption control resource | `map(string)` | `{}` | no |
+| <a name="input_vpc_encryption_exclude_egress_only_internet_gateway"></a> [vpc\_encryption\_exclude\_egress\_only\_internet\_gateway](#input\_vpc\_encryption\_exclude\_egress\_only\_internet\_gateway) | Exclude Egress-only Internet Gateway from VPC encryption control: 'opt-in' or 'opt-out' | `string` | `null` | no |
+| <a name="input_vpc_encryption_exclude_elastic_file_system"></a> [vpc\_encryption\_exclude\_elastic\_file\_system](#input\_vpc\_encryption\_exclude\_elastic\_file\_system) | Exclude Elastic File System from VPC encryption control: 'opt-in' or 'opt-out' | `string` | `null` | no |
+| <a name="input_vpc_encryption_exclude_internet_gateway"></a> [vpc\_encryption\_exclude\_internet\_gateway](#input\_vpc\_encryption\_exclude\_internet\_gateway) | Exclude Internet Gateway from VPC encryption control: 'opt-in' or 'opt-out' | `string` | `null` | no |
+| <a name="input_vpc_encryption_exclude_lambda"></a> [vpc\_encryption\_exclude\_lambda](#input\_vpc\_encryption\_exclude\_lambda) | Exclude Lambda functions from VPC encryption control: 'opt-in' or 'opt-out' | `string` | `null` | no |
+| <a name="input_vpc_encryption_exclude_nat_gateway"></a> [vpc\_encryption\_exclude\_nat\_gateway](#input\_vpc\_encryption\_exclude\_nat\_gateway) | Exclude NAT Gateway from VPC encryption control: 'opt-in' or 'opt-out' | `string` | `null` | no |
+| <a name="input_vpc_encryption_exclude_virtual_private_gateway"></a> [vpc\_encryption\_exclude\_virtual\_private\_gateway](#input\_vpc\_encryption\_exclude\_virtual\_private\_gateway) | Exclude Virtual Private Gateway from VPC encryption control: 'opt-in' or 'opt-out' | `string` | `null` | no |
+| <a name="input_vpc_encryption_exclude_vpc_lattice"></a> [vpc\_encryption\_exclude\_vpc\_lattice](#input\_vpc\_encryption\_exclude\_vpc\_lattice) | Exclude VPC Lattice from VPC encryption control: 'opt-in' or 'opt-out' | `string` | `null` | no |
+| <a name="input_vpc_encryption_exclude_vpc_peering"></a> [vpc\_encryption\_exclude\_vpc\_peering](#input\_vpc\_encryption\_exclude\_vpc\_peering) | Exclude VPC Peering connections from VPC encryption control: 'opt-in' or 'opt-out' | `string` | `null` | no |
 | <a name="input_vpc_s3_endpoint_policy"></a> [vpc\_s3\_endpoint\_policy](#input\_vpc\_s3\_endpoint\_policy) | A policy to attach to the S3 endpoint that controls access. If not specified, full access is allowed. | `string` | `null` | no |
 | <a name="input_vpc_tags"></a> [vpc\_tags](#input\_vpc\_tags) | A map of tags to add to VPC resource. | `map(string)` | `{}` | no |
 | <a name="input_vpcflow_log_accepted_retention"></a> [vpcflow\_log\_accepted\_retention](#input\_vpcflow\_log\_accepted\_retention) | How many day's worth of VPC Flow logs to keep for accepted connections | `number` | `14` | no |
@@ -611,6 +650,8 @@ No modules.
 | <a name="output_public_subnet_ids"></a> [public\_subnet\_ids](#output\_public\_subnet\_ids) | List all used public subnet ids |
 | <a name="output_public_tier_name"></a> [public\_tier\_name](#output\_public\_tier\_name) | Tag being used for describing public subnet tier |
 | <a name="output_vpc_cidr"></a> [vpc\_cidr](#output\_vpc\_cidr) | CIDR Range being used by VPC |
+| <a name="output_vpc_encryption_control_id"></a> [vpc\_encryption\_control\_id](#output\_vpc\_encryption\_control\_id) | ID of the VPC encryption control (if enabled) |
+| <a name="output_vpc_encryption_control_mode"></a> [vpc\_encryption\_control\_mode](#output\_vpc\_encryption\_control\_mode) | Mode of the VPC encryption control (if enabled) |
 | <a name="output_vpc_flow_log_accept_cloudwatch_log_group_arn"></a> [vpc\_flow\_log\_accept\_cloudwatch\_log\_group\_arn](#output\_vpc\_flow\_log\_accept\_cloudwatch\_log\_group\_arn) | ARN of the CloudWatch Log Group for accepted VPC Flow Logs |
 | <a name="output_vpc_flow_log_accept_id"></a> [vpc\_flow\_log\_accept\_id](#output\_vpc\_flow\_log\_accept\_id) | ID of the VPC Flow Log for accepted traffic |
 | <a name="output_vpc_flow_log_reject_cloudwatch_log_group_arn"></a> [vpc\_flow\_log\_reject\_cloudwatch\_log\_group\_arn](#output\_vpc\_flow\_log\_reject\_cloudwatch\_log\_group\_arn) | ARN of the CloudWatch Log Group for rejected VPC Flow Logs |

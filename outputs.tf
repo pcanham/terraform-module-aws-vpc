@@ -153,3 +153,13 @@ output "vpc_s3_endpoint_id" {
   value       = var.enable_vpc_s3_endpoint ? aws_vpc_endpoint.s3[0].id : null
   description = "ID of the S3 VPC Endpoint (if enabled)"
 }
+
+output "vpc_encryption_control_id" {
+  value       = var.enable_vpc_encryption_control ? aws_vpc_encryption_control.this[0].id : null
+  description = "ID of the VPC encryption control (if enabled)"
+}
+
+output "vpc_encryption_control_mode" {
+  value       = var.enable_vpc_encryption_control ? aws_vpc_encryption_control.this[0].mode : null
+  description = "Mode of the VPC encryption control (if enabled)"
+}

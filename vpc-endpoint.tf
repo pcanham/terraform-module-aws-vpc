@@ -1,8 +1,8 @@
 # S3 Endpoint Gateway
 resource "aws_vpc_endpoint" "s3" {
-  count       = var.enable_vpc_s3_endpoint ? 1 : 0
-  vpc_id      = aws_vpc.main.id
-  policy      = var.vpc_s3_endpoint_policy
+  count  = var.enable_vpc_s3_endpoint ? 1 : 0
+  vpc_id = aws_vpc.main.id
+  policy = var.vpc_s3_endpoint_policy
   service_name = format(
     "com.amazonaws.%s.s3",
     var.aws_region,

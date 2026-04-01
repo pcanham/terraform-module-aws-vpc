@@ -329,3 +329,85 @@ variable "vpcflow_log_kms_key_id" {
   default     = null
   nullable    = true
 }
+
+variable "enable_vpc_encryption_control" {
+  type        = bool
+  description = "Enable VPC encryption control (requires AWS provider >= 6.39.0)"
+  default     = false
+  nullable    = false
+}
+
+variable "vpc_encryption_control_mode" {
+  type        = string
+  description = "VPC encryption control mode: 'monitor' (default, logs violations) or 'enforce' (blocks unencrypted volumes)"
+  default     = "monitor"
+  nullable    = false
+
+  validation {
+    condition     = contains(["monitor", "enforce"], var.vpc_encryption_control_mode)
+    error_message = "vpc_encryption_control_mode must be either 'monitor' or 'enforce'"
+  }
+}
+
+variable "vpc_encryption_control_tags" {
+  type        = map(string)
+  description = "Additional tags for VPC encryption control resource"
+  default     = {}
+  nullable    = false
+}
+
+variable "vpc_encryption_exclude_internet_gateway" {
+  type        = string
+  description = "Exclude Internet Gateway from VPC encryption control: 'opt-in' or 'opt-out'"
+  default     = null
+  nullable    = true
+}
+
+variable "vpc_encryption_exclude_nat_gateway" {
+  type        = string
+  description = "Exclude NAT Gateway from VPC encryption control: 'opt-in' or 'opt-out'"
+  default     = null
+  nullable    = true
+}
+
+variable "vpc_encryption_exclude_egress_only_internet_gateway" {
+  type        = string
+  description = "Exclude Egress-only Internet Gateway from VPC encryption control: 'opt-in' or 'opt-out'"
+  default     = null
+  nullable    = true
+}
+
+variable "vpc_encryption_exclude_virtual_private_gateway" {
+  type        = string
+  description = "Exclude Virtual Private Gateway from VPC encryption control: 'opt-in' or 'opt-out'"
+  default     = null
+  nullable    = true
+}
+
+variable "vpc_encryption_exclude_vpc_peering" {
+  type        = string
+  description = "Exclude VPC Peering connections from VPC encryption control: 'opt-in' or 'opt-out'"
+  default     = null
+  nullable    = true
+}
+
+variable "vpc_encryption_exclude_vpc_lattice" {
+  type        = string
+  description = "Exclude VPC Lattice from VPC encryption control: 'opt-in' or 'opt-out'"
+  default     = null
+  nullable    = true
+}
+
+variable "vpc_encryption_exclude_lambda" {
+  type        = string
+  description = "Exclude Lambda functions from VPC encryption control: 'opt-in' or 'opt-out'"
+  default     = null
+  nullable    = true
+}
+
+variable "vpc_encryption_exclude_elastic_file_system" {
+  type        = string
+  description = "Exclude Elastic File System from VPC encryption control: 'opt-in' or 'opt-out'"
+  default     = null
+  nullable    = true
+}
