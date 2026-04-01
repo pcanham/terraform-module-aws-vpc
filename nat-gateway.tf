@@ -4,7 +4,7 @@ locals {
   nat_gateways_map = var.nat_gateway ? (
     var.single_nat_gateway ? {
       "0" = local.public_subnets[0]
-    } : (
+      } : (
       var.one_nat_gateway_per_az ? local.public_subnets : {}
     )
   ) : {}
